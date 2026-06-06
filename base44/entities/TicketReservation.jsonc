@@ -1,0 +1,131 @@
+{
+  "name": "TicketReservation",
+  "type": "object",
+  "properties": {
+    "ticket_type": {
+      "type": "string",
+      "enum": [
+        "air",
+        "ground"
+      ],
+      "description": "Air or ground ticket"
+    },
+    "trip_type": {
+      "type": "string",
+      "enum": [
+        "oneway",
+        "roundtrip"
+      ]
+    },
+    "from_city": {
+      "type": "string"
+    },
+    "to_city": {
+      "type": "string"
+    },
+    "depart_date": {
+      "type": "string"
+    },
+    "return_date": {
+      "type": "string"
+    },
+    "passengers": {
+      "type": "number"
+    },
+    "passenger_name": {
+      "type": "string"
+    },
+    "passenger_phone": {
+      "type": "string"
+    },
+    "passenger_email": {
+      "type": "string"
+    },
+    "airline_or_operator": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "price_per_person": {
+      "type": "number"
+    },
+    "total_price": {
+      "type": "number"
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "rial_transfer",
+        "usd_card",
+        "crypto_usdt"
+      ],
+      "description": "rial_transfer=\u0648\u0627\u0631\u06cc\u0632 \u0631\u06cc\u0627\u0644\u06cc, usd_card=\u06a9\u0627\u0631\u062a \u062f\u0644\u0627\u0631\u06cc, crypto_usdt=\u0631\u0645\u0632\u0627\u0631\u0632 \u062a\u062a\u0631"
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "paid",
+        "confirmed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "payment_reference": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "processing",
+        "confirmed",
+        "cancelled"
+      ],
+      "default": "new"
+    },
+    "admin_notes": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ticket_type",
+    "from_city",
+    "to_city",
+    "depart_date",
+    "passenger_name",
+    "passenger_phone"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "data.passenger_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

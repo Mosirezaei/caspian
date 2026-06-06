@@ -1,0 +1,69 @@
+{
+  "name": "FAQ",
+  "type": "object",
+  "properties": {
+    "question": {
+      "type": "string",
+      "description": "\u0633\u0648\u0627\u0644"
+    },
+    "answer": {
+      "type": "string",
+      "description": "\u067e\u0627\u0633\u062e"
+    },
+    "service_type": {
+      "type": "string",
+      "enum": [
+        "hotel",
+        "ticket-booking",
+        "visa-schengen",
+        "visa-russia",
+        "visa-romania",
+        "visa-south-america",
+        "residency-armenia",
+        "residency-turkey",
+        "residency-oman",
+        "residency-uae",
+        "company-registration",
+        "student-admission",
+        "transfer",
+        "embassy-usa",
+        "embassy-canada",
+        "student-visa",
+        "student-visa-armenia",
+        "student-visa-russia",
+        "student-visa-turkey",
+        "student-visa-schengen",
+        "student-visa-romania",
+        "student-visa-georgia",
+        "flight",
+        "apartment",
+        "vip-support",
+        "chat-support",
+        "tracking",
+        "service-booking"
+      ],
+      "description": "\u0646\u0648\u0639 \u062e\u062f\u0645\u062a"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "fa",
+        "en",
+        "ru"
+      ],
+      "default": "fa",
+      "description": "\u0632\u0628\u0627\u0646 \u0633\u0648\u0627\u0644 \u0648 \u067e\u0627\u0633\u062e"
+    },
+    "order": {
+      "type": "number",
+      "default": 0,
+      "description": "\u062a\u0631\u062a\u06cc\u0628 \u0646\u0645\u0627\u06cc\u0634"
+    }
+  },
+  "required": [
+    "question",
+    "answer",
+    "service_type",
+    "language"
+  ]
+}

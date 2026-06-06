@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://caspian.am/</loc>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://caspian.am/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caspian.am/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caspian.am/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Static -->
+  <url><loc>https://caspian.am/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://caspian.am/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://caspian.am/services</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Visa -->
+  <url><loc>https://caspian.am/visa/schengen</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caspian.am/visa/romania</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caspian.am/visa/russia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caspian.am/visa/south-america</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://caspian.am/visa/embassy-usa</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caspian.am/visa/embassy-canada</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Student Visa -->
+  <url><loc>https://caspian.am/student-visa</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caspian.am/student-visa/armenia</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caspian.am/student-visa/russia</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caspian.am/student-visa/turkey</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caspian.am/student-visa/schengen</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caspian.am/student-visa/romania</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caspian.am/student-visa/georgia</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Residency -->
+  <url><loc>https://caspian.am/residency/armenia</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caspian.am/residency/turkey</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caspian.am/residency/oman</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://caspian.am/residency/uae</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Travel -->
+  <url><loc>https://caspian.am/travel/flight</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caspian.am/travel/hotel</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caspian.am/travel/apartment</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caspian.am/travel/bus</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://caspian.am/travel/transfer</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://caspian.am/travel/exchange</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caspian.am/travel/vip</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Other Services -->
+  <url><loc>https://caspian.am/services/company-registration</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caspian.am/services/student-admission</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Booking & Tracking -->
+  <url><loc>https://caspian.am/book</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caspian.am/track</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+</urlset>
