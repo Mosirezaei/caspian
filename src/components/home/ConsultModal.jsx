@@ -78,6 +78,23 @@ const { error } = await supabase
     source: 'consult_modal'
   }]);
       if (error) throw error;
+await fetch(
+  "https://mxgxbkzpghoteaqzhfpf.supabase.co/functions/v1/rapid-processor",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: form.name,
+      phone: form.phone,
+      contact: form.contact,
+      service: form.service,
+      notes: form.notes,
+      language: lang,
+    }),
+  }
+);
       setSuccess(true);
     } catch (error) {
       console.error('Error submitting consultation:', error);
