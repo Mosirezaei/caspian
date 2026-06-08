@@ -33,7 +33,7 @@ export default function HeroSection() {
           <div className="relative inline-block">
             <div className="absolute inset-0 rounded-full blur-2xl bg-primary/20 scale-150" />
             <img
-              src="https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/a9cd0e3f8_d814a461-5e5c-421e-96fb-2f4eb5d965da_removalai_preview-4-43.png"
+              src="/images/logo.png"
               alt="Caspian Business Group"
               width="96" height="96"
               className="relative h-20 sm:h-24 w-auto mx-auto object-contain drop-shadow-2xl"

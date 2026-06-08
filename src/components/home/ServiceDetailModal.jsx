@@ -9,12 +9,12 @@ const INSTAGRAM = 'https://www.instagram.com/caspiangroup.am?igsh=bDBsdTE0ZHJ3bn
 const PHONE = 'tel:0037433149327';
 
 const IMG = {
-  visa: 'https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/caec63b66_1778916035995.png',
-  residency: 'https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/c3f3dc3f1_1778916252824.png',
-  company: 'https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/9fae8d104_1778916043701.png',
-  tours: 'https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/b121cf159_1778916018969.png',
-  hotel: 'https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/19e7c9c3b_1778916012367.png',
-  vip: 'https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/827efd038_1778916428232.png',
+  visa: '/images/visa.png',
+  residency: '/images/residency.png',
+  company: '/images/company.png',
+  tours: '/images/tours.png',
+  hotel: '/images/hotel.png',
+  vip: '/images/vip.png',
 };
 
 const serviceDetails = {

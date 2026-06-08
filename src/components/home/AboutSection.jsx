@@ -17,7 +17,7 @@ export default function AboutSection() {
             {/* Gold border frame */}
             <div className="absolute inset-0 rounded-2xl z-10 pointer-events-none"
               style={{ border: '1px solid rgba(212,168,68,0.2)' }} />
-            <img src="https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/d9c2b1b0b_generated_image.png"
+            <img src="/images/about.png"
               alt="Partnership" className="w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
           </div>

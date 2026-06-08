@@ -243,7 +243,7 @@ export default function GlobalNavbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0" aria-label="صفحه اصلی کاسپین گروه">
             <img
-              src="https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/a9cd0e3f8_d814a461-5e5c-421e-96fb-2f4eb5d965da_removalai_preview-4-43.png"
+              src="/images/logo.png"
               alt="Caspian Business Group"
               width="40" height="40"
               className="h-10 w-auto"
@@ -368,7 +368,7 @@ export default function GlobalNavbar() {
               {/* Drawer Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
                 <img
-                  src="https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/a9cd0e3f8_d814a461-5e5c-421e-96fb-2f4eb5d965da_removalai_preview-4-43.png"
+                  src="/images/logo.png"
                   alt="Caspian"
                   className="h-10 w-auto"
                 />

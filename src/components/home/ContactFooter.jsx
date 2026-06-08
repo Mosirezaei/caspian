@@ -12,7 +12,7 @@ export default function ContactFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <img src="https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/a8451d9e9_d814a461-5e5c-421e-96fb-2f4eb5d965da_removalai_preview-4-41.png"
+              <img src="/images/contact.png"
                 alt="Caspian Business Group" className="h-12 w-auto object-contain" loading="lazy" />
               <span className="text-xl font-black gold-gradient-text leading-tight">کاسپین گروه</span>
             </div>
