@@ -21,13 +21,17 @@ export default function ContactForm() {
     setLoading(true);
     
     try {
-      const { error } = await supabase
-        .from('contacts')
-        .insert([{ 
-          name: form.name, 
-          email: form.email || 'N/A', 
+const { error } = await supabase
+  .from('consultation_requests')
+  .insert([{
+    name: form.name,
+    phone: form.phone,
+    service: form.service,
+    notes: form.notes,
+    language: lang,
+    source: 'contact_form'
+  }]);
           message: `Phone: ${form.phone} | Service: ${form.service} | Notes: ${form.notes}` 
-        }]);
 
       if (error) throw error;
       setSuccess(true);

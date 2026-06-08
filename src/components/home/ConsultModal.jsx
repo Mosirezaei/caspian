@@ -67,13 +67,16 @@ export default function ConsultModal({ isOpen, onClose }) {
     e.preventDefault();
     setLoading(true);
     try {
-      const { error } = await supabase
-        .from('contacts')
-        .insert([{
-          name: form.name,
-          email: form.contact || 'N/A',
-          message: \`Phone: \${form.phone} | Service: \${form.service} | Notes: \${form.notes}\`
-        }]);
+const { error } = await supabase
+  .from('consultation_requests')
+  .insert([{
+    name: form.name,
+    phone: form.phone,
+    service: form.service,
+    notes: form.notes,
+    language: lang,
+    source: 'consult_modal'
+  }]);
       if (error) throw error;
       setSuccess(true);
     } catch (error) {

@@ -7,7 +7,7 @@ import {
   Phone, MessageCircle, Send, Instagram, MapPin,
   Clock, Mail, Globe, Building2, CheckCircle, Loader2
 } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
+import { supabase } from '@/api/supabaseClient';
 
 const content = {
   fa: {
@@ -149,18 +149,29 @@ function ContactContent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      await base44.functions.invoke('sendConsultationRequest', {
+
+try {
+  const { error } = await supabase
+    .from('consultation_requests')
+    .insert([
+      {
         name: form.name,
         phone: form.phone,
         service: form.service,
         notes: form.message,
         language: lang,
-      });
-      setSuccess(true);
-    } catch (err) {
-      console.error(err);
-    }
+        source: 'contact_page'
+      }
+    ]);
+
+  if (error) {
+    throw error;
+  }
+
+  setSuccess(true);
+} catch (err) {
+  console.error(err);
+}
     setLoading(false);
   };
 

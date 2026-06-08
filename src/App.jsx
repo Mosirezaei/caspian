@@ -3,8 +3,6 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
-import { AuthProvider, useAuth } from '@/lib/AuthContext';
-import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import { lazy, Suspense } from 'react';
 import Home from '@/pages/Home';
 
@@ -46,7 +44,6 @@ const BusTrainBooking = lazy(() => import('@/pages/service/BusTrainBooking'));
 const Exchange = lazy(() => import('@/pages/service/Exchange'));
 const Transfer = lazy(() => import('@/pages/service/Transfer'));
 const VipSupport = lazy(() => import('@/pages/VipSupport'));
-const ImmigrationNews = lazy(() => import('@/pages/ImmigrationNews'));
 
 // Other service pages
 const CompanyReg = lazy(() => import('@/pages/service/CompanyReg'));
@@ -61,24 +58,6 @@ const S = ({ children }) => (
 );
 
 const AuthenticatedApp = () => {
-  const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
-
-  if (isLoadingPublicSettings || isLoadingAuth) {
-    return (
-      <div className="fixed inset-0 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
-      </div>
-    );
-  }
-
-  if (authError) {
-    if (authError.type === 'user_not_registered') {
-      return <UserNotRegisteredError />;
-    } else if (authError.type === 'auth_required') {
-      navigateToLogin();
-      return null;
-    }
-  }
 
   return (
     <Routes>
@@ -147,8 +126,6 @@ const AuthenticatedApp = () => {
       {/* Dynamic service pages (slug-based, reads from data/servicesContent.js) */}
       <Route path="/service/:slug" element={<S><DynamicService /></S>} />
 
-      <Route path="/immigration-news" element={<S><ImmigrationNews /></S>} />
-
       {/* Other */}
       <Route path="/services/company-registration" element={<S><CompanyReg /></S>} />
       <Route path="/services/student-admission" element={<S><StudentAdmission /></S>} />
@@ -157,17 +134,14 @@ const AuthenticatedApp = () => {
     </Routes>
   );
 };
-
 function App() {
   return (
-    <AuthProvider>
-      <QueryClientProvider client={queryClientInstance}>
-        <Router>
-          <AuthenticatedApp />
-        </Router>
-        <Toaster />
-      </QueryClientProvider>
-    </AuthProvider>
+    <QueryClientProvider client={queryClientInstance}>
+      <Router>
+        <AuthenticatedApp />
+      </Router>
+      <Toaster />
+    </QueryClientProvider>
   )
 }
 
