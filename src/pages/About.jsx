@@ -31,7 +31,7 @@ const content = {
     ],
     statsTitle: 'کاسپین در اعداد',
     stats: [
-      { val: '+۵۰,۰۰۰', label: 'مشتری موفق' },
+      { val: '۹۷٪', label: 'موفقیت پرونده‌های مهاجرتی' },
       { val: '۱۵+', label: 'سال تجربه' },
       { val: '۹۷٪', label: 'نرخ موفقیت ویزا' },
       { val: '۲۴/۷', label: 'پشتیبانی' },
@@ -85,7 +85,7 @@ const content = {
     ],
     statsTitle: 'Caspian by the Numbers',
     stats: [
-      { val: '50,000+', label: 'Successful Clients' },
+      { val: '97%', label: 'Immigration Success Rate' },
       { val: '15+', label: 'Years Experience' },
       { val: '97%', label: 'Visa Success Rate' },
       { val: '24/7', label: 'Support' },
@@ -138,7 +138,7 @@ const content = {
     ],
     statsTitle: 'Caspian в цифрах',
     stats: [
-      { val: '50,000+', label: 'Довольных клиентов' },
+      { val: '97%', label: 'Успешность иммиграционных дел' },
       { val: '15+', label: 'Лет опыта' },
       { val: '97%', label: 'Успех по визам' },
       { val: '24/7', label: 'Поддержка' },
