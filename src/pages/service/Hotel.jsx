@@ -273,8 +273,7 @@ const FAQS = {
 
 function HotelFAQ() {
   const { lang } = useLang();
-const [bookingModal, setBookingModal] = useState(false);
-  const [active, setActive] = useState(null);
+const [active, setActive] = useState(null);
   const faqs = FAQS[lang] || FAQS.fa;
   const title = { fa: 'سوالات متداول', en: 'FAQ', ru: 'Вопросы и ответы' };
   return (
@@ -308,6 +307,7 @@ const [bookingModal, setBookingModal] = useState(false);
 
 function HotelContent() {
   const { lang } = useLang();
+  const [bookingModal, setBookingModal] = useState(false);
   const waMsg = lang === 'fa' ? 'سلام، می‌خوام هتل در ارمنستان رزرو کنم' : lang === 'ru' ? 'Здравствуйте, хочу забронировать отель в Армении' : 'Hello, I would like to book a hotel in Armenia';
   const waBtn = { fa: 'رزرو هتل از طریق واتساپ', en: 'Book a Hotel via WhatsApp', ru: 'Забронировать отель в WhatsApp' };
   const waSub = { fa: 'نام هتل، تاریخ و تعداد نفرات را ارسال کنید', en: 'Send hotel name, dates and number of guests', ru: 'Отправьте название отеля, даты и количество гостей' };
