@@ -1,7 +1,7 @@
 # Caspian Group Armenia — Technical Documentation
 > **Platform:** Base44 | **Frontend:** React + Vite + Tailwind CSS
 > **Purpose:** Immigration & travel services platform (fa/en/ru)
-> **Live URL:** https://caspiangroup.am
+> **Live URL:** https://caspian.am
 
 ---
 

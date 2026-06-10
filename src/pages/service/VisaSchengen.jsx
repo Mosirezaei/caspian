@@ -25,7 +25,7 @@ function Content() {
       provider: {
         '@type': 'Organization',
         name: 'Caspian Group',
-        url: 'https://caspiangroup.am'
+        url: 'https://caspian.am'
       },
       areaServed: 'Iran'
     }

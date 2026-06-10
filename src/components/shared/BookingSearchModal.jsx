@@ -25,9 +25,7 @@ const message = `🏨 رزرو هتل
 کودک ۲ تا ۱۲ سال: ${children}
 
 توضیحات:
-${note}
-
-⚡ پاسخ آنی`;
+${note}`;
 
 window.open(
   `https://wa.me/37433149327?text=${encodeURIComponent(message)}`,
@@ -38,27 +36,27 @@ window.open(
 
 const Counter = ({ label, value, setValue, min = 0 }) => (
 <div>
-<label className="block text-sm text-foreground/70 mb-2">
+<label className="block text-xs text-foreground/70 mb-1">
 {label}
 </label>
 
-  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-background/40 p-2">
+  <div className="flex items-center justify-between rounded-lg border border-white/10 bg-background/40 p-1.5">
     <button
       type="button"
       onClick={() => setValue(Math.max(min, value - 1))}
-      className="w-10 h-10 rounded-lg bg-primary/10 text-primary font-bold"
+      className="w-8 h-8 rounded-md bg-primary/10 text-primary font-bold"
     >
-      −
+      -
     </button>
 
-    <span className="font-bold text-lg">
+    <span className="font-bold text-sm">
       {value}
     </span>
 
     <button
       type="button"
       onClick={() => setValue(value + 1)}
-      className="w-10 h-10 rounded-lg bg-primary/10 text-primary font-bold"
+      className="w-8 h-8 rounded-md bg-primary/10 text-primary font-bold"
     >
       +
     </button>
@@ -68,16 +66,16 @@ const Counter = ({ label, value, setValue, min = 0 }) => (
 );
 
 return (
-<div className="glass-panel w-full rounded-3xl border border-primary/20 p-6 mb-8">
+<div className="glass-panel max-w-4xl mx-auto rounded-2xl border border-primary/20 p-4 mb-6">
 
-  <h2 className="text-2xl font-black gold-gradient-text mb-6 text-center">
+  <h2 className="text-lg font-black gold-gradient-text mb-4 text-center">
     {title}
   </h2>
 
-  <div className="space-y-4">
+  <div className="space-y-3">
 
     <div>
-      <label className="block text-sm text-foreground/70 mb-2">
+      <label className="block text-xs text-foreground/70 mb-1">
         شهر یا کشور مقصد
       </label>
 
@@ -85,15 +83,15 @@ return (
         value={city}
         onChange={setCity}
         isRtl={true}
-        placeholder="ایروان، تفلیس، استانبول، دبی ..."
-        className="w-full rounded-xl border border-white/10 bg-background/40 p-3"
+        placeholder="ایروان، تفلیس، استانبول..."
+        className="w-full rounded-lg border border-white/10 bg-background/40 p-2.5"
       />
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div className="grid grid-cols-2 gap-2">
 
       <div>
-        <label className="block text-sm text-foreground/70 mb-2">
+        <label className="block text-xs text-foreground/70 mb-1">
           تاریخ ورود
         </label>
 
@@ -101,12 +99,12 @@ return (
           type="date"
           value={checkIn}
           onChange={(e) => setCheckIn(e.target.value)}
-          className="w-full rounded-xl border border-white/10 bg-background/40 p-3"
+          className="w-full rounded-lg border border-white/10 bg-background/40 p-2.5"
         />
       </div>
 
       <div>
-        <label className="block text-sm text-foreground/70 mb-2">
+        <label className="block text-xs text-foreground/70 mb-1">
           تاریخ خروج
         </label>
 
@@ -114,13 +112,13 @@ return (
           type="date"
           value={checkOut}
           onChange={(e) => setCheckOut(e.target.value)}
-          className="w-full rounded-xl border border-white/10 bg-background/40 p-3"
+          className="w-full rounded-lg border border-white/10 bg-background/40 p-2.5"
         />
       </div>
 
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div className="grid grid-cols-3 gap-2">
 
       <Counter
         label="بزرگسال"
@@ -130,43 +128,33 @@ return (
       />
 
       <Counter
-        label="کودک زیر ۲ سال"
+        label="زیر ۲ سال"
         value={infants}
         setValue={setInfants}
       />
 
       <Counter
-        label="کودک ۲ تا ۱۲ سال"
+        label="۲ تا ۱۲ سال"
         value={children}
         setValue={setChildren}
       />
 
     </div>
 
-    <div>
-      <label className="block text-sm text-foreground/70 mb-2">
-        توضیحات اضافی
-      </label>
-
-      <textarea
-        rows="4"
-        value={note}
-        onChange={(e) => setNote(e.target.value)}
-        placeholder="نام هتل، بودجه، تعداد اتاق، ویوی خاص و ..."
-        className="w-full rounded-xl border border-white/10 bg-background/40 p-3"
-      />
-    </div>
+    <textarea
+      rows="3"
+      value={note}
+      onChange={(e) => setNote(e.target.value)}
+      placeholder="توضیحات اضافی"
+      className="w-full rounded-lg border border-white/10 bg-background/40 p-2.5"
+    />
 
     <button
       onClick={handleSubmit}
-      className="w-full py-4 rounded-2xl bg-primary text-background font-bold hover:opacity-90 transition"
+      className="w-full py-3 rounded-xl bg-primary text-background font-bold hover:opacity-90 transition"
     >
       جستجوی هتل
     </button>
-
-    <p className="text-center text-sm text-primary">
-      ⚡ پاسخ آنی در واتساپ
-    </p>
 
   </div>
 

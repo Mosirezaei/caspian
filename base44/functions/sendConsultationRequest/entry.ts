@@ -88,15 +88,15 @@ Deno.serve(async (req) => {
       const confirmationContent = {
         fa: {
           subject: 'تأییدیه درخواست مشاوره — کاسپین گروه',
-          body: `سلام ${name} عزیز،\n\nدرخواست مشاوره شما با موفقیت دریافت شد.\n\n📋 جزئیات درخواست:\n• خدمت: ${serviceName}\n• تلفن: ${phone}\n\nکارشناسان کاسپین گروه در کمتر از ۲۴ ساعت با شما تماس خواهند گرفت.\n\nبا احترام،\nتیم کاسپین گروه\n📞 +374 33 149 327\n🌐 caspiangroup.am`
+          body: `سلام ${name} عزیز،\n\nدرخواست مشاوره شما با موفقیت دریافت شد.\n\n📋 جزئیات درخواست:\n• خدمت: ${serviceName}\n• تلفن: ${phone}\n\nکارشناسان کاسپین گروه در کمتر از ۲۴ ساعت با شما تماس خواهند گرفت.\n\nبا احترام،\nتیم کاسپین گروه\n📞 +374 33 149 327\n🌐 caspian.am`
         },
         en: {
           subject: 'Consultation Request Confirmed — Caspian Group',
-          body: `Dear ${name},\n\nYour consultation request has been successfully received.\n\n📋 Request Details:\n• Service: ${serviceName}\n• Phone: ${phone}\n\nCaspian Group experts will contact you within 24 hours.\n\nBest regards,\nCaspian Group Team\n📞 +374 33 149 327\n🌐 caspiangroup.am`
+          body: `Dear ${name},\n\nYour consultation request has been successfully received.\n\n📋 Request Details:\n• Service: ${serviceName}\n• Phone: ${phone}\n\nCaspian Group experts will contact you within 24 hours.\n\nBest regards,\nCaspian Group Team\n📞 +374 33 149 327\n🌐 caspian.am`
         },
         ru: {
           subject: 'Запрос на консультацию подтверждён — Caspian Group',
-          body: `Уважаемый(ая) ${name},\n\nВаш запрос на консультацию успешно получен.\n\n📋 Детали запроса:\n• Услуга: ${serviceName}\n• Телефон: ${phone}\n\nЭксперты Caspian Group свяжутся с вами в течение 24 часов.\n\nС уважением,\nКоманда Caspian Group\n📞 +374 33 149 327\n🌐 caspiangroup.am`
+          body: `Уважаемый(ая) ${name},\n\nВаш запрос на консультацию успешно получен.\n\n📋 Детали запроса:\n• Услуга: ${serviceName}\n• Телефон: ${phone}\n\nЭксперты Caspian Group свяжутся с вами в течение 24 часов.\n\nС уважением,\nКоманда Caspian Group\n📞 +374 33 149 327\n🌐 caspian.am`
         }
       };
 
