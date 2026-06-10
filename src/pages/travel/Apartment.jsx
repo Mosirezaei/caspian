@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { LanguageProvider, useLang } from '@/lib/LanguageContext';
 import { ServicePageLayout, InfoBlock, CheckList } from '@/components/shared/ServicePageLayout';
-import { MessageCircle, ChevronDown, HelpCircle, MapPin, Bed } from 'lucide-react';
+import { MessageCircle, MapPin, Bed } from 'lucide-react';
 
 const APARTMENTS = [
   {
@@ -194,61 +194,6 @@ function ApartmentCard({ apt, lang }) {
   );
 }
 
-const FAQS = {
-  fa: [
-    { q: 'چطور آپارتمان رزرو کنم؟', a: 'از طریق واتساپ تاریخ ورود و خروج، تعداد نفرات و بودجه تقریبی را ارسال کنید. تیم کاسپین بهترین گزینه‌های موجود با عکس و قیمت دقیق برای شما ارسال می‌کند.' },
-    { q: 'قیمت‌ها در فصول مختلف چطور است؟', a: 'فصل اوج (تیر تا شهریور و نوروز): ۲۰ تا ۴۰ درصد گران‌تر. بهترین فصل از نظر قیمت: اردیبهشت، خرداد و مهر. زمستان ارزان‌ترین قیمت‌ها را دارد.' },
-    { q: 'آپارتمان ماهانه چه قیمتی دارد؟', a: 'آپارتمان‌های ماهانه در ایروان از ۶۰۰ تا ۱۵۰۰ دلار در ماه بسته به اندازه و موقعیت هستند. این قیمت‌ها تغییر فصلی ندارند.' },
-    { q: 'ترانسفر فرودگاه دارید؟', a: 'بله، کاسپین ترانسفر از فرودگاه زوارتنوتس به آپارتمان را با هماهنگی قبلی انجام می‌دهد.' },
-  ],
-  en: [
-    { q: 'How do I book an apartment?', a: 'Send check-in/out dates, number of guests, and approximate budget via WhatsApp. Caspian\'s team will send the best available options with photos and exact pricing.' },
-    { q: 'How do prices vary by season?', a: 'Peak season (July–September and Nowruz): 20–40% more expensive. Best price season: May, June, and October. Winter offers the lowest prices.' },
-    { q: 'What are monthly apartment rates?', a: 'Monthly apartments in Yerevan range from $600 to $1,500/month depending on size and location. These prices don\'t have seasonal variation.' },
-    { q: 'Is airport transfer available?', a: 'Yes, Caspian arranges transfer from Zvartnots Airport to your apartment upon prior arrangement.' },
-  ],
-  ru: [
-    { q: 'Как забронировать квартиру?', a: 'Напишите в WhatsApp даты заезда/выезда, количество гостей и примерный бюджет. Команда Caspian пришлёт лучшие доступные варианты с фото и точными ценами.' },
-    { q: 'Как цены меняются по сезонам?', a: 'Пик (июль–сентябрь и Новруз): дороже на 20–40%. Лучшее соотношение цены и сезона: май, июнь и октябрь. Зимой самые низкие цены.' },
-    { q: 'Каковы цены на помесячную аренду?', a: 'Помесячная аренда в Ереване от $600 до $1500/месяц в зависимости от размера и расположения. Без сезонных колебаний.' },
-    { q: 'Есть ли трансфер из аэропорта?', a: 'Да, Caspian организует трансфер из аэропорта Звартноц в квартиру по предварительному согласованию.' },
-  ],
-};
-
-function ApartmentFAQ() {
-  const { lang } = useLang();
-  const [active, setActive] = useState(null);
-  const faqs = FAQS[lang] || FAQS.fa;
-  const title = { fa: 'سوالات متداول', en: 'FAQ', ru: 'Вопросы и ответы' };
-  return (
-    <div className="mt-10">
-      <div className="flex items-center gap-2 mb-4">
-        <HelpCircle className="w-5 h-5 text-primary" />
-        <h2 className="text-xl font-bold text-foreground">{title[lang]}</h2>
-      </div>
-      <div className="glass-panel rounded-2xl border border-white/10 overflow-hidden">
-        {faqs.map((faq, i) => (
-          <div key={i} className={i < faqs.length - 1 ? 'border-b border-white/5' : ''}>
-            <button onClick={() => setActive(active === i ? null : i)}
-              className="w-full flex items-center justify-between p-4 sm:p-5 hover:bg-white/5 transition-colors text-right">
-              <span className="font-medium text-foreground/90 text-sm leading-relaxed pr-2">{faq.q}</span>
-              <ChevronDown className={`w-5 h-5 text-primary flex-shrink-0 transition-transform duration-200 ${active === i ? 'rotate-180' : ''}`} />
-            </button>
-            <AnimatePresence>
-              {active === i && (
-                <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
-                  <div className="px-5 pb-5 text-sm text-foreground/65 leading-relaxed">{faq.a}</div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function ApartmentContent() {
   const { lang } = useLang();
   const waMsg = lang === 'fa' ? 'سلام، می‌خوام آپارتمان در ایروان اجاره کنم' : lang === 'ru' ? 'Здравствуйте, хочу снять квартиру в Ереване' : 'Hello, I would like to rent an apartment in Yerevan';
@@ -298,7 +243,7 @@ function ApartmentContent() {
         } />
       </InfoBlock>
 
-      <ApartmentFAQ />
+      
     </ServicePageLayout>
   );
 }

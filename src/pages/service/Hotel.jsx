@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BookingSearchModal from '@/components/shared/BookingSearchModal';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LanguageProvider, useLang } from '@/lib/LanguageContext';
 import { ServicePageLayout, InfoBlock, CheckList } from '@/components/shared/ServicePageLayout';
@@ -272,6 +273,7 @@ const FAQS = {
 
 function HotelFAQ() {
   const { lang } = useLang();
+const [bookingModal, setBookingModal] = useState(false);
   const [active, setActive] = useState(null);
   const faqs = FAQS[lang] || FAQS.fa;
   const title = { fa: 'سوالات متداول', en: 'FAQ', ru: 'Вопросы и ответы' };
@@ -325,16 +327,22 @@ function HotelContent() {
       heroImage="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80"
       serviceType="hotel"
     >
-      <a href={`https://wa.me/37433149327?text=${encodeURIComponent(waMsg)}`}
-        target="_blank" rel="noopener noreferrer"
-        className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl bg-green-600 hover:bg-green-500 transition-all duration-300 shadow-lg hover:shadow-green-600/30 group mb-8">
-        <MessageCircle className="w-6 h-6 text-white flex-shrink-0 group-hover:scale-110 transition-transform" />
-        <div className="text-center">
-          <div className="text-white font-bold text-base leading-tight">{waBtn[lang]}</div>
-          <div className="text-green-100 text-xs mt-0.5">{waSub[lang]}</div>
-        </div>
-      </a>
+<button
+  onClick={() => setBookingModal(true)}
+  className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl bg-green-600 hover:bg-green-500 transition-all duration-300 shadow-lg hover:shadow-green-600/30 group mb-8"
+>
+  <MessageCircle className="w-6 h-6 text-white flex-shrink-0 group-hover:scale-110 transition-transform" />
 
+  <div className="text-center">
+    <div className="text-white font-bold text-base leading-tight">
+      {waBtn[lang]}
+    </div>
+
+    <div className="text-green-100 text-xs mt-0.5">
+      {waSub[lang]}
+    </div>
+  </div>
+</button>
       <h2 className="text-2xl font-black text-foreground mb-6 text-center gold-gradient-text">{sectionTitle[lang]}</h2>
 
       <HotelCategorySection stars={3} hotels={HOTELS[3]} lang={lang} />
@@ -343,6 +351,11 @@ function HotelContent() {
 
       <p className="text-xs text-foreground/40 text-center mt-2 mb-6">{note[lang]}</p>
 
+<BookingSearchModal
+  isOpen={bookingModal}
+  onClose={() => setBookingModal(false)}
+  title="رزرو هتل"
+/>
     </ServicePageLayout>
   );
 }

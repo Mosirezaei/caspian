@@ -84,7 +84,7 @@ function FlightContent() {
   const isRtl = lang === 'fa';
 
   const titles = {
-    fa: { main: 'رزرو پرواز', sub: 'رزرو بلیط هواپیما با بهترین قیمت — کاسپین گروه' },
+    fa: { main: 'رزرو پرواز', sub: 'رزرو بلیط هواپیما،قطار،اتوبوس  با بهترین قیمت — کاسپین گروه' },
     en: { main: 'Flight Booking', sub: 'Book flights at the best prices — Caspian Group' },
     ru: { main: 'Бронирование авиабилетов', sub: 'Бронирование перелётов по лучшим ценам — Caspian Group' },
   };

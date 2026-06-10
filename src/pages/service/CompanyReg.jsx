@@ -6,7 +6,7 @@ function Content() {
   const { lang } = useLang();
   return (
     <ServicePageLayout titleFa="ثبت شرکت در ارمنستان" titleEn="Company Registration" titleRu="Регистрация компании" serviceType="company-registration"
-      subtitleFa="ثبت LLC در کمتر از ۳ روز — مالیات ۱۸٪"
+      subtitleFa="ثبت LLC در 1 روز — مالیات پایین ترین درصد ممکن"
       subtitleEn="Register an LLC in under 3 days — 18% corporate tax"
       subtitleRu="Регистрация ООО менее чем за 3 дня — налог 18%"
       heroImage="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&q=80">
