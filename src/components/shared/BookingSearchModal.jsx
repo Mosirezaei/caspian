@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
+import CityAutocomplete from '@/components/shared/CityAutocomplete';
 
 export default function BookingSearchModal({
-isOpen,
-onClose,
-title = 'رزرو'
+title = 'رزرو هتل'
 }) {
-const [city, setCity] = useState('ایروان');
+const [city, setCity] = useState('');
 const [checkIn, setCheckIn] = useState('');
 const [checkOut, setCheckOut] = useState('');
 const [adults, setAdults] = useState(1);
@@ -13,12 +12,10 @@ const [infants, setInfants] = useState(0);
 const [children, setChildren] = useState(0);
 const [note, setNote] = useState('');
 
-if (!isOpen) return null;
-
 const handleSubmit = () => {
 const message = `🏨 رزرو هتل
 
-شهر: ${city}
+شهر مقصد: ${city}
 
 تاریخ ورود: ${checkIn}
 تاریخ خروج: ${checkOut}
@@ -30,7 +27,7 @@ const message = `🏨 رزرو هتل
 توضیحات:
 ${note}
 
-پاسخ آنی`;
+⚡ پاسخ آنی`;
 
 window.open(
   `https://wa.me/37433149327?text=${encodeURIComponent(message)}`,
@@ -39,109 +36,141 @@ window.open(
 
 };
 
+const Counter = ({ label, value, setValue, min = 0 }) => (
+<div>
+<label className="block text-sm text-foreground/70 mb-2">
+{label}
+</label>
+
+  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-background/40 p-2">
+    <button
+      type="button"
+      onClick={() => setValue(Math.max(min, value - 1))}
+      className="w-10 h-10 rounded-lg bg-primary/10 text-primary font-bold"
+    >
+      −
+    </button>
+
+    <span className="font-bold text-lg">
+      {value}
+    </span>
+
+    <button
+      type="button"
+      onClick={() => setValue(value + 1)}
+      className="w-10 h-10 rounded-lg bg-primary/10 text-primary font-bold"
+    >
+      +
+    </button>
+  </div>
+</div>
+
+);
+
 return (
-<>
-<div
-className="fixed inset-0 bg-black/70 z-50"
-onClick={onClose}
-/>
+<div className="glass-panel w-full rounded-3xl border border-primary/20 p-6 mb-8">
 
-  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
-    <div className="glass-panel w-full max-w-xl rounded-3xl border border-primary/20 p-6">
+  <h2 className="text-2xl font-black gold-gradient-text mb-6 text-center">
+    {title}
+  </h2>
 
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-black gold-gradient-text">
-          {title}
-        </h2>
+  <div className="space-y-4">
 
-        <button
-          onClick={onClose}
-          className="text-xl text-foreground/60 hover:text-foreground"
-        >
-          ✕
-        </button>
-      </div>
+    <div>
+      <label className="block text-sm text-foreground/70 mb-2">
+        شهر یا کشور مقصد
+      </label>
 
-      <div className="space-y-4">
+      <CityAutocomplete
+        value={city}
+        onChange={setCity}
+        isRtl={true}
+        placeholder="ایروان، تفلیس، استانبول، دبی ..."
+        className="w-full rounded-xl border border-white/10 bg-background/40 p-3"
+      />
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+      <div>
+        <label className="block text-sm text-foreground/70 mb-2">
+          تاریخ ورود
+        </label>
 
         <input
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          placeholder="شهر"
+          type="date"
+          value={checkIn}
+          onChange={(e) => setCheckIn(e.target.value)}
           className="w-full rounded-xl border border-white/10 bg-background/40 p-3"
         />
+      </div>
 
-        <div className="grid grid-cols-2 gap-3">
-          <input
-            type="date"
-            value={checkIn}
-            onChange={(e) => setCheckIn(e.target.value)}
-            className="rounded-xl border border-white/10 bg-background/40 p-3"
-          />
+      <div>
+        <label className="block text-sm text-foreground/70 mb-2">
+          تاریخ خروج
+        </label>
 
-          <input
-            type="date"
-            value={checkOut}
-            onChange={(e) => setCheckOut(e.target.value)}
-            className="rounded-xl border border-white/10 bg-background/40 p-3"
-          />
-        </div>
-
-        <div className="grid grid-cols-3 gap-3">
-
-          <input
-            type="number"
-            min="1"
-            value={adults}
-            onChange={(e) => setAdults(e.target.value)}
-            placeholder="بزرگسال"
-            className="rounded-xl border border-white/10 bg-background/40 p-3"
-          />
-
-          <input
-            type="number"
-            min="0"
-            value={infants}
-            onChange={(e) => setInfants(e.target.value)}
-            placeholder="زیر ۲ سال"
-            className="rounded-xl border border-white/10 bg-background/40 p-3"
-          />
-
-          <input
-            type="number"
-            min="0"
-            value={children}
-            onChange={(e) => setChildren(e.target.value)}
-            placeholder="۲ تا ۱۲ سال"
-            className="rounded-xl border border-white/10 bg-background/40 p-3"
-          />
-
-        </div>
-
-        <textarea
-          rows="4"
-          value={note}
-          onChange={(e) => setNote(e.target.value)}
-          placeholder="توضیحات اضافی"
+        <input
+          type="date"
+          value={checkOut}
+          onChange={(e) => setCheckOut(e.target.value)}
           className="w-full rounded-xl border border-white/10 bg-background/40 p-3"
         />
-
-        <button
-          onClick={handleSubmit}
-          className="w-full py-4 rounded-2xl bg-primary text-background font-bold hover:opacity-90 transition"
-        >
-          جستجو
-        </button>
-
-        <p className="text-center text-sm text-primary">
-          ⚡ پاسخ آنی در واتساپ
-        </p>
-
       </div>
 
     </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+
+      <Counter
+        label="بزرگسال"
+        value={adults}
+        setValue={setAdults}
+        min={1}
+      />
+
+      <Counter
+        label="کودک زیر ۲ سال"
+        value={infants}
+        setValue={setInfants}
+      />
+
+      <Counter
+        label="کودک ۲ تا ۱۲ سال"
+        value={children}
+        setValue={setChildren}
+      />
+
+    </div>
+
+    <div>
+      <label className="block text-sm text-foreground/70 mb-2">
+        توضیحات اضافی
+      </label>
+
+      <textarea
+        rows="4"
+        value={note}
+        onChange={(e) => setNote(e.target.value)}
+        placeholder="نام هتل، بودجه، تعداد اتاق، ویوی خاص و ..."
+        className="w-full rounded-xl border border-white/10 bg-background/40 p-3"
+      />
+    </div>
+
+    <button
+      onClick={handleSubmit}
+      className="w-full py-4 rounded-2xl bg-primary text-background font-bold hover:opacity-90 transition"
+    >
+      جستجوی هتل
+    </button>
+
+    <p className="text-center text-sm text-primary">
+      ⚡ پاسخ آنی در واتساپ
+    </p>
+
   </div>
-</>
+
+</div>
 
 );
 }

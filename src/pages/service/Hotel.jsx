@@ -307,8 +307,7 @@ const [active, setActive] = useState(null);
 
 function HotelContent() {
   const { lang } = useLang();
-  const [bookingModal, setBookingModal] = useState(false);
-  const waMsg = lang === 'fa' ? 'سلام، می‌خوام هتل در ارمنستان رزرو کنم' : lang === 'ru' ? 'Здравствуйте, хочу забронировать отель в Армении' : 'Hello, I would like to book a hotel in Armenia';
+    const waMsg = lang === 'fa' ? 'سلام، می‌خوام هتل در ارمنستان رزرو کنم' : lang === 'ru' ? 'Здравствуйте, хочу забронировать отель в Армении' : 'Hello, I would like to book a hotel in Armenia';
   const waBtn = { fa: 'رزرو هتل از طریق واتساپ', en: 'Book a Hotel via WhatsApp', ru: 'Забронировать отель в WhatsApp' };
   const waSub = { fa: 'نام هتل، تاریخ و تعداد نفرات را ارسال کنید', en: 'Send hotel name, dates and number of guests', ru: 'Отправьте название отеля, даты и количество гостей' };
   const sectionTitle = { fa: 'هتل‌های پیشنهادی ارمنستان', en: 'Recommended Hotels in Armenia', ru: 'Рекомендуемые отели Армении' };
@@ -327,22 +326,7 @@ function HotelContent() {
       heroImage="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80"
       serviceType="hotel"
     >
-<button
-  onClick={() => setBookingModal(true)}
-  className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl bg-green-600 hover:bg-green-500 transition-all duration-300 shadow-lg hover:shadow-green-600/30 group mb-8"
->
-  <MessageCircle className="w-6 h-6 text-white flex-shrink-0 group-hover:scale-110 transition-transform" />
 
-  <div className="text-center">
-    <div className="text-white font-bold text-base leading-tight">
-      {waBtn[lang]}
-    </div>
-
-    <div className="text-green-100 text-xs mt-0.5">
-      {waSub[lang]}
-    </div>
-  </div>
-</button>
       <h2 className="text-2xl font-black text-foreground mb-6 text-center gold-gradient-text">{sectionTitle[lang]}</h2>
 
       <HotelCategorySection stars={3} hotels={HOTELS[3]} lang={lang} />
@@ -351,11 +335,7 @@ function HotelContent() {
 
       <p className="text-xs text-foreground/40 text-center mt-2 mb-6">{note[lang]}</p>
 
-<BookingSearchModal
-  isOpen={bookingModal}
-  onClose={() => setBookingModal(false)}
-  title="رزرو هتل"
-/>
+<BookingSearchModal isOpen={true} title="رزرو هتل" />
     </ServicePageLayout>
   );
 }
