@@ -1,39 +1,82 @@
-**Welcome to your Base44 project** 
+# Caspian Group Website
 
-**About**
+## About
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+Official website of **Caspian Group Armenia**.
 
-This project contains everything you need to run your app locally.
+Caspian Group provides professional services in Armenia including:
 
-**Edit the code in your local development environment**
+- Armenia residency services
+- Visa consulting
+- Hotel booking
+- Business and company services
+- Travel and relocation solutions
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+Website:
+https://caspian.am
 
-**Prerequisites:** 
 
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
+## Local Development
+
+### Requirements
+
+Before running the project:
+
+1. Clone the repository
+2. Enter the project folder
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+
+## Environment Setup
+
+Create an environment file:
+
+```bash
+.env.local
+```
+
+Add required variables:
+
+```env
+VITE_APP_NAME=Caspian Group
+VITE_API_URL=your_backend_url
+```
+
+
+## Run Development Server
+
+```bash
+npm run dev
+```
+
+
+## Build Production
+
+```bash
+npm run build
+```
+
+
+## Project Structure
 
 ```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
-
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
+src/
+├── components/
+├── pages/
+├── lib/
+└── assets/
 ```
 
-Run the app: `npm run dev`
 
-**Publish your changes**
+## Contact
 
-Open [Base44.com](http://Base44.com) and click on Publish.
+Caspian Group Armenia
 
-**Docs & Support**
+Website:
+https://caspian.am
 
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
-
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+© Caspian Group. All rights reserved.
