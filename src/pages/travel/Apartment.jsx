@@ -6,7 +6,7 @@ import { MessageCircle, MapPin, Bed } from 'lucide-react';
 
 const APARTMENTS = [
   {
-    titleFa: 'استودیوی مدرن — کنتقال',
+    titleFa: 'استودیوی مدرن — مرکز شهر',
     titleEn: 'Modern Studio — Kentron',
     titleRu: 'Современная студия — Кентрон',
     locationFa: 'خیابان آبوویان، مرکز ایروان',
@@ -66,22 +66,22 @@ const APARTMENTS = [
     descRu: 'Просторная 2-комнатная квартира с видом на Арарат. Тихая обстановка, выделенная парковка, оптоволоконный интернет.',
   },
   {
-    titleFa: 'آپارتمان ۲ خوابه — اراباکیر',
+    titleFa: 'آپارتمان ۲ خوابه — کمیتاس',
     titleEn: '2-Bedroom — Arabkir',
     titleRu: '2-комн. — Арабкир',
-    locationFa: 'محله اراباکیر، شمال غرب ایروان',
+    locationFa: 'محله کمیتاس، شمال غرب ایروان',
     locationEn: 'Arabkir District, northwest Yerevan',
     locationRu: 'Район Арабкир, северо-запад Еревана',
     bedrooms: '2 Beds',
     priceLow: 50, priceHigh: 70,
     priceSeason: { fa: 'تابستان و نوروز: ۸۰–۱۰۰ دلار', en: 'Summer & Nowruz: $80–100', ru: 'Лето и Новруз: $80–100' },
     image: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=75',
-    descFa: 'آپارتمان دوخوابه روشن با پنجره‌های بزرگ در محله آرام اراباکیر. نزدیک به پارک و فروشگاه‌های ایرانی.',
+    descFa: 'آپارتمان دوخوابه روشن با پنجره‌های بزرگ در محله آرام کمیتاس. نزدیک به پارک و فروشگاه‌های ایرانی.',
     descEn: 'Bright 2-bedroom apartment with large windows in quiet Arabkir. Close to parks and Iranian stores.',
     descRu: 'Светлая 2-комнатная квартира с большими окнами в тихом Арабкире. Рядом с парками и иранскими магазинами.',
   },
   {
-    titleFa: 'آپارتمان لوکس روفتاپ — کنتقال',
+    titleFa: 'آپارتمان لوکس روفتاپ — مرکز شهر',
     titleEn: 'Luxury Rooftop Apt — Kentron',
     titleRu: 'Люкс с террасой — Кентрон',
     locationFa: 'خیابان آرامی، مرکز شهر',
@@ -96,10 +96,10 @@ const APARTMENTS = [
     descRu: 'Роскошная квартира на последнем этаже с террасой и видом 360° на Ереван. Европейский декор, джакузи, полная кухня.',
   },
   {
-    titleFa: 'آپارتمان ۳ خوابه — خانوادگی اراباکیر',
+    titleFa: 'آپارتمان ۳ خوابه — خانوادگی کمیتاس',
     titleEn: '3-Bedroom Family Apt — Arabkir',
     titleRu: '3-комн. семейная — Арабкир',
-    locationFa: 'محله اراباکیر، ایروان',
+    locationFa: 'محله کمیتاس، ایروان',
     locationEn: 'Arabkir Neighborhood, Yerevan',
     locationRu: 'Район Арабкир, Ереван',
     bedrooms: '3 Beds',
