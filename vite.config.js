@@ -10,16 +10,4 @@ export default defineConfig({
     },
   },
   plugins: [react()],
-  build: {
-    minify: 'esbuild',
-    cssCodeSplit: true,
-    sourcemap: false, 
-    rollupOptions: {
-      output: {
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js',
-        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
-      },
-    },
-  },
 })
