@@ -11,14 +11,8 @@ export default defineConfig({
   },
   plugins: [react()],
   build: {
-    // فعال‌سازی فشرده‌سازی نهایی کدهای CSS و JS
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // حذف تمام console.logها برای افزایش سرعت لود
-        drop_debugger: true,
-      },
-    },
+    // استفاده از ابزار داخلی و فوق‌سریع esbuild به جای terser
+    minify: 'esbuild',
     // تکنیک تقسیم کدها برای لود سریع‌تر صفحات به صورت جداگانه
     rollupOptions: {
       output: {
@@ -27,7 +21,7 @@ export default defineConfig({
         assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            // تفکیک پکیج‌های سنگین مثل ری‌اکت از کدهای اصلی پروژه
+            // تفکیک پکیج‌های سنگین از کدهای اصلی پروژه
             if (id.includes('react')) return 'vendor-react';
             if (id.includes('supabase')) return 'vendor-supabase';
             return 'vendor-libs';
@@ -35,6 +29,6 @@ export default defineConfig({
         },
       },
     },
-    chunkSizeWarningLimit: 1000, // افزایش حد مجاز هشدار سایز چانک‌ها
+    chunkSizeWarningLimit: 1000,
   },
 })
