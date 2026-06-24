@@ -9,12 +9,12 @@ const INSTAGRAM = 'https://www.instagram.com/caspiangroup.am?igsh=bDBsdTE0ZHJ3bn
 const PHONE = 'tel:0037433149327';
 
 const IMG = {
-  visa: '/images/visa.png',
-  residency: '/images/residency.png',
-  company: '/images/company.png',
-  tours: '/images/tours.png',
-  hotel: '/images/hotel.png',
-  vip: '/images/vip.png',
+  visa: '/images/visa.webp',
+  residency: '/images/residency.webp',
+  company: '/images/company.webp',
+  tours: '/images/tours.webp',
+  hotel: '/images/hotel.webp',
+  vip: '/images/vip.webp',
 };
 
 const serviceDetails = {

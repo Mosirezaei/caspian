@@ -64,7 +64,7 @@ function ServicesContent() {
       <div className="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-white/10">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <Link to="/">
-            <img src="/images/contact.png"
+            <img src="/images/contact.webp"
               alt="Caspian" className="h-10 w-auto object-contain" />
           </Link>
           <Link to="/" className="flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition-colors">

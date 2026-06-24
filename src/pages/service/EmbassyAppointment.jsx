@@ -18,7 +18,7 @@ function Content() {
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         <div className="absolute bottom-4 start-4 flex items-center gap-2 flex-wrap">
           {['de','fr','it','es','ca','gb','us'].map(c => (
-            <img key={c} src={`https://flagcdn.com/w40/${c}.png`} alt={c} className="h-5 rounded shadow" />
+            <img key={c} src={`https://flagcdn.com/w40/${c}.webp`} alt={c} className="h-5 rounded shadow" />
           ))}
         </div>
       </div>

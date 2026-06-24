@@ -18,7 +18,7 @@ function Content() {
         <img src="https://images.unsplash.com/photo-1578469550956-0e16b69c6a3d?w=1200&q=80" alt="Muscat Oman" className="w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         <div className="absolute bottom-4 start-4 flex items-center gap-2">
-          <img src="https://flagcdn.com/w80/om.png" alt="Oman flag" className="h-6 rounded shadow" />
+          <img src="https://flagcdn.com/w80/om.webp" alt="Oman flag" className="h-6 rounded shadow" />
           <span className="text-sm font-bold text-white drop-shadow">مسقط، عمان</span>
         </div>
       </div>

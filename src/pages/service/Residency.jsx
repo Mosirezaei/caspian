@@ -43,7 +43,7 @@ function Content() {
         <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=1200&q=80" alt="Yerevan Armenia" className="w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         <div className="absolute bottom-4 start-4 flex items-center gap-2">
-          <img src="https://flagcdn.com/w80/am.png" alt="Armenia flag" className="h-6 rounded shadow" />
+          <img src="https://flagcdn.com/w80/am.webp" alt="Armenia flag" className="h-6 rounded shadow" />
           <span className="text-sm font-bold text-white drop-shadow">یروان، ارمنستان</span>
         </div>
       </div>

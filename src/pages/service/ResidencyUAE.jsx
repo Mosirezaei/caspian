@@ -18,7 +18,7 @@ function Content() {
         <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80" alt="Dubai UAE" className="w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         <div className="absolute bottom-4 start-4 flex items-center gap-2">
-          <img src="https://flagcdn.com/w80/ae.png" alt="UAE flag" className="h-6 rounded shadow" />
+          <img src="https://flagcdn.com/w80/ae.webp" alt="UAE flag" className="h-6 rounded shadow" />
           <span className="text-sm font-bold text-white drop-shadow">دبی، امارات</span>
         </div>
       </div>

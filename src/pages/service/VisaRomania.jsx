@@ -17,7 +17,7 @@ function Content() {
         <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=80" alt="Romania" className="w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         <div className="absolute bottom-4 start-4 flex items-center gap-2">
-          <img src="https://flagcdn.com/w80/ro.png" alt="Romania flag" className="h-6 rounded shadow" />
+          <img src="https://flagcdn.com/w80/ro.webp" alt="Romania flag" className="h-6 rounded shadow" />
           <span className="text-sm font-bold text-white drop-shadow">رومانی</span>
         </div>
       </div>

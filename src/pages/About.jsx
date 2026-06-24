@@ -193,7 +193,7 @@ function AboutContent() {
             </motion.span>
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
               className="flex items-center justify-center gap-3 mb-2">
-              <img src="/images/logo.png" alt="Caspian" className="h-10 sm:h-14 w-auto" />
+              <img src="/images/logo.webp" alt="Caspian" className="h-10 sm:h-14 w-auto" />
               <span className="text-3xl sm:text-5xl font-black gold-gradient-text">{c.heroTitle}</span>
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
@@ -229,7 +229,7 @@ function AboutContent() {
             </div>
           </div>
           <div className="relative rounded-3xl overflow-hidden aspect-[4/3]">
-            <img src="/images/about.png"
+            <img src="/images/about.webp"
               alt="Caspian Office" className="w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
             <div className="absolute bottom-4 start-4 glass-panel rounded-xl px-4 py-2 border border-primary/20">

@@ -17,7 +17,7 @@ function Content() {
         <img src="https://images.unsplash.com/photo-1513326738677-b964603b136d?w=1200&q=80" alt="Moscow Russia" className="w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
         <div className="absolute bottom-4 start-4 flex items-center gap-2">
-          <img src="https://flagcdn.com/w80/ru.png" alt="Russia flag" className="h-6 rounded shadow" />
+          <img src="https://flagcdn.com/w80/ru.webp" alt="Russia flag" className="h-6 rounded shadow" />
           <span className="text-sm font-bold text-white drop-shadow">مسکو، روسیه</span>
         </div>
       </div>
