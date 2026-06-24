@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="/manifest.json" />
 
+    <!-- Performance: Preload critical font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;900&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;900&display=swap" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;900&display=swap" /></noscript>
 
+    <!-- Performance: Preload hero image -->
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1609669712881-d9bc36df5ab3?w=1200&q=75&fm=webp" fetchpriority="high" />
 
+    <!-- PRIMARY SEO -->
     <title>کاسپین گروه ارمنستان | اقامت، بلیط، صرافی و ثبت شرکت در ایروان</title>
     <link rel="canonical" href="https://caspian.am/" />
     <meta name="description" content="کاسپین گروه ارمنستان؛ خدمات تخصصی خرید بلیط هواپیما، اقامت ارمنستان برای ایرانیان، صرافی ارز در ایروان, ثبت شرکت، ویزای شینگن و وقت سفارت با ۱۵ سال تجربه." />
@@ -22,23 +25,79 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow" />
 
+    <!-- Geo targeting -->
     <meta name="geo.region" content="AM-ER" />
     <meta name="geo.placename" content="Yerevan, Armenia" />
 
+    <!-- Open Graph (Social Sharing) -->
     <meta property="og:title" content="کاسپین گروه ارمنستان | بلیط، اقامت، ویزا، صرافی، ثبت شرکت" />
     <meta property="og:description" content="خرید بلیط هواپیما، اقامت ارمنستان، ویزای شینگن و رومانی، صرافی ارز، ثبت شرکت، وقت سفارت. بیش از ۱۵ سال تجربه در ایروان." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://caspian.am/" />
     <meta property="og:image" content="https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/a9cd0e3f8_d814a461-5e5c-421e-96fb-2f4eb5d965da_removalai_preview-4-43.png" />
+    <meta property="og:site_name" content="کاسپین گروه ارمنستان" />
 
-    <!-- Structured Data -->
+    <!-- ═══════════════════════════════════════════════════
+         STRUCTURED DATA — Schema.org JSON-LD (FULL VERSION)
+    ════════════════════════════════════════════════════════ -->
+    <!-- 1. LocalBusiness + Services -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": ["TravelAgency", "LocalBusiness", "ImmigrationService"],
       "name": "Caspian Business Group",
+      "alternateName": ["کاسپین گروه", "کاسپین گروه ارمنستان", "Caspian Group Armenia"],
       "url": "https://caspian.am",
-      "logo": "https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/a9cd0e3f8_d814a461-5e5c-421e-96fb-2f4eb5d965da_removalai_preview-4-43.png"
+      "logo": "https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/a9cd0e3f8_d814a461-5e5c-421e-96fb-2f4eb5d965da_removalai_preview-4-43.png",
+      "image": "https://media.base44.com/images/public/69ff28fc8133d94a3d4a5b95/a9cd0e3f8_d814a461-5e5c-421e-96fb-2f4eb5d965da_removalai_preview-4-43.png",
+      "telephone": "+37433149327",
+      "email": "info@caspian.am",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No 49, Komitas",
+        "addressLocality": "Yerevan",
+        "addressCountry": "AM"
+      },
+      "priceRange": "$$",
+      "currenciesAccepted": "USD, EUR, AMD, RUB",
+      "sameAs": [
+        "https://t.me/caspianbusinessgroup",
+        "https://www.instagram.com/caspiangroup.am"
+      ]
+    }
+    </script>
+
+    <!-- 2. FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "چطور از ارمنستان بلیط هواپیما بگیریم؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "کاسپین گروه ارمنستان با بیش از ۱۵ سال تجربه، رزرو بلیط هواپیما از فرودگاه زوارتنوتس ایروان به تمام مقاصد را انجام می‌دهد. تماس: ۰۰۳۷۴۳۳۱۴۹۳۲۷"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "اقامت ارمنستان چگونه است و چقدر طول می‌کشد؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "اقامت ارمنستان از طریق ثبت شرکت در کمتر از ۳۰ روز قابل دریافت است. هزینه پایین، مالیات ۱۰٪ و محیط امن از مزایای آن است."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "آیا می‌توان از ارمنستان ویزای شینگن گرفت؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "بله. ایروان نوبت‌های سریع‌تر و محیط آرام‌تری نسبت به تهران دارد. کاسپین گروه تمام مراحل اخذ ویزای شینگن را برای ایرانیان انجام می‌دهد."
+          }
+        }
+      ]
     }
     </script>
 
@@ -50,6 +109,8 @@
   <body style="background-color:#0a0a0a;margin:0;">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!--Start of Tawk.to Script-->
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
