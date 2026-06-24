@@ -10,25 +10,4 @@ export default defineConfig({
     },
   },
   plugins: [react()],
-  build: {
-    // استفاده از ابزار داخلی و فوق‌سریع esbuild به جای terser
-    minify: 'esbuild',
-    // تکنیک تقسیم کدها برای لود سریع‌تر صفحات به صورت جداگانه
-    rollupOptions: {
-      output: {
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js',
-        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            // تفکیک پکیج‌های سنگین از کدهای اصلی پروژه
-            if (id.includes('react')) return 'vendor-react';
-            if (id.includes('supabase')) return 'vendor-supabase';
-            return 'vendor-libs';
-          }
-        },
-      },
-    },
-    chunkSizeWarningLimit: 1000,
-  },
 })
