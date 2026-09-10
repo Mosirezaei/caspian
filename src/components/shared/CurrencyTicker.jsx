@@ -190,7 +190,7 @@ export default function CurrencyTicker() {
         )}
 
         {historyReady && history.length < 8 && <p className="text-[11px] text-foreground/35 text-center mt-4">{copy.historyPending}</p>}
-        <p className="text-xs text-foreground/40 mt-5 pt-4 border-t border-white/10 text-center leading-relaxed">{copy.note}</p>
+        <p className="text-sm font-semibold text-foreground/55 mt-5 pt-4 border-t border-white/10 text-center leading-relaxed">{copy.note}</p>
         <button onClick={openWhatsApp} className="mt-4 w-full py-3.5 px-6 bg-primary text-black font-black rounded-xl hover:bg-yellow-500 transition">{copy.button}</button>
       </div>
     </section>
