@@ -1,13 +1,16 @@
 'use client';
 import { useState, useEffect, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Search, Calendar, Music, Ticket, MapPin, Loader2, X, MessageCircle, ExternalLink } from 'lucide-react';
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import Link from 'next/link';
 import FestivalsCalendar from '@/components/festivals/FestivalsCalendar';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices';
+import DiscoLegendsBookingModal from '@/components/events/DiscoLegendsBookingModal';
 
 export default function EventsPage({ initialEvents = [] }) {
+  const searchParams = useSearchParams();
   // Seeded from the server component's own fetch (used for the page's
   // Event/ItemList schema) so there's no loading flash on first paint;
   // we still re-fetch client-side below to pick up anything that's
@@ -18,7 +21,8 @@ export default function EventsPage({ initialEvents = [] }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [activeTab, setActiveTab] = useState('festivals');
+  const [activeTab, setActiveTab] = useState(() => searchParams.get('tab') === 'concerts' ? 'concerts' : 'festivals');
+  const [discoBookingOpen, setDiscoBookingOpen] = useState(false);
 
   useEffect(() => {
     async function fetchEvents() {
@@ -112,8 +116,8 @@ export default function EventsPage({ initialEvents = [] }) {
         {/* Featured / Pinned Events — کاسپین این دو رویداد رو مستقیم مدیریت می‌کنه */}
         <div className="grid sm:grid-cols-2 gap-5 mb-10">
           {/* Disco Legends / Retro Stage */}
-          <Link href="/retro"
-            className="group relative rounded-2xl overflow-hidden border border-primary/25 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+          <button type="button" onClick={() => setDiscoBookingOpen(true)}
+            className="text-right group relative rounded-2xl overflow-hidden border border-primary/25 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
             <div className="relative h-56 overflow-hidden">
               <img src="/images/retrodesk.jpeg" alt="فستیوال Disco Legends" loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -129,7 +133,7 @@ export default function EventsPage({ initialEvents = [] }) {
                 <p className="text-sm font-bold text-primary mt-2">بلیط از ۴۰ دلار</p>
               </div>
             </div>
-          </Link>
+          </button>
 
           {/* Ebi Live in Yerevan */}
           <a href="https://wa.me/37433149327?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%85%DB%8C%E2%80%8C%D8%AE%D9%88%D8%A7%D9%85%20%D8%A8%D8%B1%D8%A7%DB%8C%20%DA%A9%D9%86%D8%B3%D8%B1%D8%AA%20%D8%A7%D8%A8%DB%8C%20%D8%AF%D8%B1%20%D8%A7%DB%8C%D8%B1%D9%88%D8%A7%D9%86%20(16%20%D8%B4%D9%87%D8%B1%DB%8C%D9%88%D8%B1)%20%D8%A8%D9%84%DB%8C%D8%B7%20%D8%A8%D8%AE%D8%B1%D9%85"
@@ -338,6 +342,7 @@ export default function EventsPage({ initialEvents = [] }) {
           </div>
         </div>
       )}
+      {discoBookingOpen && <DiscoLegendsBookingModal onClose={() => setDiscoBookingOpen(false)} />}
     </div>
   );
 }
