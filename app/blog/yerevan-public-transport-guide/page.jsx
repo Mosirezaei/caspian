@@ -1,8 +1,31 @@
-'use client';
-import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
-import PageSidebar from '@/components/shared/PageSidebar';
-import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import YerevanPublicTransportGuide from '@/views/blog/YerevanPublicTransportGuide';
+import JsonLd from '@/components/shared/JsonLd';
+import { articleSchema } from '@/lib/schema';
 
-export default function Article() {
-  return <div className="min-h-screen" dir="rtl"><GlobalNavbar /><main className="max-w-6xl mx-auto px-4 py-12 sm:py-20"><div className="grid grid-cols-1 lg:grid-cols-3 gap-8"><article className="lg:col-span-2"><span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">راهنمای ارمنستان</span><h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">حمل‌ونقل عمومی ایروان؛ مترو، اتوبوس، تاکسی و هزینه‌های رفت‌وآمد</h1><p className="text-foreground/60 mt-3 text-lg">راهنمای کاربردی استفاده از حمل‌ونقل عمومی ایروان برای مهاجران، دانشجویان و مسافران.</p><img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=640&q=70" alt="اتوبوس شهری برای حمل‌ونقل عمومی در ایروان" className="w-full h-64 sm:h-80 object-cover rounded-2xl my-8" loading="lazy" /><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">مترو ایروان برای چه مسیرهایی مناسب است?</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>مترو برای رفت‌وآمد سریع در مسیرهای اصلی شهر و کاهش زمان سفر در ساعات شلوغ کاربردی است. اگر محل اقامت یا محل کارتان نزدیک ایستگاه باشد، مترو می‌تواند انتخاب قابل پیش‌بینی‌تری نسبت به خودرو در ترافیک باشد.</p><p>پیش از انتخاب خانه، فاصله واقعی تا ایستگاه را پیاده بررسی کنید؛ فاصله روی نقشه همیشه شرایط شیب، خیابان‌های شلوغ و مسیر امن پیاده‌روی را نشان نمی‌دهد.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">اتوبوس و پرداخت کرایه</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>اتوبوس و مینی‌بوس بخش مهمی از شبکه حمل‌ونقل ایروان هستند و برای مسیرهایی که ایستگاه مترو ندارند کاربرد دارند. روش پرداخت و تعرفه ممکن است تغییر کند؛ بنابراین مبلغ و روش قابل قبول را از منابع رسمی یا راننده و دستگاه پرداخت همان زمان بررسی کنید.</p><p>برای سفرهای روزانه، مسیر و زمان حرکت را در نقشه‌های آنلاین بررسی کنید و برای روزهای اول زمان اضافه در نظر بگیرید.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">تاکسی اینترنتی و تاکسی خیابانی</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>پیش از سوار شدن، نام سرویس، پلاک خودرو، مقصد و مبلغ نمایش‌داده‌شده را بررسی کنید. استفاده از اپلیکیشن‌های معتبر معمولاً امکان مشاهده مسیر و ثبت سوابق سفر را فراهم می‌کند.</p><p>برای فرودگاه یا سفرهای طولانی، هزینه احتمالی توقف، عوارض و شرایط بار را از ابتدا مشخص کنید و از پرداخت مبلغی که با قیمت نمایش‌داده‌شده اختلاف دارد، بدون توضیح روشن خودداری کنید.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">چطور هزینه رفت‌وآمد را کنترل کنیم?</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>خانه‌ای که به مترو یا مسیر مستقیم اتوبوس نزدیک است ممکن است هزینه رفت‌وآمد ماهانه را کاهش دهد، حتی اگر اجاره آن کمی بیشتر باشد. هزینه رفت‌وآمد روزانه را در تعداد روزهای کاری ضرب کنید و سپس با اختلاف اجاره مقایسه کنید.</p><p>برای خانواده‌ها، تعداد سفرها، مدرسه یا محل کار هر نفر و نیاز به تاکسی در ساعات شب را جداگانه محاسبه کنید.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">نکات ایمنی برای مسافران و مهاجران</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>در سفرهای شبانه، محل سوار شدن و پیاده شدن را روشن و قابل شناسایی انتخاب کنید. اطلاعات رزرو یا سفر را برای همراه خود ارسال کنید و در صورت تغییر مسیر یا مبلغ، پیش از ادامه سفر سؤال کنید.</p><p>برای مسیرهای بین‌شهری، زمان حرکت، محل دقیق پایانه و شرایط بار را پیش از حرکت بررسی کنید؛ اطلاعات مسیرهای شهری را با سفرهای بین‌شهری یکسان فرض نکنید.</p></div></section><RelatedServices currentPath="/blog/yerevan-public-transport-guide" /></article><PageSidebar tags={['armenia','guide','business','life']} currentPath="/blog/yerevan-public-transport-guide" /></div></main></div>;
+export const metadata = {
+  title: 'حمل‌ونقل عمومی ایروان؛ مترو، اتوبوس، تاکسی و هزینه‌های رفت‌وآمد',
+  description: 'راهنمای کاربردی استفاده از حمل‌ونقل عمومی ایروان؛ مترو، اتوبوس و تاکسی برای مهاجران، دانشجویان و مسافران.',
+  alternates: { canonical: 'https://caspian.am/blog/yerevan-public-transport-guide' },
+  openGraph: {
+    title: 'حمل‌ونقل عمومی ایروان؛ مترو، اتوبوس، تاکسی و هزینه‌های رفت‌وآمد',
+    description: 'راهنمای کاربردی استفاده از حمل‌ونقل عمومی ایروان؛ مترو، اتوبوس و تاکسی برای مهاجران، دانشجویان و مسافران.',
+    url: 'https://caspian.am/blog/yerevan-public-transport-guide',
+    images: [{ url: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=640&q=70', width: 1200, height: 630 }],
+  },
+};
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={articleSchema({
+        headline: 'حمل‌ونقل عمومی ایروان؛ مترو، اتوبوس، تاکسی و هزینه‌های رفت‌وآمد',
+        description: 'راهنمای کاربردی استفاده از حمل‌ونقل عمومی ایروان؛ مترو، اتوبوس و تاکسی برای مهاجران، دانشجویان و مسافران.',
+        url: 'https://caspian.am/blog/yerevan-public-transport-guide',
+        datePublished: '2026-09-08',
+        dateModified: '2026-09-08',
+        image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=640&q=70',
+      })} />
+      <YerevanPublicTransportGuide />
+    </>
+  );
 }

@@ -1,8 +1,31 @@
-'use client';
-import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
-import PageSidebar from '@/components/shared/PageSidebar';
-import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import BankAccountArmeniaMigrantsGuide from '@/views/blog/BankAccountArmeniaMigrantsGuide';
+import JsonLd from '@/components/shared/JsonLd';
+import { articleSchema } from '@/lib/schema';
 
-export default function Article() {
-  return <div className="min-h-screen" dir="rtl"><GlobalNavbar /><main className="max-w-6xl mx-auto px-4 py-12 sm:py-20"><div className="grid grid-cols-1 lg:grid-cols-3 gap-8"><article className="lg:col-span-2"><span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">خدمات و زندگی در ارمنستان</span><h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">افتتاح حساب بانکی در ارمنستان برای مهاجران؛ مدارک و نکات KYC</h1><p className="text-foreground/60 mt-3 text-lg">راهنمای کاربردی آماده‌سازی مدارک و کاهش خطا در درخواست حساب بانکی برای مهاجران.</p><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&q=70" alt="کارت بانکی و گوشی همراه برای افتتاح حساب در ارمنستان" className="w-full h-64 sm:h-80 object-cover rounded-2xl my-8" loading="lazy" /><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">مدارک معمول موردنیاز</h2><p className="text-sm text-foreground/70 leading-7">بانک ممکن است پاسپورت، مدرک اقامت یا نشانی، شماره تلفن محلی، شماره مالیاتی و توضیح درباره شغل و منبع درآمد را درخواست کند. فهرست مدارک بین بانک‌ها و بر اساس وضعیت متقاضی متفاوت است.</p></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">KYC یعنی چه؟</h2><p className="text-sm text-foreground/70 leading-7">بانک درباره هویت، محل اقامت، شغل، مقصد تراکنش‌ها و منبع وجوه سؤال می‌کند. پاسخ دقیق و مدارک سازگار ارائه دهید و از اعلام اطلاعات حدسی یا ناقص خودداری کنید.</p></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">قبل از انتخاب بانک چه بپرسیم؟</h2><p className="text-sm text-foreground/70 leading-7">هزینه نگهداری حساب، کارمزد انتقال، امکان دریافت کارت، خدمات آنلاین، ارزهای قابل نگهداری و مدارک لازم برای اتباع خارجی را مستقیماً از شعبه یا وب‌سایت رسمی بانک بررسی کنید. افتتاح حساب تضمین‌شده نیست و تصمیم نهایی با بانک است.</p></section><RelatedServices currentPath="/blog/bank-account-armenia-migrants-guide" /></article><PageSidebar tags={['armenia','life','residency','property']} currentPath="/blog/bank-account-armenia-migrants-guide" /></div></main></div>;
+export const metadata = {
+  title: 'افتتاح حساب بانکی در ارمنستان برای مهاجران؛ مدارک و نکات KYC',
+  description: 'راهنمای کاربردی آماده‌سازی مدارک و کاهش خطا در درخواست حساب بانکی برای مهاجران در ارمنستان.',
+  alternates: { canonical: 'https://caspian.am/blog/bank-account-armenia-migrants-guide' },
+  openGraph: {
+    title: 'افتتاح حساب بانکی در ارمنستان برای مهاجران؛ مدارک و نکات KYC',
+    description: 'راهنمای کاربردی آماده‌سازی مدارک و کاهش خطا در درخواست حساب بانکی برای مهاجران در ارمنستان.',
+    url: 'https://caspian.am/blog/bank-account-armenia-migrants-guide',
+    images: [{ url: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&q=70', width: 1200, height: 630 }],
+  },
+};
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={articleSchema({
+        headline: 'افتتاح حساب بانکی در ارمنستان برای مهاجران؛ مدارک و نکات KYC',
+        description: 'راهنمای کاربردی آماده‌سازی مدارک و کاهش خطا در درخواست حساب بانکی برای مهاجران در ارمنستان.',
+        url: 'https://caspian.am/blog/bank-account-armenia-migrants-guide',
+        datePublished: '2026-09-08',
+        dateModified: '2026-09-08',
+        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&q=70',
+      })} />
+      <BankAccountArmeniaMigrantsGuide />
+    </>
+  );
 }

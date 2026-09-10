@@ -1,8 +1,31 @@
-'use client';
-import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
-import PageSidebar from '@/components/shared/PageSidebar';
-import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import HealthInsuranceArmeniaMigrants from '@/views/blog/HealthInsuranceArmeniaMigrants';
+import JsonLd from '@/components/shared/JsonLd';
+import { articleSchema } from '@/lib/schema';
 
-export default function Article() {
-  return <div className="min-h-screen" dir="rtl"><GlobalNavbar /><main className="max-w-6xl mx-auto px-4 py-12 sm:py-20"><div className="grid grid-cols-1 lg:grid-cols-3 gap-8"><article className="lg:col-span-2"><span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">راهنمای ارمنستان</span><h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">بیمه درمانی در ارمنستان برای مهاجران؛ انتخاب پوشش و نکات قرارداد</h1><p className="text-foreground/60 mt-3 text-lg">راهنمای بررسی بیمه درمانی خصوصی برای مهاجران، دانشجویان و خانواده‌هایی که در ارمنستان زندگی می‌کنند.</p><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=640&q=70" alt="مشاوره بیمه درمانی برای مهاجران در ارمنستان" className="w-full h-64 sm:h-80 object-cover rounded-2xl my-8" loading="lazy" /><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">چرا بیمه درمانی را باید دقیق انتخاب کرد?</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>هزینه و کیفیت خدمات درمانی به نوع مرکز، پزشک، آزمایش، دارو و فوریت درمان بستگی دارد. بیمه مناسب باید با محل زندگی، سن اعضای خانواده، سابقه پزشکی و نیازهای واقعی شما هماهنگ باشد؛ ارزان‌ترین طرح همیشه مناسب‌ترین گزینه نیست.</p><p>پیش از خرید، فهرست مراکز طرف قرارداد و روش دریافت خدمات را بررسی کنید. بعضی طرح‌ها نیازمند معرفی‌نامه یا تأیید قبلی شرکت بیمه هستند.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">پوشش‌های مهمی که باید بررسی شوند</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>ویزیت پزشک عمومی و متخصص، آزمایش و تصویربرداری، بستری، خدمات اورژانسی، آمبولانس، دارو، دندان‌پزشکی و مراقبت‌های بارداری ممکن است شرایط متفاوتی داشته باشند. برای هر مورد، سقف تعهدات، فرانشیز و دوره انتظار را بخوانید.</p><p>اگر بیمه برای پرونده اقامت یا دانشگاه لازم است، قالب گواهی، مدت اعتبار و حداقل پوشش مورد قبول مرجع مربوط را پیش از خرید تأیید کنید.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">استثناها و دوره انتظار</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>بیماری‌های قبلی، درمان‌های زیبایی، برخی داروها، خدمات دندان‌پزشکی و بارداری ممکن است از ابتدا پوشش نداشته باشند یا دوره انتظار داشته باشند. این موارد باید در متن قرارداد یا جدول پوشش‌ها روشن باشد.</p><p>اظهار اطلاعات پزشکی نادرست می‌تواند هنگام درخواست خسارت مشکل ایجاد کند. فرم سلامت را دقیق و مطابق مدارک پزشکی تکمیل کنید.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">برای خانواده و دانشجو چه نکاتی مهم است?</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>برای خانواده‌ها، واکسن، کودکان، متخصص اطفال و سقف هزینه بستری را بررسی کنید. دانشجویان باید فاصله مرکز درمانی تا محل اقامت، زبان خدمات و امکان دریافت گواهی انگلیسی یا ارمنی را در نظر بگیرند.</p><p>شماره تماس شبانه‌روزی، اپلیکیشن یا سامانه ثبت درخواست و زمان پاسخ‌گویی شرکت بیمه را پیش از خرید امتحان کنید.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">پیش از امضا چه مدارکی بگیریم?</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>نسخه قرارداد، جدول پوشش‌ها، فهرست استثناها، شماره بیمه‌نامه، رسید پرداخت و شماره تماس پشتیبانی را دریافت کنید. تاریخ شروع بیمه را با زمان ورود و نیاز واقعی خود هماهنگ کنید و هر تغییر یا تمدید را کتبی نگه دارید.</p></div></section><RelatedServices currentPath="/blog/health-insurance-armenia-migrants" /></article><PageSidebar tags={['armenia','guide','travel','life']} currentPath="/blog/health-insurance-armenia-migrants" /></div></main></div>;
+export const metadata = {
+  title: 'بیمه درمانی در ارمنستان برای مهاجران؛ انتخاب پوشش و نکات قرارداد',
+  description: 'راهنمای بررسی بیمه درمانی خصوصی برای مهاجران، دانشجویان و خانواده‌هایی که در ارمنستان زندگی می‌کنند.',
+  alternates: { canonical: 'https://caspian.am/blog/health-insurance-armenia-migrants' },
+  openGraph: {
+    title: 'بیمه درمانی در ارمنستان برای مهاجران؛ انتخاب پوشش و نکات قرارداد',
+    description: 'راهنمای بررسی بیمه درمانی خصوصی برای مهاجران، دانشجویان و خانواده‌هایی که در ارمنستان زندگی می‌کنند.',
+    url: 'https://caspian.am/blog/health-insurance-armenia-migrants',
+    images: [{ url: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=640&q=70', width: 1200, height: 630 }],
+  },
+};
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={articleSchema({
+        headline: 'بیمه درمانی در ارمنستان برای مهاجران؛ انتخاب پوشش و نکات قرارداد',
+        description: 'راهنمای بررسی بیمه درمانی خصوصی برای مهاجران، دانشجویان و خانواده‌هایی که در ارمنستان زندگی می‌کنند.',
+        url: 'https://caspian.am/blog/health-insurance-armenia-migrants',
+        datePublished: '2026-09-08',
+        dateModified: '2026-09-08',
+        image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=640&q=70',
+      })} />
+      <HealthInsuranceArmeniaMigrants />
+    </>
+  );
 }

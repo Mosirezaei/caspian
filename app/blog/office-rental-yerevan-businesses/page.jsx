@@ -1,8 +1,31 @@
-'use client';
-import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
-import PageSidebar from '@/components/shared/PageSidebar';
-import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import OfficeRentalYerevanBusinesses from '@/views/blog/OfficeRentalYerevanBusinesses';
+import JsonLd from '@/components/shared/JsonLd';
+import { articleSchema } from '@/lib/schema';
 
-export default function Article() {
-  return <div className="min-h-screen" dir="rtl"><GlobalNavbar /><main className="max-w-6xl mx-auto px-4 py-12 sm:py-20"><div className="grid grid-cols-1 lg:grid-cols-3 gap-8"><article className="lg:col-span-2"><span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">راهنمای ارمنستان</span><h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">اجاره دفتر کار در ایروان برای شرکت‌ها؛ محله‌ها، قرارداد و هزینه‌های جانبی</h1><p className="text-foreground/60 mt-3 text-lg">راهنمای انتخاب دفتر مناسب برای شرکت‌های تازه‌تأسیس، تیم‌های کوچک و کسب‌وکارهای بین‌المللی در ایروان.</p><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=640&q=70" alt="دفتر کار مدرن مناسب شرکت در ایروان" className="w-full h-64 sm:h-80 object-cover rounded-2xl my-8" loading="lazy" /><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">چه زمانی اجاره دفتر ضروری است?</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>برای برخی شرکت‌ها، دفتر فقط محل کار نیست؛ بلکه برای جلسات مشتری، نگهداری اسناد، استخدام نیرو و ایجاد نشانی تجاری استفاده می‌شود. پیش از جست‌وجو مشخص کنید دفتر برای کار روزانه، آدرس ثبتی، جلسات یا ترکیبی از این موارد لازم است.</p><p>تعداد کارکنان، ساعات فعالیت، نیاز به اتاق جلسه، اینترنت پایدار، پارکینگ و دسترسی به حمل‌ونقل عمومی، معیارهای اصلی انتخاب هستند.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">محله‌های مناسب ایروان برای دفتر</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>مرکز شهر و محدوده کنترون معمولاً برای جلسات و دسترسی مشتریان مناسب‌تر است. عربکیر برای شرکت‌هایی که فضای آرام‌تر و دسترسی مناسب می‌خواهند گزینه قابل بررسی است. محله‌های خارج از مرکز ممکن است فضای بزرگ‌تری با هزینه پایین‌تر ارائه دهند، اما زمان رفت‌وآمد و دسترسی مشتری را باید محاسبه کرد.</p><p>به‌جای انتخاب صرفاً بر اساس نام محله، مسیر رفت‌وآمد کارکنان و فاصله تا بانک، اداره‌ها و مراکز خدماتی را روی نقشه بررسی کنید.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">بندهای مهم قرارداد دفتر</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>نشانی دقیق، متراژ، مدت قرارداد، مبلغ اجاره، ودیعه، زمان پرداخت، مسئولیت تعمیرات، قبوض، شارژ ساختمان و شرایط فسخ باید صریحاً نوشته شود.</p><p>اگر دفتر برای ثبت یا مکاتبات شرکت استفاده می‌شود، اجازه استفاده از نشانی تجاری و نحوه دریافت نامه‌ها را نیز در قرارداد مشخص کنید. صورت‌جلسه تحویل و فهرست تجهیزات را به قرارداد پیوست کنید.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">هزینه‌هایی که نباید فراموش شوند</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>علاوه بر اجاره، هزینه اینترنت، برق، گرمایش یا سرمایش، شارژ ساختمان، نظافت، مبلمان، تابلو، ودیعه و احتمالاً کمیسیون واسطه را در بودجه قرار دهید.</p><p>قبل از امضا، بپرسید کدام هزینه‌ها ثابت و کدام‌یک وابسته به مصرف هستند و آیا مبلغ اجاره در دوره تمدید تغییر خواهد کرد.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">چک‌لیست بازدید دفتر</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>سرعت و پایداری اینترنت، وضعیت برق و گرمایش، نور طبیعی، عایق صدا، آسانسور، سرویس بهداشتی، امنیت ورودی، ساعت دسترسی و امکان نصب تابلو را بررسی کنید.</p><p>از کنتورها، تجهیزات و آسیب‌های موجود عکس بگیرید و هر ایراد را پیش از تحویل در صورت‌جلسه ثبت کنید.</p></div></section><RelatedServices currentPath="/blog/office-rental-yerevan-businesses" /></article><PageSidebar tags={['armenia','guide','business','life']} currentPath="/blog/office-rental-yerevan-businesses" /></div></main></div>;
+export const metadata = {
+  title: 'اجاره دفتر کار در ایروان برای شرکت‌ها؛ محله‌ها، قرارداد و هزینه‌های جانبی',
+  description: 'راهنمای انتخاب دفتر مناسب برای شرکت‌های تازه‌تأسیس، تیم‌های کوچک و کسب‌وکارهای بین‌المللی در ایروان.',
+  alternates: { canonical: 'https://caspian.am/blog/office-rental-yerevan-businesses' },
+  openGraph: {
+    title: 'اجاره دفتر کار در ایروان برای شرکت‌ها؛ محله‌ها، قرارداد و هزینه‌های جانبی',
+    description: 'راهنمای اشترانت دفتر مناسب برای شرکت‌های تازه‌تأسیس، تیم‌های کوچک و کسب‌وکارهای بین‌المللی در ایروان.',
+    url: 'https://caspian.am/blog/office-rental-yerevan-businesses',
+    images: [{ url: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=640&q=70', width: 1200, height: 630 }],
+  },
+};
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={articleSchema({
+        headline: 'اجاره دفتر کار در ایروان برای شرکت‌ها؛ محله‌ها، قرارداد و هزینه‌های جانبی',
+        description: 'راهنمای انتخاب دفتر مناسب برای شرکت‌ها؛ محله‌ها، قرارداد و هزینه‌های جانبی',
+        url: 'https://caspian.am/blog/office-rental-yerevan-businesses',
+        datePublished: '2026-09-08',
+        dateModified: '2026-09-08',
+        image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=640&q=70',
+      })} />
+      <OfficeRentalYerevanBusinesses />
+    </>
+  );
 }

@@ -1,8 +1,31 @@
-'use client';
-import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
-import PageSidebar from '@/components/shared/PageSidebar';
-import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import RentCarArmeniaGuide from '@/views/blog/RentCarArmeniaGuide';
+import JsonLd from '@/components/shared/JsonLd';
+import { articleSchema } from '@/lib/schema';
 
-export default function Article() {
-  return <div className="min-h-screen" dir="rtl"><GlobalNavbar /><main className="max-w-6xl mx-auto px-4 py-12 sm:py-20"><div className="grid grid-cols-1 lg:grid-cols-3 gap-8"><article className="lg:col-span-2"><span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">راهنمای ارمنستان</span><h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">اجاره خودرو در ارمنستان؛ مدارک، بیمه، هزینه و نکات رانندگی</h1><p className="text-foreground/60 mt-3 text-lg">راهنمای انتخاب خودرو و بررسی قرارداد اجاره برای سفرهای شهری و بین‌شهری در ارمنستان.</p><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=640&q=70" alt="خودروی اجاره‌ای برای سفر در ارمنستان" className="w-full h-64 sm:h-80 object-cover rounded-2xl my-8" loading="lazy" /><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">اجاره خودرو برای چه سفری مناسب است?</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>برای بازدید از چند شهر، سفر به مناطق کوهستانی یا برنامه‌ای که زمان‌بندی منعطف دارد، اجاره خودرو می‌تواند رفت‌وآمد را ساده‌تر کند. برای سفرهای کاملاً شهری، هزینه پارکینگ، ترافیک و مسیرها را با تاکسی و حمل‌ونقل عمومی مقایسه کنید.</p><p>پیش از رزرو، تعداد سرنشینان، حجم چمدان، نوع جاده و فصل سفر را مشخص کنید. خودرو کوچک برای مرکز شهر مناسب‌تر است، اما برای مسیرهای طولانی و بار زیاد باید فضای کافی داشته باشد.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">مدارک و شرایط معمول</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>شرکت اجاره‌دهنده معمولاً پاسپورت، گواهینامه معتبر و اطلاعات پرداخت را بررسی می‌کند. درباره پذیرش گواهینامه بین‌المللی، حداقل سن، سابقه رانندگی و امکان رانندگی با گواهینامه کشور مبدأ، پیش از پرداخت از شرکت رسمی سؤال کنید.</p><p>نام راننده یا رانندگان مجاز باید در قرارداد درج شود. سپردن خودرو به فردی که در قرارداد ثبت نشده می‌تواند مسئولیت و پوشش بیمه را تحت تأثیر قرار دهد.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">قرارداد و بیمه را دقیق بخوانید</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>مبلغ اجاره، ودیعه، سقف مسافت، هزینه تحویل در فرودگاه، سوخت، تأخیر، راننده اضافی و شرایط لغو را مکتوب بررسی کنید. مشخص کنید خودرو با باک پر تحویل می‌شود یا باک باید در همان سطح برگردانده شود.</p><p>پوشش بیمه، مبلغ فرانشیز، خسارت شیشه و لاستیک، سرقت و کمک جاده‌ای را از شرکت بپرسید. عکس و ویدئو از بدنه، شیشه‌ها، لاستیک‌ها و داخل خودرو هنگام تحویل تهیه کنید.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">رانندگی در جاده‌های ارمنستان</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>پیش از خروج از ایروان، مسیر، وضعیت آب‌وهوا و جایگاه‌های سوخت را بررسی کنید. در جاده‌های کوهستانی سرعت ایمن، فاصله طولی و توجه به پیچ‌ها اهمیت بیشتری دارد و نباید زمان اعلام‌شده نقشه را زمان قطعی سفر در نظر گرفت.</p><p>مدارک خودرو، شماره تماس امداد و روش اعلام حادثه را همراه داشته باشید. در صورت تصادف یا خرابی، محل خودرو را ترک نکنید و ابتدا با شرکت اجاره‌دهنده و مراجع مربوط تماس بگیرید.</p></div></section><section className="glass-panel rounded-2xl p-6 mb-6"><h2 className="text-xl font-black text-primary mb-3">چک‌لیست تحویل خودرو</h2><div className="text-sm text-foreground/70 leading-7 space-y-3"><p>تصویر کیلومترشمار، سطح سوخت، چراغ‌های هشدار، زاپاس یا کیت پنچرگیری، جک، مثلث هشدار و مدارک خودرو را بررسی کنید. هر خط‌وخش یا نقص را در فرم تحویل بنویسید و نسخه قرارداد و رسید ودیعه را نگه دارید.</p></div></section><RelatedServices currentPath="/blog/rent-car-armenia-guide" /></article><PageSidebar tags={['armenia','guide','travel','life']} currentPath="/blog/rent-car-armenia-guide" /></div></main></div>;
+export const metadata = {
+  title: 'اجاره خودرو در ارمنستان؛ مدارک، بیمه، هزینه و نکات رانندگی',
+  description: 'راهنمای انتخاب خودرو و بررسی قرارداد اجاره برای سفرهای شهری و بین‌شهری در ارمنستان.',
+  alternates: { canonical: 'https://caspian.am/blog/rent-car-armenia-guide' },
+  openGraph: {
+    title: 'اجاره خودرو در ارمنستان؛ مدارک، بیمه، هزینه و نکات رانندگی',
+    description: 'راهنمای انتخاب خودرو و بررسی قرارداد اجاره برای سفرهای شهری و بین‌شهری در ارمنستان.',
+    url: 'https://caspian.am/blog/rent-car-armenia-guide',
+    images: [{ url: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=640&q=70', width: 1200, height: 630 }],
+  },
+};
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={articleSchema({
+        headline: 'اجاره خودرو در ارمنستان؛ مدارک، بیمه، هزینه و نکات رانندگی',
+        description: 'راهنمای اشترانت خودرو و بررسی قرارداد اجاره برای سفرهای شهری و بین‌شهری در ارمنستان.',
+        url: 'https://caspian.am/blog/rent-car-armenia-guide',
+        datePublished: '2026-09-08',
+        dateModified: '2026-09-08',
+        image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=640&q=70',
+      })} />
+      <RentCarArmeniaGuide />
+    </>
+  );
 }
