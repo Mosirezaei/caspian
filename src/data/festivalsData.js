@@ -15,7 +15,7 @@ export const FESTIVAL_MONTHS = [
 ];
 
 // image: null یعنی هنوز عکس آزاد تأییدشده براش پیدا نشده (نیاز به منبع از کاربر)
-export const FESTIVALS = [
+const FESTIVAL_DATA = [
   { id: 'new-year', month: 1, star: 4, nameFa: 'سال نو ارمنستان', nameEn: 'New Year', date: '۳۱ دسامبر تا اوایل ژانویه', location: 'سراسر ارمنستان، به‌خصوص ایروان',
     desc: 'یکی از طولانی‌ترین دوره‌های جشن در ارمنستان. میدان جمهوری و خیابان‌های مرکزی ایروان با چراغ‌ها، درخت‌های کریسمس و بازارهای فصلی تزئین می‌شوند. مناسب برای خانواده‌ها و گردشگران زمستانی.', image: { url: '/images/festivals/new-year-republic-square.webp', credit: 'کاسپین گروپ' } },
   { id: 'christmas', month: 1, star: 5, nameFa: 'کریسمس ارمنی و عید ظهور', nameEn: 'Armenian Christmas', date: '۶ ژانویه (ثابت)', location: 'سراسر ارمنستان، مراسم اصلی در اچمیادزین',
@@ -94,3 +94,48 @@ export const FESTIVALS = [
   { id: 'christmas-newyear-events', month: 12, star: 4, nameFa: 'برنامه‌های کریسمس و سال نو', nameEn: 'Christmas & New Year Events', date: 'اواسط دسامبر تا ۶ ژانویه', location: 'ایروان و شهرهای مختلف',
     desc: 'از اواسط دسامبر، ایروان وارد فضای سال نو می‌شود؛ میدان جمهوری، خیابان‌های مرکزی، بازارهای کریسمس و کنسرت‌ها. شهرداری ایروان برنامه‌های ۲۰۲۶ را از ۱۳ دسامبر به بعد در تقویم خود قرار داده است.', image: null },
 ];
+
+// همه‌ی تصاویر با نسبت 16:9 از منبع آزاد استفاده می‌شوند تا کارت‌ها در موبایل
+// و دسکتاپ یک‌اندازه و بدون فضای خالی نمایش داده شوند. تصاویر Wikimedia Commons
+// با مجوز Creative Commons و تصاویر Unsplash تحت مجوز Unsplash هستند.
+const UNSPLASH = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&h=900&q=85`;
+const IMAGE_OVERRIDES = {
+  'new-year': { url: UNSPLASH('photo-1512389142860-9c449e58a543'), alt: 'چراغ‌ها و فضای جشن سال نو', credit: 'Unsplash License' },
+  'christmas': { url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mother%20Cathedral%20of%20Holy%20Etchmiadzin.JPG', alt: 'کلیسای جامع اچمیادزین در ارمنستان', credit: 'Edooart / Wikimedia Commons, CC BY-SA 3.0' },
+  'post-christmas': { url: UNSPLASH('photo-1545608444-f045a6db6133'), alt: 'فضای زمستانی و جشن سال نو', credit: 'Unsplash License' },
+  'trndez': { url: UNSPLASH('photo-1476673160081-cf065607f449'), alt: 'آتش جشن ترندز', credit: 'Unsplash License' },
+  'amasia-winter': { url: UNSPLASH('photo-1483347756197-71ef80e95f73'), alt: 'منظره برفی زمستانی ارمنستان', credit: 'Unsplash License' },
+  'womens-day': { url: UNSPLASH('photo-1490750967868-88aa4486c946'), alt: 'گل‌های بهاری برای روز زن', credit: 'Unsplash License' },
+  'easter': { url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Etchmiadzin%20cathedral.jpg', alt: 'کلیسای جامع اچمیادزین در عید پاک ارمنی', credit: 'Wikimedia Commons, CC BY 3.0' },
+  'jazz-day': { url: UNSPLASH('photo-1511192336575-5a79af67a629'), alt: 'اجرای موسیقی جاز', credit: 'Unsplash License' },
+  'tolma-fest': { url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Dolma%20Festival%2C%20Musa%20Ler%20%282%29.JPG', alt: 'غذای سنتی تولما در جشنواره ارمنستان', credit: 'Wikimedia Commons' },
+  'meghri-crafts': { url: UNSPLASH('photo-1452860606245-08befc0ff44b'), alt: 'صنایع‌دستی سنتی', credit: 'Unsplash License' },
+  'zatik-wine': { url: UNSPLASH('photo-1510812431401-41d2bd2722f3'), alt: 'شراب و پذیرایی جشنواره‌ای', credit: 'Unsplash License' },
+  'wine-days': { url: UNSPLASH('photo-1510812431401-41d2bd2722f3'), alt: 'جشنواره شراب در ایروان', credit: 'Unsplash License' },
+  'sheep-shearing': { url: UNSPLASH('photo-1508112304775-4f32d35ccdba'), alt: 'گوسفند در طبیعت', credit: 'Unsplash License' },
+  'haybuis': { url: UNSPLASH('photo-1497250681960-ef046c08a56e'), alt: 'گیاهان و گل‌های سبز', credit: 'Unsplash License' },
+  'color-fest': { url: UNSPLASH('photo-1531058020387-3be344556be6'), alt: 'پودرهای رنگی جشنواره رنگ', credit: 'Unsplash License' },
+  'vardavar': { url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Armenian%20folk%20dance%20during%20%22Vardavar%22.jpg', alt: 'مراسم وارداوار در گارنی ارمنستان', credit: 'TonJ / Wikimedia Commons, CC BY-SA 4.0' },
+  'golden-apricot': { url: UNSPLASH('photo-1485846234645-a62644f84728'), alt: 'سینما و جشنواره فیلم', credit: 'Unsplash License' },
+  'beer-days': { url: UNSPLASH('photo-1510812431401-41d2bd2722f3'), alt: 'نوشیدنی و فضای جشنواره', credit: 'Unsplash License' },
+  'honey-fest': { url: UNSPLASH('photo-1587049352846-4a222e784d38'), alt: 'عسل طبیعی', credit: 'Unsplash License' },
+  'taraz-fest': { url: UNSPLASH('photo-1483985988355-763728e1935b'), alt: 'پوشاک و پارچه سنتی', credit: 'Unsplash License' },
+  'dilijan-crafts': { url: UNSPLASH('photo-1452860606245-08befc0ff44b'), alt: 'هنر و صنایع‌دستی', credit: 'Unsplash License' },
+  'barbecue-akhtala': { url: UNSPLASH('photo-1544025162-d76694265947'), alt: 'کباب و غذای گریل‌شده', credit: 'Unsplash License' },
+  'gata-fest': { url: UNSPLASH('photo-1509440159596-0249088772ff'), alt: 'شیرینی و نان سنتی گاتا', credit: 'Unsplash License' },
+  'book-fest': { url: UNSPLASH('photo-1524995997946-a1c2e315a42f'), alt: 'کتاب و رویداد فرهنگی', credit: 'Unsplash License' },
+  'independence-day': { url: UNSPLASH('photo-1521292270410-a8c4d716d518'), alt: 'پرچم ارمنستان', credit: 'Unsplash License' },
+  'rural-life': { url: UNSPLASH('photo-1464226184884-fa280b87c399'), alt: 'زندگی روستایی و محصولات محلی', credit: 'Unsplash License' },
+  'areni-wine': { url: UNSPLASH('photo-1510812431401-41d2bd2722f3'), alt: 'شراب‌سازی در ارمنستان', credit: 'Unsplash License' },
+  'high-fest': { url: UNSPLASH('photo-1503095396549-807759245b35'), alt: 'اجرای تئاتر و هنرهای نمایشی', credit: 'Unsplash License' },
+  'balloon-fest': { url: UNSPLASH('photo-1478373715787-05c1c7e6a5a8'), alt: 'بالن‌های هوای گرم در آسمان', credit: 'Unsplash License' },
+  'marathon': { url: UNSPLASH('photo-1552674605-db6ffd4facb5'), alt: 'مسابقه دو و ماراتن', credit: 'Unsplash License' },
+  'erebuni-yerevan': { url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Erebuni%20museum%2C%20Yerevan%2C%20Armenia%201257a.jpg', alt: 'موزه و محوطه اربونی در ایروان', credit: 'Wikimedia Commons' },
+  'indoor-arts': { url: UNSPLASH('photo-1503095396549-807759245b35'), alt: 'تئاتر و رویداد فرهنگی', credit: 'Unsplash License' },
+  'christmas-newyear-events': { url: UNSPLASH('photo-1512389142860-9c449e58a543'), alt: 'جشن‌های کریسمس و سال نو', credit: 'Unsplash License' },
+};
+
+export const FESTIVALS = FESTIVAL_DATA.map((festival) => ({
+  ...festival,
+  image: IMAGE_OVERRIDES[festival.id] || festival.image,
+}));
