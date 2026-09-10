@@ -4,11 +4,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 
 import { FAQ_DATA } from '@/data/faqData';
+import { useLang } from '@/lib/LanguageContext';
 
 // ── COMPONENT ─────────────────────────────────────────────────────────────────
 export default function StaticFAQ({ serviceType }) {
+  const { lang } = useLang();
   const [active, setActive] = useState(null);
-  const faqs = FAQ_DATA[serviceType] || [];
+  const data = FAQ_DATA[serviceType] || [];
+  const faqs = Array.isArray(data) ? data : (data[lang] || data.fa || []);
+  const title = { fa: 'پرسش‌های متداول', en: 'Frequently Asked Questions', ru: 'Часто задаваемые вопросы' }[lang] || 'Frequently Asked Questions';
 
   if (faqs.length === 0) return null;
 
@@ -16,7 +20,7 @@ export default function StaticFAQ({ serviceType }) {
     <div className="mt-12">
       <div className="flex items-center gap-2 mb-6">
         <HelpCircle className="w-5 h-5 text-primary" />
-        <h2 className="text-xl font-bold text-foreground">سوالات متداول</h2>
+        <h2 className="text-xl font-bold text-foreground">{title}</h2>
       </div>
       <div className="glass-panel rounded-2xl border border-white/10 overflow-hidden">
         {faqs.map((faq, i) => (
