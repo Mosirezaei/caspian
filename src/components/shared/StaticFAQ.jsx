@@ -17,7 +17,7 @@ export default function StaticFAQ({ serviceType }) {
   if (faqs.length === 0) return null;
 
   return (
-    <div className="mt-12">
+    <div className="mt-12" data-faq-anchor>
       <div className="flex items-center gap-2 mb-6">
         <HelpCircle className="w-5 h-5 text-primary" />
         <h2 className="text-xl font-bold text-foreground">{title}</h2>
