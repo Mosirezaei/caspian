@@ -101,7 +101,7 @@ export default function FestivalsCalendar({ idPrefix = '' }) {
             {visibleFestivals.map((f) => (
               <div key={f.id} id={`${idPrefix}festival-${f.id}`} className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden scroll-mt-24 transition-shadow">
                 {f.image && (
-                  <img src={f.image.url} alt={f.image.alt || `${f.nameFa} — جشن ${f.nameEn} در ارمنستان`} title={f.image.alt || f.nameEn} loading="lazy" className="w-full h-44 object-contain bg-black/20" />
+                  <img src={f.image.url} alt={f.image.alt || `${f.nameFa} — جشن ${f.nameEn} در ارمنستان`} title={f.image.alt || f.nameEn} loading="lazy" className="w-full aspect-video object-cover bg-black/20" />
                 )}
                 <div className="p-4">
                   <div className="flex flex-wrap items-center gap-2 mb-1.5">
