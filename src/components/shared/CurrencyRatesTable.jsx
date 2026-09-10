@@ -3,13 +3,9 @@ import { useEffect, useState } from 'react';
 import { useLang } from '@/lib/LanguageContext';
 import { supabase } from '@/api/supabaseClient';
 
-// The exact set and order of currencies the user wants shown, matching
-// alanchand.com's own site (not just the compact 4-currency ticker).
-// Symbols must match alanchand's `slug` field exactly.
-const ORDER = [
-  'usd', 'usd-ist', 'eur', 'aed', 'try', 'gbp', 'cny', 'cad', 'aud', 'rub',
-  'iqd', 'myr', 'gel', 'azn', 'amd', 'thb', 'omr', 'inr', 'jpy', 'afn',
-];
+// The four reference currencies displayed on Caspian's exchange page.
+// Symbols match the rate source's slug field exactly.
+const ORDER = ['usd', 'eur', 'gbp', 'amd'];
 
 const HEADERS = {
   fa: { name: 'نام ارز', buy: 'خرید', sell: 'فروش', usdRate: 'نرخ به دلار', toman: 'تومان' },
@@ -18,7 +14,7 @@ const HEADERS = {
 };
 
 const DISCLAIMER = {
-  fa: 'برای استعلام لحظه‌ای و نرخ حواله ارز از همکاران ما استعلام بگیرید.',
+  fa: 'نرخ‌های نمایش‌داده‌شده مرجع بازار آزاد ایران هستند. برای نرخ نهایی و سایر ارزها، پیش از ثبت درخواست در واتساپ استعلام بگیرید.',
   en: 'For real-time quotes and money-transfer rates, please check with our partners.',
   ru: 'Для получения актуального курса и условий денежного перевода уточняйте у наших партнёров.',
 };
@@ -131,7 +127,7 @@ export default function CurrencyRatesTable() {
       <div className="glass-panel rounded-2xl p-5 border border-primary/20 overflow-x-auto">
         <div className="flex items-center justify-between mb-1">
           <span className="text-sm font-bold text-primary">
-            {lang === 'fa' ? 'جدول کامل نرخ ارز' : lang === 'ru' ? 'Полный курс валют' : 'Full Exchange Rate Table'}
+            {lang === 'fa' ? 'نرخ چهار ارز اصلی' : lang === 'ru' ? 'Курсы четырёх основных валют' : 'Four Main Currency Rates'}
           </span>
           <span className="flex items-center gap-1.5 text-xs font-bold gold-gradient-text">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
