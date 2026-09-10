@@ -3,102 +3,20 @@ import { useLang } from '@/lib/LanguageContext';
 import { ServicePageLayout, InfoBlock, CheckList } from '@/components/shared/ServicePageLayout';
 import CurrencyTicker from '@/components/shared/CurrencyTicker';
 
-const services = [
-  ['💶', 'پرداخت نقدی', 'هماهنگی تحویل نقدی دلار، یورو، پوند یا درام در ایروان، پس از تأیید درخواست.'],
-  ['🏦', 'واریز حسابی', 'هماهنگی پرداخت به حساب‌های شخصی یا شرکتی با ثبت جزئیات و رسید مرحلهٔ پرداخت.'],
-  ['📥', 'دریافت حسابی', 'بررسی دریافت وجه از حساب‌های اعلام‌شده و انتخاب روش تسویه متناسب با درخواست شما.'],
-  ['🎓', 'شهریه و پرداخت دانشگاهی', 'هماهنگی پرداخت شهریه، دیپوزیت و هزینه‌های ثبت‌نام مراکز آموزشی در ارمنستان.'],
-  ['🏢', 'حوالهٔ شرکتی', 'برای پرداخت‌های تجاری، اطلاعات شرکت، مقصد و نوع پرداخت پیش از شروع بررسی می‌شود.'],
-  ['₮', 'تسویه با تتر', 'امکان بررسی تسویه با USDT برای پرداخت نقدی یا حواله، با هماهنگی شبکه و جزئیات تراکنش.'],
-  ['🌐', 'درخواست پرداخت بین‌المللی', 'برای پرداخت یا دریافت خارج از ارمنستان، مقصد و روش را در واتساپ بفرستید تا امکان انجام بررسی شود.'],
-  ['💳', 'وسترن یونیون و مانی‌گرام', 'درخواست ارسال یا دریافت از طریق شبکه‌های بین‌المللی، پس از بررسی مقصد و شرایط روز.'],
-  ['🇮🇷', 'انتقال پول به ایران', 'هماهنگی تسویه در ایران بر اساس روش پرداخت، مبلغ و زمان‌بندی مورد تأیید طرفین.'],
-];
+const DATA = {
+  fa: { introTitle: 'خدمات ارزی از ارمنستان، با پاسخ‌گویی روشن', intro: 'ارمنستان مقصد تحصیل، درمان، تجارت و زندگی بسیاری از ایرانیان است. کاسپین در ایروان درخواست‌های پرداخت نقدی دلار، یورو، پوند و درام و نیز واریز یا دریافت حسابی را پس از بررسی مقصد، روش پرداخت و اطلاعات لازم هماهنگ می‌کند. پیش از شروع، امکان انجام، مسیر مناسب و شرایط همان درخواست شفاف می‌شود.', eyebrow: 'خدمات کاسپین در ایروان', heading: 'راه‌حل مناسب برای هر درخواست ارزی', processTitle: 'مراحل همکاری', whyTitle: 'چرا کاسپین؟', process: ['در واتساپ مبلغ، شهر، ارز و نقدی یا حسابی بودن درخواست را بفرستید تا امکان انجام و نرخ همان زمان بررسی شود.', 'اطلاعات مقصد و مدارک موردنیاز، متناسب با نوع خدمت بررسی می‌شود.', 'روش تسویه، هزینه‌های احتمالی و زمان‌بندی پیش از شروع به‌طور روشن تأیید می‌شود.', 'پس از هماهنگی، پرداخت انجام و جزئیات یا رسید قابل ارائه ارسال می‌شود.'], why: ['پاسخ‌گویی فارسی‌زبان در ایروان و بررسی هر درخواست پیش از شروع', 'اعلام شفاف روش تسویه و شرایط همان درخواست، پیش از پرداخت', 'هماهنگی خدمات نقدی، حسابی، دانشجویی و تجاری در یک نقطه تماس', 'پیگیری وضعیت پرداخت تا پایان مرحلهٔ توافق‌شده'], services: [['💶','پرداخت نقدی','هماهنگی تحویل نقدی دلار، یورو، پوند یا درام در ایروان، پس از تأیید درخواست.'],['🏦','واریز حسابی','هماهنگی پرداخت به حساب‌های شخصی یا شرکتی با ثبت جزئیات و رسید مرحلهٔ پرداخت.'],['📥','دریافت حسابی','بررسی دریافت وجه از حساب‌های اعلام‌شده و انتخاب روش تسویه متناسب با درخواست شما.'],['🎓','شهریه و پرداخت دانشگاهی','هماهنگی پرداخت شهریه، دیپوزیت و هزینه‌های ثبت‌نام مراکز آموزشی در ارمنستان.'],['🏢','حوالهٔ شرکتی','برای پرداخت‌های تجاری، اطلاعات شرکت، مقصد و نوع پرداخت پیش از شروع بررسی می‌شود.'],['₮','تسویه با تتر','امکان بررسی تسویه با USDT برای پرداخت نقدی یا حواله، با هماهنگی شبکه و جزئیات تراکنش.'],['🌐','درخواست پرداخت بین‌المللی','برای پرداخت یا دریافت خارج از ارمنستان، مقصد و روش را در واتساپ بفرستید تا امکان انجام بررسی شود.'],['💳','وسترن یونیون و مانی‌گرام','درخواست ارسال یا دریافت از طریق شبکه‌های بین‌المللی، پس از بررسی مقصد و شرایط روز.'],['🇮🇷','انتقال پول به ایران','هماهنگی تسویه در ایران بر اساس روش پرداخت، مبلغ و زمان‌بندی مورد تأیید طرفین.']] },
+  en: { introTitle: 'Currency services from Armenia, with clear coordination', intro: 'Armenia is a destination for study, healthcare, trade and everyday life for many Iranians. In Yerevan, Caspian coordinates requests for cash USD, EUR, GBP and AMD, as well as account payments or receipts, after reviewing the destination, method and required information. Availability, the suitable route and the terms of each request are clarified before it starts.', eyebrow: 'Caspian services in Yerevan', heading: 'A suitable route for each currency request', processTitle: 'How it works', whyTitle: 'Why Caspian?', process: ['Send the amount, city, currency and whether the request is cash or account-based on WhatsApp so availability and the current rate can be reviewed.', 'Destination details and any required documents are reviewed for the relevant service.', 'The settlement method, possible charges and timing are confirmed clearly before work begins.', 'After coordination, payment is made and the available payment details or receipt are shared.'], why: ['Persian-speaking support in Yerevan and review before a request begins', 'Clear confirmation of the settlement method and terms before payment', 'Cash, account, student and business requests coordinated through one contact point', 'Follow-up through the agreed stage of the request'], services: [['💶','Cash payment','Coordination of cash USD, EUR, GBP or AMD delivery in Yerevan after the request is confirmed.'],['🏦','Account payment','Payment coordination for personal or company accounts with recorded details and available confirmation.'],['📥','Account receipt','Review of funds received from the stated account and a settlement method suited to the request.'],['🎓','University payments','Coordination of tuition, deposits and enrolment payments for educational institutions in Armenia.'],['🏢','Business transfers','Company details, destination and payment type are reviewed before a commercial request starts.'],['₮','USDT settlement','USDT settlement can be reviewed for cash payments or transfers, subject to network and transaction details.'],['🌐','International payment requests','For payments or receipts outside Armenia, send the destination and method on WhatsApp for an availability review.'],['💳','Western Union and MoneyGram','Sending or receiving requests through international networks, subject to destination and current conditions.'],['🇮🇷','Transfers to Iran','Settlement in Iran is coordinated based on the approved payment method, amount and timing.']] },
+  ru: { introTitle: 'Валютные услуги из Армении с понятной координацией', intro: 'Армения — место учёбы, лечения, торговли и повседневной жизни для многих иранцев. В Ереване Caspian координирует запросы на наличные USD, EUR, GBP и AMD, а также банковские платежи или получение средств после проверки направления, способа и необходимых данных. До начала работы уточняются возможность, подходящий путь и условия конкретного запроса.', eyebrow: 'Услуги Caspian в Ереване', heading: 'Подходящий вариант для каждого валютного запроса', processTitle: 'Как проходит работа', whyTitle: 'Почему Caspian?', process: ['Отправьте в WhatsApp сумму, город, валюту и укажите наличный или банковский способ, чтобы проверить возможность и текущий курс.', 'Для соответствующей услуги проверяются данные получателя и необходимые документы.', 'До начала ясно подтверждаются способ расчёта, возможные расходы и сроки.', 'После координации проводится платёж и передаются доступные платёжные данные или подтверждение.'], why: ['Поддержка на персидском языке в Ереване и проверка до начала запроса', 'Понятное подтверждение способа расчёта и условий до оплаты', 'Наличные, банковские, учебные и коммерческие запросы через один контакт', 'Сопровождение до согласованного этапа запроса'], services: [['💶','Наличные','Координация выдачи наличных USD, EUR, GBP или AMD в Ереване после подтверждения запроса.'],['🏦','Банковский платёж','Координация платежа на личный или корпоративный счёт с фиксацией данных и доступным подтверждением.'],['📥','Получение на счёт','Проверка получения средств на указанный счёт и выбор расчёта под ваш запрос.'],['🎓','Оплата обучения','Координация оплаты обучения, депозитов и регистрации в учебных заведениях Армении.'],['🏢','Корпоративные переводы','До начала коммерческого запроса проверяются данные компании, направление и тип платежа.'],['₮','Расчёт USDT','Расчёт в USDT для наличных платежей или переводов рассматривается с учётом сети и деталей операции.'],['🌐','Международные платежи','Для платежа или получения вне Армении отправьте направление и способ в WhatsApp для проверки возможности.'],['💳','Western Union и MoneyGram','Запросы на отправку или получение через международные сети с учётом направления и текущих условий.'],['🇮🇷','Переводы в Иран','Расчёт в Иране координируется по согласованному способу оплаты, сумме и срокам.']] },
+};
 
-function ExchangeContent() {
+export default function ExchangeContent() {
   const { lang } = useLang();
-  const isFa = lang === 'fa';
-  const isRu = lang === 'ru';
-
-  const handleWhatsApp = () => {
-    const text = 'سلام، برای استعلام نرخ لحظه‌ای و خدمات ارزی کاسپین در ارمنستان پیام دادم.';
-    window.open(`https://wa.me/37433149327?text=${encodeURIComponent(text)}`, '_blank');
-  };
-
-  return (
-    <ServicePageLayout
-      titleFa="حواله و خدمات ارزی کاسپین در ارمنستان" titleEn="Caspian Currency Services in Armenia" titleRu="Валютные услуги Caspian в Армении"
-      subtitleFa="پرداخت نقدی، واریز و دریافت حسابی و خدمات ارزی در ایروان؛ با هماهنگی و بررسی هر درخواست"
-      subtitleEn="Cash, account payment and currency services in Yerevan, arranged after review of each request"
-      subtitleRu="Наличные, банковские платежи и валютные услуги в Ереване после проверки каждого запроса"
-      heroImage="https://images.unsplash.com/photo-1629339938591-ec5e73815e47?w=1200&q=80"
-      serviceType="exchange"
-    >
-      <CurrencyTicker />
-
-      {isFa && <>
-        <InfoBlock title="خدمات ارزی از ارمنستان، با پاسخ‌گویی روشن">
-          <p>ارمنستان برای بسیاری از ایرانیان مقصد تحصیل، درمان، تجارت و زندگی است. کاسپین در ایروان برای پرداخت نقدی دلار، یورو، پوند و درام، و همچنین هماهنگی واریز یا دریافت حسابی، همراه شماست. برای هر درخواست، ابتدا مقصد، روش پرداخت و مدارک لازم بررسی می‌شود تا مسیر مناسب و نرخ قابل اجرا پیش از شروع روشن باشد.</p>
-        </InfoBlock>
-
-        <section className="mb-10">
-          <div className="flex items-end justify-between gap-4 mb-4">
-            <div>
-              <p className="text-xs font-bold text-primary mb-1">خدمات کاسپین در ایروان</p>
-              <h2 className="text-2xl font-black text-foreground">راه‌حل مناسب برای هر درخواست ارزی</h2>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {services.map(([icon, title, description]) => (
-              <article key={title} className="glass-panel rounded-2xl border border-primary/15 p-5 hover:border-primary/40 transition-colors">
-                <span className="inline-flex w-11 h-11 items-center justify-center rounded-xl bg-primary/10 text-2xl mb-4">{icon}</span>
-                <h3 className="font-black text-foreground mb-2">{title}</h3>
-                <p className="text-sm leading-7 text-foreground/65">{description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <InfoBlock title="مراحل همکاری">
-          <ol className="space-y-4 text-foreground/75 leading-7">
-            <li><strong className="text-foreground">۱. درخواست در واتساپ:</strong> مبلغ، شهر، نوع ارز و نقدی یا حسابی بودن درخواست را بفرستید تا امکان انجام و نرخ همان زمان بررسی شود.</li>
-            <li><strong className="text-foreground">۲. بررسی اطلاعات:</strong> برای درخواست‌های لازم، احراز هویت و اطلاعات مقصد طبق نوع خدمت دریافت می‌شود.</li>
-            <li><strong className="text-foreground">۳. تأیید روش و تسویه:</strong> روش تسویه، هزینه‌های احتمالی و زمان‌بندی پیش از شروع شفاف اعلام می‌شود.</li>
-            <li><strong className="text-foreground">۴. پرداخت و رسید:</strong> پس از هماهنگی، پرداخت انجام و جزئیات یا رسید قابل ارائه در اختیار شما قرار می‌گیرد.</li>
-          </ol>
-        </InfoBlock>
-
-        <InfoBlock title="چرا کاسپین؟">
-          <CheckList items={[
-            'پاسخ‌گویی فارسی‌زبان در ایروان و بررسی هر درخواست پیش از شروع',
-            'اعلام شفاف روش تسویه و شرایط همان درخواست، پیش از پرداخت',
-            'هماهنگی خدمات نقدی، حسابی، دانشجویی و تجاری در یک نقطه تماس',
-            'پیگیری وضعیت پرداخت تا پایان مرحلهٔ توافق‌شده',
-          ]} />
-        </InfoBlock>
-
-        <InfoBlock title="پرسش‌های متداول">
-          <div className="space-y-4 text-foreground/70 leading-7">
-            <p><strong className="text-foreground">کدام ارزها در صفحه نرخ دارند؟</strong><br />دلار آمریکا، یورو، پوند انگلیس و درام ارمنستان. سایر ارزها با استعلام پیش از ثبت درخواست بررسی می‌شوند.</p>
-            <p><strong className="text-foreground">برای پرداخت خارج از ارمنستان چه کار کنم؟</strong><br />در واتساپ مبلغ، ارز و مقصد را بفرستید تا امکان انجام، روش و مدارک لازم بررسی شود.</p>
-            <p><strong className="text-foreground">آیا نرخ نمایش‌داده‌شده نرخ نهایی حواله است؟</strong><br />خیر. نرخ‌های صفحه مرجع بازار آزاد ایران هستند؛ نرخ نهایی با توجه به روش تسویه و جزئیات درخواست اعلام می‌شود.</p>
-            <p><strong className="text-foreground">کارمزد چگونه مشخص می‌شود؟</strong><br />کارمزد احتمالی به مبلغ، روش پرداخت و مقصد وابسته است و پیش از تأیید نهایی اعلام می‌شود.</p>
-          </div>
-        </InfoBlock>
-      </>}
-
-      {lang === 'en' && <>
-        <InfoBlock title="Currency Services Based in Armenia"><p>Caspian coordinates cash, account-payment and settlement requests in Yerevan. The destination, payment method and required details are reviewed before a rate or timeline is confirmed.</p></InfoBlock>
-        <InfoBlock title="How It Works"><CheckList items={['Send the amount, currency and preferred method on WhatsApp', 'We review the request and any required details', 'The available method and terms are confirmed before payment', 'Payment details or a receipt are shared after coordination']} /></InfoBlock>
-      </>}
-
-      {isRu && <>
-        <InfoBlock title="Валютные услуги в Армении"><p>Caspian координирует наличные, банковские платежи и расчёты в Ереване. Перед подтверждением курса или срока мы проверяем направление, способ оплаты и необходимые данные.</p></InfoBlock>
-        <InfoBlock title="Как проходит работа"><CheckList items={['Отправьте сумму, валюту и предпочтительный способ в WhatsApp', 'Мы проверим запрос и необходимые данные', 'Способ и условия подтверждаются до оплаты', 'После координации предоставляются детали платежа или подтверждение']} /></InfoBlock>
-      </>}
-
-    </ServicePageLayout>
-  );
+  const content = DATA[lang] || DATA.fa;
+  return <ServicePageLayout titleFa="حواله و خدمات ارزی کاسپین در ارمنستان" titleEn="Caspian Currency Services in Armenia" titleRu="Валютные услуги Caspian в Армении" subtitleFa="پرداخت نقدی، واریز و دریافت حسابی و خدمات ارزی در ایروان؛ با هماهنگی و بررسی هر درخواست" subtitleEn="Cash, account payment and currency services in Yerevan, arranged after review of each request" subtitleRu="Наличные, банковские платежи и валютные услуги в Ереване после проверки каждого запроса" heroImage="https://images.unsplash.com/photo-1629339938591-ec5e73815e47?w=1200&q=80" serviceType="exchange">
+    <CurrencyTicker />
+    <InfoBlock title={content.introTitle}><p>{content.intro}</p></InfoBlock>
+    <section className="mb-10"><div className="mb-4"><p className="text-xs font-bold text-primary mb-1">{content.eyebrow}</p><h2 className="text-2xl font-black text-foreground">{content.heading}</h2></div><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">{content.services.map(([icon, title, description]) => <article key={title} className="glass-panel rounded-2xl border border-primary/15 p-5 hover:border-primary/40 transition-colors"><span className="inline-flex w-11 h-11 items-center justify-center rounded-xl bg-primary/10 text-2xl mb-4">{icon}</span><h3 className="font-black text-foreground mb-2">{title}</h3><p className="text-sm leading-7 text-foreground/65">{description}</p></article>)}</div></section>
+    <InfoBlock title={content.processTitle}><ol className="space-y-4 text-foreground/75 leading-7">{content.process.map((item, index) => <li key={item}><strong className="text-foreground">{index + 1}. </strong>{item}</li>)}</ol></InfoBlock>
+    <InfoBlock title={content.whyTitle}><CheckList items={content.why} /></InfoBlock>
+  </ServicePageLayout>;
 }
-
-export default ExchangeContent;
