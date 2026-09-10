@@ -4,6 +4,8 @@ import { Search, Calendar, Music, Ticket, MapPin, Loader2, X, MessageCircle, Ext
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import Link from 'next/link';
 import FestivalsCalendar from '@/components/festivals/FestivalsCalendar';
+import PageSidebar from '@/components/shared/PageSidebar';
+import RelatedServices from '@/components/shared/RelatedServices';
 
 export default function EventsPage({ initialEvents = [] }) {
   // Seeded from the server component's own fetch (used for the page's
@@ -101,6 +103,8 @@ export default function EventsPage({ initialEvents = [] }) {
           </button>
         </div>
 
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 min-w-0">
         {activeTab === 'festivals' ? (
           <FestivalsCalendar idPrefix="events-" />
         ) : (
@@ -246,6 +250,16 @@ export default function EventsPage({ initialEvents = [] }) {
         )}
           </>
         )}
+          </div>
+
+          <PageSidebar
+            tags={['festivals', 'events', 'concerts', 'tourism', 'armenia']}
+            currentPath="/events"
+            serviceType="tour"
+          />
+        </div>
+
+        <RelatedServices pageType="tour" />
       </main>
 
       {/* Detail Modal */}
