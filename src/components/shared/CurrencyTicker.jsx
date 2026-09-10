@@ -13,8 +13,12 @@ const LABELS = {
 };
 const PER_UNIT_DIVISOR = { amd: 100 };
 
-function format(value, divisor = 1) {
-  return value == null ? '—' : Math.round(value / divisor).toLocaleString('fa-IR');
+function numberLocale(lang) {
+  return lang === 'fa' ? 'fa-IR' : lang === 'ru' ? 'ru-RU' : 'en-US';
+}
+
+function format(value, divisor = 1, lang = 'fa') {
+  return value == null ? '—' : Math.round(value / divisor).toLocaleString(numberLocale(lang));
 }
 
 function valueAtOrBefore(records, target, divisor) {
@@ -33,10 +37,10 @@ function sample(records, max = 42) {
   return records.filter((_, index) => index % step === 0 || index === records.length - 1);
 }
 
-function Sparkline({ records, divisor, direction }) {
+function Sparkline({ records, divisor, direction, emptyLabel, chartLabel }) {
   const values = sample(records).map((item) => Number(item.sell) / divisor).filter(Number.isFinite);
   if (values.length < 2) {
-    return <div className="h-10 flex items-center text-[10px] text-foreground/30">در حال جمع‌آوری تاریخچهٔ نمودار</div>;
+    return <div className="h-10 flex items-center text-[10px] text-foreground/30">{emptyLabel}</div>;
   }
   const min = Math.min(...values);
   const max = Math.max(...values);
@@ -48,7 +52,7 @@ function Sparkline({ records, divisor, direction }) {
   }).join(' ');
   const color = direction > 0 ? '#4ade80' : direction < 0 ? '#f87171' : '#d6af3c';
   return (
-    <svg viewBox="0 0 100 40" preserveAspectRatio="none" className="w-full h-10 mt-3" aria-label="نمودار ۲۴ ساعت اخیر">
+    <svg viewBox="0 0 100 40" preserveAspectRatio="none" className="w-full h-10 mt-3" aria-label={chartLabel}>
       <polyline points={points} fill="none" stroke={color} strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
     </svg>
   );
@@ -75,7 +79,7 @@ export default function CurrencyTicker() {
         if (cancelled) return;
         if (!currentResult.error && currentResult.data?.length) {
           setRows(Object.fromEntries(currentResult.data.map((row) => [row.symbol, row])));
-          setLastUpdate(new Date(currentResult.data[0].updated_at).toLocaleTimeString('fa-IR'));
+          setLastUpdate(currentResult.data[0].updated_at);
         }
         if (!historyResult.error) {
           setHistory(historyResult.data || []);
@@ -114,11 +118,13 @@ export default function CurrencyTicker() {
       yesterday: 'روز قبل',
       change: 'تغییر ۲۴ ساعت اخیر',
       chart: 'نمودار ۲۴ ساعت اخیر',
+      unit: 'تومان',
+      historyPending: 'در حال جمع‌آوری تاریخچهٔ نمودار',
       note: 'نرخ‌های نمایش‌داده‌شده مرجع بازار آزاد ایران هستند. نرخ نهایی با توجه به روش تسویه و جزئیات درخواست اعلام می‌شود.',
       button: 'استعلام لحظه‌ای و نرخ حواله در واتساپ',
     },
-    en: { title: 'Live Iranian Open-Market Rates', update: 'Last updated', current: 'Current', oneHour: '1 hour ago', yesterday: 'Yesterday', change: '24h change', chart: '24-hour trend', note: 'Displayed rates are references. Final terms are confirmed after reviewing the request.', button: 'Get a quote on WhatsApp' },
-    ru: { title: 'Актуальные рыночные курсы Ирана', update: 'Обновлено', current: 'Текущий', oneHour: '1 час назад', yesterday: 'Вчера', change: 'Изменение за 24 часа', chart: 'График за 24 часа', note: 'Курсы являются справочными. Итоговые условия подтверждаются после проверки запроса.', button: 'Узнать курс в WhatsApp' },
+    en: { title: 'Live Iranian Open-Market Rates', update: 'Last updated', current: 'Current', oneHour: '1 hour ago', yesterday: 'Yesterday', change: '24h change', chart: '24-hour trend', unit: 'toman', historyPending: 'Chart history is being collected', note: 'Displayed rates are references. Final terms are confirmed after reviewing the request.', button: 'Get a quote on WhatsApp' },
+    ru: { title: 'Актуальные рыночные курсы Ирана', update: 'Обновлено', current: 'Текущий', oneHour: '1 час назад', yesterday: 'Вчера', change: 'Изменение за 24 часа', chart: 'График за 24 часа', unit: 'томан', historyPending: 'История для графика собирается', note: 'Курсы являются справочными. Итоговые условия подтверждаются после проверки запроса.', button: 'Узнать курс в WhatsApp' },
   }[lang] || {};
 
   const openWhatsApp = () => {
@@ -132,7 +138,7 @@ export default function CurrencyTicker() {
         <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
           <div>
             <p className="text-sm font-black text-primary">{copy.title}</p>
-            <p className="text-xs text-foreground/40 mt-1">{lastUpdate ? `${copy.update}: ${lastUpdate}` : copy.update}</p>
+            <p className="text-xs text-foreground/40 mt-1">{lastUpdate ? `${copy.update}: ${new Date(lastUpdate).toLocaleTimeString(numberLocale(lang))}` : copy.update}</p>
           </div>
           <span className="inline-flex items-center gap-2 text-xs font-bold gold-gradient-text">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -163,27 +169,27 @@ export default function CurrencyTicker() {
                     <span className="text-xs font-bold text-foreground/65">{info[lang] || info.fa}</span>
                   </div>
                   <p className="text-[11px] text-foreground/35">{copy.current}</p>
-                  <p className="text-xl font-black gold-gradient-text tabular-nums mt-1">{current == null ? '—' : current.toLocaleString('fa-IR')} <span className="text-[11px] text-foreground/35 font-normal">تومان</span></p>
+                  <p className="text-xl font-black gold-gradient-text tabular-nums mt-1">{current == null ? '—' : current.toLocaleString(numberLocale(lang))} <span className="text-[11px] text-foreground/35 font-normal">{copy.unit}</span></p>
                   <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-white/10">
-                    <div><p className="text-[10px] text-foreground/35">{copy.oneHour}</p><p className="text-xs text-foreground/65 tabular-nums mt-1">{format(oneHour)} تومان</p></div>
-                    <div><p className="text-[10px] text-foreground/35">{copy.yesterday}</p><p className="text-xs text-foreground/65 tabular-nums mt-1">{format(yesterday)} تومان</p></div>
+                    <div><p className="text-[10px] text-foreground/35">{copy.oneHour}</p><p className="text-xs text-foreground/65 tabular-nums mt-1">{format(oneHour, 1, lang)} {copy.unit}</p></div>
+                    <div><p className="text-[10px] text-foreground/35">{copy.yesterday}</p><p className="text-xs text-foreground/65 tabular-nums mt-1">{format(yesterday, 1, lang)} {copy.unit}</p></div>
                   </div>
                   <div className="mt-3 flex items-center justify-between gap-2">
                     <span className="text-[10px] text-foreground/35">{copy.change}</span>
                     <span className={`inline-flex items-center gap-1 text-xs font-bold ${isUp ? 'text-green-400' : isDown ? 'text-red-400' : 'text-foreground/40'}`}>
                       {isUp ? <ArrowUp className="w-3.5 h-3.5" /> : isDown ? <ArrowDown className="w-3.5 h-3.5" /> : <Minus className="w-3.5 h-3.5" />}
-                      {delta == null ? '—' : `${Math.abs(delta).toFixed(2)}٪`}
+                      {delta == null ? '—' : `${Math.abs(delta).toLocaleString(numberLocale(lang), { minimumFractionDigits: 2, maximumFractionDigits: 2 })}${lang === 'fa' ? '٪' : '%'}`}
                     </span>
                   </div>
                   <p className="text-[10px] text-foreground/35 mt-3">{copy.chart}</p>
-                  <Sparkline records={records} divisor={divisor} direction={delta || 0} />
+                  <Sparkline records={records} divisor={divisor} direction={delta || 0} emptyLabel={copy.historyPending} chartLabel={copy.chart} />
                 </article>
               );
             })}
           </div>
         )}
 
-        {historyReady && history.length < 8 && <p className="text-[11px] text-foreground/35 text-center mt-4">دادهٔ نمودار از زمان فعال‌سازی ثبت تاریخچه تکمیل می‌شود.</p>}
+        {historyReady && history.length < 8 && <p className="text-[11px] text-foreground/35 text-center mt-4">{copy.historyPending}</p>}
         <p className="text-xs text-foreground/40 mt-5 pt-4 border-t border-white/10 text-center leading-relaxed">{copy.note}</p>
         <button onClick={openWhatsApp} className="mt-4 w-full py-3.5 px-6 bg-primary text-black font-black rounded-xl hover:bg-yellow-500 transition">{copy.button}</button>
       </div>
