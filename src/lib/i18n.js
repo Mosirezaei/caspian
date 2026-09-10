@@ -42,7 +42,7 @@ export const translations = {
       titleGold: 'ارمنستان',
       body: 'کاسپین گروه ارمنستان با بیش از ۱۵ سال سابقه درخشان در حوزه خدمات مهاجرتی، ویزا، اقامت و سفرهای خارجی، یکی از معتبرترین مجموعه‌های فعال در این صنعت است. ما با تکیه بر تجربه، تخصص و شبکه گسترده بین‌المللی، بهترین خدمات را به مشتریان خود ارائه می‌دهیم.',
       features: [
-        'بیش از ۲۰ سال تجربه در صنعت مهاجرت و سفر',
+        'بیش از ۱۵ سال تجربه در صنعت مهاجرت و سفر',
         'تیم متخصص با مجوزهای بین‌المللی',
         '۹۷ درصد موفقیت در امور ویزا و مهاجرت',
         'پشتیبانی ۲۴ ساعته و مشاوره رایگان',
@@ -50,7 +50,7 @@ export const translations = {
         'تضمین بازگشت هزینه در صورت عدم موفقیت',
       ],
       statVal: '۹۷٪',
-      statLabel: '۲۰ سال سابقه — موفقیت در ویزا و مهاجرت',
+      statLabel: '۱۵ سال سابقه — موفقیت در ویزا و مهاجرت',
     },
     why: {
       badge: 'چرا ما؟',
@@ -120,7 +120,7 @@ export const translations = {
       titleGold: 'Group',
       body: 'Caspian Group, with over 15 years of outstanding experience in immigration, visa, residency and international travel services, is one of the most reputable companies in the industry. We deliver the best services to our clients through expertise, experience and a wide international network.',
       features: [
-        'Over 20 years of experience in immigration and travel',
+        'Over 15 years of experience in immigration and travel',
         'Expert team with international licenses',
         '97% success rate in visa and immigration matters',
         '24/7 support and free consultation',
@@ -128,7 +128,7 @@ export const translations = {
         'Money-back guarantee on unsuccessful cases',
       ],
       statVal: '97%',
-      statLabel: '20 Years — Visa & Immigration Success Rate',
+      statLabel: '15 Years — Visa & Immigration Success Rate',
     },
     why: {
       badge: 'Why Us?',
@@ -198,7 +198,7 @@ export const translations = {
       titleGold: 'Group',
       body: 'Caspian Group — одна из самых авторитетных компаний в области иммиграции, виз, ВНЖ и международных поездок с более чем 15-летним опытом. Мы предоставляем лучшие услуги нашим клиентам, опираясь на опыт, экспертизу и широкую международную сеть.',
       features: [
-        'Более 20 лет опыта в иммиграции и туризме',
+        'Более 15 лет опыта в иммиграции и туризме',
         'Команда экспертов с международными лицензиями',
         '97% успешных дел по визам и иммиграции',
         'Поддержка 24/7 и бесплатная консультация',
@@ -206,7 +206,7 @@ export const translations = {
         'Гарантия возврата средств при неуспешных делах',
       ],
       statVal: '97%',
-      statLabel: '20 лет — успешные визовые и иммиграционные дела',
+      statLabel: '15 лет — успешные визовые и иммиграционные дела',
     },
     why: {
       badge: 'Почему мы?',
