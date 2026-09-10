@@ -153,6 +153,27 @@ export const FAQ_DATA = {
     { q: 'هزینه مصاحبه سفارت آمریکا چقدر است؟', a: 'هزینه کنسولی ویزای توریستی آمریکا ۱۸۵ دلار است که قبل از مصاحبه پرداخت می‌شود. این هزینه حتی در صورت رد شدن برگشت داده نمی‌شود.' },
   ],
 
+  'language-college-residency': {
+    fa: [
+      { q: 'آیا ثبت‌نام در کالج زبان به‌تنهایی اقامت ارمنستان را تضمین می‌کند؟', a: 'خیر. پذیرش زبان می‌تواند بخشی از توضیح هدف آموزشی شما باشد، اما صدور اقامت به بررسی رسمی پرونده و شرایط شخصی متقاضی بستگی دارد.' },
+      { q: 'چه کالجی برای پرونده مناسب است؟', a: 'مؤسسه باید اطلاعات حقوقی، نشانی، برنامه دوره و سند پذیرش شفافی داشته باشد. مناسب‌بودن آن برای پرونده هر فرد جداگانه ارزیابی می‌شود.' },
+      { q: 'آیا دوره آنلاین برای این مسیر کافی است؟', a: 'نوع حضور و ماهیت دوره اهمیت دارد. پیش از ثبت‌نام باید از خود مؤسسه و مرجع مربوط بررسی شود که مدارک آن با هدف پرونده شما هم‌خوانی دارد یا نه.' },
+      { q: 'کاسپین چه خدمتی ارائه می‌دهد؟', a: 'کاسپین مسیر آموزشی را بررسی می‌کند، برای نظم‌دادن به مدارک و ترجمه هماهنگی می‌دهد و تفاوت پذیرش آموزشی با روند اقامت را روشن می‌کند؛ نتیجه اقامت تضمین نمی‌شود.' },
+    ],
+    en: [
+      { q: 'Does language-college enrolment guarantee Armenian residency?', a: 'No. Language admission may help explain an educational purpose, but residency depends on official review of the file and the applicant’s circumstances.' },
+      { q: 'Which college is suitable for a file?', a: 'The institution should have transparent legal information, address, course plan and admission document. Suitability is assessed separately for each applicant.' },
+      { q: 'Is an online course enough for this route?', a: 'Attendance format and course nature matter. Before enrolment, check with the institution and the relevant authority whether its documents fit your purpose.' },
+      { q: 'What does Caspian provide?', a: 'Caspian reviews the education route, coordinates document organisation and translation, and explains the difference between admission and residency procedures; no residency result is guaranteed.' },
+    ],
+    ru: [
+      { q: 'Гарантирует ли зачисление в языковой колледж ВНЖ Армении?', a: 'Нет. Зачисление может объяснить образовательную цель, но ВНЖ зависит от официальной проверки дела и обстоятельств заявителя.' },
+      { q: 'Какой колледж подходит для дела?', a: 'У учреждения должны быть прозрачные юридические данные, адрес, программа курса и документ о зачислении. Подходящесть оценивается отдельно для каждого заявителя.' },
+      { q: 'Достаточен ли онлайн-курс?', a: 'Важны формат посещения и характер курса. До зачисления уточните у учреждения и компетентного органа, соответствуют ли документы вашей цели.' },
+      { q: 'Чем помогает Caspian?', a: 'Caspian оценивает образовательный маршрут, координирует подготовку и перевод документов и объясняет разницу между зачислением и ВНЖ; результат ВНЖ не гарантируется.' },
+    ],
+  },
+
   'exchange': {
     fa: [
       { q: 'کدام ارزها در صفحه نرخ دارند؟', a: 'دلار آمریکا، یورو، پوند انگلیس و درام ارمنستان در صفحه نمایش داده می‌شوند. برای سایر ارزها، پیش از ثبت درخواست استعلام می‌گیریم.' },
