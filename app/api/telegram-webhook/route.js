@@ -192,13 +192,21 @@ export async function POST(request) {
             chat_id: chatId, message_id: telegramMessageId,
             reply_markup: { inline_keyboard: keyboardFor('approved', true) },
           });
+          await callTelegram('sendMessage', {
+            chat_id: chatId,
+            reply_to_message_id: update.message.message_id,
+            text: '✅ جواب ثبت و منتشر شد',
+          });
+        } else {
+          // A reply to a consultation notification is not a public site
+          // answer. Only the force-reply prompt created by the “reply to
+          // this comment” button has a matching database record.
+          await callTelegram('sendMessage', {
+            chat_id: chatId,
+            reply_to_message_id: update.message.message_id,
+            text: 'ℹ️ این پیام به پرسش سایت وصل نبود و منتشر نشد. برای پاسخ به یک پرسش، ابتدا دکمه «✍️ پاسخ به این نظر» را بزنید و سپس به پیام درخواست‌شده پاسخ دهید.',
+          });
         }
-
-        await callTelegram('sendMessage', {
-          chat_id: chatId,
-          reply_to_message_id: update.message.message_id,
-          text: '✅ جواب ثبت و منتشر شد',
-        });
       }
     }
   } catch (error) {
