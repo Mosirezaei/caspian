@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect, useMemo } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { Search, Calendar, Music, Ticket, MapPin, Loader2, X, MessageCircle, ExternalLink } from 'lucide-react';
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import Link from 'next/link';
@@ -10,7 +9,6 @@ import RelatedServices from '@/components/shared/RelatedServices';
 import DiscoLegendsBookingModal from '@/components/events/DiscoLegendsBookingModal';
 
 export default function EventsPage({ initialEvents = [] }) {
-  const searchParams = useSearchParams();
   // Seeded from the server component's own fetch (used for the page's
   // Event/ItemList schema) so there's no loading flash on first paint;
   // we still re-fetch client-side below to pick up anything that's
@@ -21,7 +19,7 @@ export default function EventsPage({ initialEvents = [] }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [activeTab, setActiveTab] = useState(() => searchParams.get('tab') === 'concerts' ? 'concerts' : 'festivals');
+  const [activeTab, setActiveTab] = useState('festivals');
   const [discoBookingOpen, setDiscoBookingOpen] = useState(false);
 
   useEffect(() => {
@@ -42,6 +40,14 @@ export default function EventsPage({ initialEvents = [] }) {
     }
     fetchEvents();
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // /retro به /events?tab=concerts هدایت می‌شود. این روش بعد از mount
+  // پارامتر را می‌خواند تا صفحه /events همچنان بتواند به‌صورت استاتیک ساخته شود.
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('tab') === 'concerts') {
+      setActiveTab('concerts');
+    }
   }, []);
 
   // Dedupe tabs by the Persian label, not the raw Armenian category --
