@@ -94,7 +94,7 @@ const navLinks = {
         { label: 'بلیط هوایی و زمینی', href: '/travel/flight-bus' },
         { label: 'ترانسفر فرودگاهی', href: '/travel/transfer' },
         { label: 'صرافی ارزی', href: '/travel/exchange' },
-        { label: 'رویدادها و بلیط', href: '/events' },
+        { label: 'فستیوال‌ها', href: '/events' },
       ],
     },
     {
