@@ -16,7 +16,7 @@ export default function EventsPage({ initialEvents = [] }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [activeTab, setActiveTab] = useState('concerts');
+  const [activeTab, setActiveTab] = useState('festivals');
 
   useEffect(() => {
     async function fetchEvents() {
@@ -85,25 +85,26 @@ export default function EventsPage({ initialEvents = [] }) {
       <main className="max-w-6xl mx-auto px-4 py-12 sm:py-20">
         <div className="mb-8 text-center">
           <h1 className="text-3xl sm:text-4xl font-black text-foreground">
-            <span className="gold-gradient-text">رویدادها و کنسرت‌های ایروان</span>
+            <span className="gold-gradient-text">فستیوال‌ها و رویدادهای ایروان</span>
           </h1>
-          <p className="text-foreground/60 mt-2">کنسرت، فستیوال، نمایشگاه، رقص و باله</p>
+          <p className="text-foreground/60 mt-2">فستیوال‌های سالانه، کنسرت‌ها و رویدادهای بلیط‌دار در ارمنستان</p>
         </div>
 
-        {/* Top-level tabs */}
         <div className="flex justify-center gap-2 mb-8">
+          <button type="button" onClick={() => setActiveTab('festivals')}
+            className={`px-5 py-2.5 rounded-xl text-sm font-bold transition ${activeTab === 'festivals' ? 'bg-primary text-black' : 'bg-white/5 border border-white/10 text-foreground/60 hover:border-primary/30'}`}>
+            فستیوال‌های سالیانه
+          </button>
           <button type="button" onClick={() => setActiveTab('concerts')}
             className={`px-5 py-2.5 rounded-xl text-sm font-bold transition ${activeTab === 'concerts' ? 'bg-primary text-black' : 'bg-white/5 border border-white/10 text-foreground/60 hover:border-primary/30'}`}>
             کنسرت‌ها و رویدادها
           </button>
-          <button type="button" onClick={() => setActiveTab('festivals')}
-            className={`px-5 py-2.5 rounded-xl text-sm font-bold transition ${activeTab === 'festivals' ? 'bg-primary text-black' : 'bg-white/5 border border-white/10 text-foreground/60 hover:border-primary/30'}`}>
-            فستیوال‌ها
-          </button>
         </div>
 
-{activeTab === 'concerts' && (
-<>
+        {activeTab === 'festivals' ? (
+          <FestivalsCalendar idPrefix="events-" />
+        ) : (
+          <>
         {/* Featured / Pinned Events — کاسپین این دو رویداد رو مستقیم مدیریت می‌کنه */}
         <div className="grid sm:grid-cols-2 gap-5 mb-10">
           {/* Disco Legends / Retro Stage */}
@@ -243,15 +244,8 @@ export default function EventsPage({ initialEvents = [] }) {
             })}
           </div>
         )}
-</>
-)}
-
-{activeTab === 'festivals' && (
-          <div className="mb-10">
-            <FestivalsCalendar idPrefix="events-" />
-          </div>
+          </>
         )}
-
       </main>
 
       {/* Detail Modal */}
