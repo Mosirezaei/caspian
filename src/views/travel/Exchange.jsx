@@ -2,7 +2,6 @@
 import { useLang } from '@/lib/LanguageContext';
 import { ServicePageLayout, InfoBlock, CheckList } from '@/components/shared/ServicePageLayout';
 import CurrencyTicker from '@/components/shared/CurrencyTicker';
-import CurrencyRatesTable from '@/components/shared/CurrencyRatesTable';
 
 const services = [
   ['💶', 'پرداخت نقدی', 'هماهنگی تحویل نقدی دلار، یورو، پوند یا درام در ایروان، پس از تأیید درخواست.'],
@@ -36,7 +35,6 @@ function ExchangeContent() {
       serviceType="exchange"
     >
       <CurrencyTicker />
-      <CurrencyRatesTable />
 
       {isFa && <>
         <InfoBlock title="خدمات ارزی از ارمنستان، با پاسخ‌گویی روشن">
@@ -99,16 +97,6 @@ function ExchangeContent() {
         <InfoBlock title="Как проходит работа"><CheckList items={['Отправьте сумму, валюту и предпочтительный способ в WhatsApp', 'Мы проверим запрос и необходимые данные', 'Способ и условия подтверждаются до оплаты', 'После координации предоставляются детали платежа или подтверждение']} /></InfoBlock>
       </>}
 
-      <div className="glass-panel p-6 rounded-2xl border border-primary/30 mb-10 bg-black/40 backdrop-blur-md text-center">
-        <p className="text-sm text-foreground/70 mb-4">
-          {isFa ? 'برای استعلام نرخ نهایی، خدمات نقدی یا درخواست پرداخت بین‌المللی، در واتساپ پیام بدهید.' :
-            isRu ? 'Напишите в WhatsApp, чтобы уточнить курс, наличный расчёт или международный платёж.' :
-            'Message us on WhatsApp to confirm a rate, cash service or an international payment request.'}
-        </p>
-        <button onClick={handleWhatsApp} className="py-4 px-8 bg-primary text-black font-black rounded-xl hover:bg-yellow-500">
-          {isFa ? 'گفت‌وگو در واتساپ' : isRu ? 'Написать в WhatsApp' : 'Message on WhatsApp'}
-        </button>
-      </div>
     </ServicePageLayout>
   );
 }
