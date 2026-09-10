@@ -31,7 +31,6 @@ export const metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } },
   alternates: {
     canonical: 'https://caspian.am',
-    languages: { fa: 'https://caspian.am', en: 'https://caspian.am', ru: 'https://caspian.am' },
   },
   openGraph: {
     type: 'website',
