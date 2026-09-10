@@ -10,7 +10,7 @@ const TOP_PICKS = [
   { id: 'wine-days', month: 6, label: '🍷 روزهای شراب ایروان', when: 'ژوئن' },
   { id: 'haybuis', month: 6, label: '🌿 HayBuis', when: 'ژوئن' },
   { id: 'sheep-shearing', month: 6, label: '🐑 پشم‌چینی گوسفند', when: 'ژوئن' },
-  { id: 'vardavar', month: 7, label: '💦 وارداوار', when: 'ژوئیه' },
+  { id: 'vardavar', month: 7, label: '💦 جشن آب', when: 'ژوئیه' },
   { id: 'golden-apricot', month: 7, label: '🎬 زردآلوی طلایی', when: 'ژوئیه' },
   { id: 'beer-days', month: 7, label: '🍺 روزهای آبجو', when: 'ژوئیه/اوت' },
   { id: 'taraz-fest', month: 8, label: '👘 تاراز فست', when: 'اوت' },
