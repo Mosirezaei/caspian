@@ -4,117 +4,109 @@ import { ServicePageLayout, InfoBlock, CheckList } from '@/components/shared/Ser
 import CurrencyTicker from '@/components/shared/CurrencyTicker';
 import CurrencyRatesTable from '@/components/shared/CurrencyRatesTable';
 
+const services = [
+  ['💶', 'پرداخت نقدی', 'هماهنگی تحویل نقدی دلار، یورو، پوند یا درام در ایروان، پس از تأیید درخواست.'],
+  ['🏦', 'واریز حسابی', 'هماهنگی پرداخت به حساب‌های شخصی یا شرکتی با ثبت جزئیات و رسید مرحلهٔ پرداخت.'],
+  ['📥', 'دریافت حسابی', 'بررسی دریافت وجه از حساب‌های اعلام‌شده و انتخاب روش تسویه متناسب با درخواست شما.'],
+  ['🎓', 'شهریه و پرداخت دانشگاهی', 'هماهنگی پرداخت شهریه، دیپوزیت و هزینه‌های ثبت‌نام مراکز آموزشی در ارمنستان.'],
+  ['🏢', 'حوالهٔ شرکتی', 'برای پرداخت‌های تجاری، اطلاعات شرکت، مقصد و نوع پرداخت پیش از شروع بررسی می‌شود.'],
+  ['₮', 'تسویه با تتر', 'امکان بررسی تسویه با USDT برای پرداخت نقدی یا حواله، با هماهنگی شبکه و جزئیات تراکنش.'],
+  ['🌐', 'درخواست پرداخت بین‌المللی', 'برای پرداخت یا دریافت خارج از ارمنستان، مقصد و روش را در واتساپ بفرستید تا امکان انجام بررسی شود.'],
+  ['💳', 'وسترن یونیون و مانی‌گرام', 'درخواست ارسال یا دریافت از طریق شبکه‌های بین‌المللی، پس از بررسی مقصد و شرایط روز.'],
+  ['🇮🇷', 'انتقال پول به ایران', 'هماهنگی تسویه در ایران بر اساس روش پرداخت، مبلغ و زمان‌بندی مورد تأیید طرفین.'],
+];
+
 function ExchangeContent() {
   const { lang } = useLang();
   const isFa = lang === 'fa';
   const isRu = lang === 'ru';
 
   const handleWhatsApp = () => {
-    const text = 'سلام، برای استعلام نرخ لحظه‌ای صرافی (ریال، دلار، یورو، تتر) پیام دادم.';
+    const text = 'سلام، برای استعلام نرخ لحظه‌ای و خدمات ارزی کاسپین در ارمنستان پیام دادم.';
     window.open(`https://wa.me/37433149327?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
     <ServicePageLayout
-      titleFa="صرافی ارزی کاسپین در ایروان" titleEn="Caspian Currency Exchange in Yerevan" titleRu="Обмен валют Caspian в Ереване"
-      subtitleFa="تبدیل ریال، دلار، یورو، روبل و تتر با نرخ شفاف و رقابتی"
-      subtitleEn="Rial, USD, EUR, RUB & USDT exchange with transparent, competitive rates"
-      subtitleRu="Обмен риала, доллара, евро, рубля и USDT по прозрачному курсу"
+      titleFa="حواله و خدمات ارزی کاسپین در ارمنستان" titleEn="Caspian Currency Services in Armenia" titleRu="Валютные услуги Caspian в Армении"
+      subtitleFa="پرداخت نقدی، واریز و دریافت حسابی و خدمات ارزی در ایروان؛ با هماهنگی و بررسی هر درخواست"
+      subtitleEn="Cash, account payment and currency services in Yerevan, arranged after review of each request"
+      subtitleRu="Наличные, банковские платежи и валютные услуги в Ереване после проверки каждого запроса"
       heroImage="https://images.unsplash.com/photo-1629339938591-ec5e73815e47?w=1200&q=80"
-      serviceType="exchange">
-
+      serviceType="exchange"
+    >
       <CurrencyTicker />
       <CurrencyRatesTable />
 
       {isFa && <>
-        <InfoBlock title="چرا مدیریت ارز در سفر به ارمنستان مهم است؟">
-          <p>سفر به ارمنستان، چه با هدف گردشگری، چه تحصیل، تجارت یا اقامت کاری، همواره با یک دغدغه کلیدی همراه است: مدیریت هزینه‌ها و نحوه انتقال و تبدیل ارز. در کشوری که واحد رسمی آن «درام» (AMD) است و مسافران ایرانی نیز اغلب با ریال، دلار، یورو یا ارزهای دیجیتال سروکار دارند، دسترسی به یک صرافی معتبر، خوش‌نام و با نرخ منصفانه اهمیت دوچندانی پیدا می‌کند. گروه کاسپین با استقرار در مرکز ایروان، بستری امن و سریع برای پاسخ به تمامی نیازهای ارزی شما فراهم کرده است.</p>
+        <InfoBlock title="خدمات ارزی از ارمنستان، با پاسخ‌گویی روشن">
+          <p>ارمنستان برای بسیاری از ایرانیان مقصد تحصیل، درمان، تجارت و زندگی است. کاسپین در ایروان برای پرداخت نقدی دلار، یورو، پوند و درام، و همچنین هماهنگی واریز یا دریافت حسابی، همراه شماست. برای هر درخواست، ابتدا مقصد، روش پرداخت و مدارک لازم بررسی می‌شود تا مسیر مناسب و نرخ قابل اجرا پیش از شروع روشن باشد.</p>
         </InfoBlock>
 
-        <InfoBlock title="پوشش کامل انواع خدمات تبدیل ارز">
-          <h3 className="text-base font-bold text-foreground/90 mt-2 mb-1">تبدیل ریال به درام و دلار (نقدی و آنی)</h3>
-          <p className="mb-3">بزرگ‌ترین چالش مسافران ایرانی، خرید درام پیش از سفر یا تبدیل مانده ریال به واحد پول ارمنستان است.</p>
+        <section className="mb-10">
+          <div className="flex items-end justify-between gap-4 mb-4">
+            <div>
+              <p className="text-xs font-bold text-primary mb-1">خدمات کاسپین در ایروان</p>
+              <h2 className="text-2xl font-black text-foreground">راه‌حل مناسب برای هر درخواست ارزی</h2>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {services.map(([icon, title, description]) => (
+              <article key={title} className="glass-panel rounded-2xl border border-primary/15 p-5 hover:border-primary/40 transition-colors">
+                <span className="inline-flex w-11 h-11 items-center justify-center rounded-xl bg-primary/10 text-2xl mb-4">{icon}</span>
+                <h3 className="font-black text-foreground mb-2">{title}</h3>
+                <p className="text-sm leading-7 text-foreground/65">{description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-          <h3 className="text-base font-bold text-foreground/90 mt-4 mb-1">خرید و فروش انواع ارزهای فیات</h3>
-          <p className="mb-3">تبدیل درام به دلار برای خروج از کشور، یا چنج‌کردن یورو و روبل به درام، با کارمزد رقابتی و نرخ‌های کاملاً شفاف انجام می‌شود.</p>
-
-          <h3 className="text-base font-bold text-foreground/90 mt-4 mb-1">خرید و فروش تتر (USDT) و رمزارزها</h3>
-          <p className="mb-3">با توجه به محدودیت‌های جابه‌جایی مبالغ بالا به‌صورت نقد، تتر (به‌ویژه در شبکه TRC-20) بهترین ابزار نقل‌وانتقال مالی است: تبدیل تتر به نقد (ارسال تتر، دریافت آنی اسکناس)، یا خرید تتر با درام یا ریال برای شارژ کیف پول دیجیتال.</p>
-
-          <h3 className="text-base font-bold text-foreground/90 mt-4 mb-1">حواله‌های تجاری، دانشجویی و مهاجرتی</h3>
-          <p>پرداخت شهریه دانشگاه‌های ارمنستان، پیش‌پرداخت اجاره ملک، هزینه‌های اداری اقامت یا ثبت شرکت — کارشناسان ارزی کاسپین هماهنگی انتقال مستقیم مبالغ از ایران به ارمنستان را با رسید معتبر و تضمین سلامت انتقال انجام می‌دهند.</p>
+        <InfoBlock title="مراحل همکاری">
+          <ol className="space-y-4 text-foreground/75 leading-7">
+            <li><strong className="text-foreground">۱. درخواست در واتساپ:</strong> مبلغ، شهر، نوع ارز و نقدی یا حسابی بودن درخواست را بفرستید تا امکان انجام و نرخ همان زمان بررسی شود.</li>
+            <li><strong className="text-foreground">۲. بررسی اطلاعات:</strong> برای درخواست‌های لازم، احراز هویت و اطلاعات مقصد طبق نوع خدمت دریافت می‌شود.</li>
+            <li><strong className="text-foreground">۳. تأیید روش و تسویه:</strong> روش تسویه، هزینه‌های احتمالی و زمان‌بندی پیش از شروع شفاف اعلام می‌شود.</li>
+            <li><strong className="text-foreground">۴. پرداخت و رسید:</strong> پس از هماهنگی، پرداخت انجام و جزئیات یا رسید قابل ارائه در اختیار شما قرار می‌گیرد.</li>
+          </ol>
         </InfoBlock>
 
-        <InfoBlock title="چرا کاسپین گروپ را انتخاب کنیم؟">
+        <InfoBlock title="چرا کاسپین؟">
           <CheckList items={[
-            'دفتر فیزیکی و اعتبار رسمی — فعالیت کاملاً متمرکز با پاسخ‌گویی حضوری در مرکز ایروان',
-            'نرخ شفاف و رقابتی — بر اساس تغییرات لحظه‌ای، بدون هزینه پنهان یا کارمزد غیرمعقول',
-            'سرعت بالا — نقدشوندگی سریع چه در پرداخت ریالی و چه در تراکنش کریپتو',
-            'پشتیبانی فارسی‌زبان و مشاوره مالی برای انتخاب بهترین مسیر جابه‌جایی مالی',
+            'پاسخ‌گویی فارسی‌زبان در ایروان و بررسی هر درخواست پیش از شروع',
+            'اعلام شفاف روش تسویه و شرایط همان درخواست، پیش از پرداخت',
+            'هماهنگی خدمات نقدی، حسابی، دانشجویی و تجاری در یک نقطه تماس',
+            'پیگیری وضعیت پرداخت تا پایان مرحلهٔ توافق‌شده',
           ]} />
         </InfoBlock>
 
-        <InfoBlock title="فراتر از یک صرافی">
-          <p>گروه کاسپین تنها یک صرافی نیست؛ این مجموعه به‌عنوان پلی میان ایران و ارمنستان، خدمات گردشگری (رزرو هتل، ترانسفر فرودگاهی، تور)، هماهنگی بلیت کنسرت‌ها و رویدادها، و خدمات مهاجرتی و ثبت شرکت را نیز به مسافران و فعالان اقتصادی ارائه می‌دهد.</p>
+        <InfoBlock title="پرسش‌های متداول">
+          <div className="space-y-4 text-foreground/70 leading-7">
+            <p><strong className="text-foreground">کدام ارزها در صفحه نرخ دارند؟</strong><br />دلار آمریکا، یورو، پوند انگلیس و درام ارمنستان. سایر ارزها با استعلام پیش از ثبت درخواست بررسی می‌شوند.</p>
+            <p><strong className="text-foreground">برای پرداخت خارج از ارمنستان چه کار کنم؟</strong><br />در واتساپ مبلغ، ارز و مقصد را بفرستید تا امکان انجام، روش و مدارک لازم بررسی شود.</p>
+            <p><strong className="text-foreground">آیا نرخ نمایش‌داده‌شده نرخ نهایی حواله است؟</strong><br />خیر. نرخ‌های صفحه مرجع بازار آزاد ایران هستند؛ نرخ نهایی با توجه به روش تسویه و جزئیات درخواست اعلام می‌شود.</p>
+            <p><strong className="text-foreground">کارمزد چگونه مشخص می‌شود؟</strong><br />کارمزد احتمالی به مبلغ، روش پرداخت و مقصد وابسته است و پیش از تأیید نهایی اعلام می‌شود.</p>
+          </div>
         </InfoBlock>
       </>}
 
       {lang === 'en' && <>
-        <InfoBlock title="Why Currency Matters When Traveling to Armenia">
-          <p>Whether you're visiting Armenia for tourism, study, business, or work residency, managing your money and currency conversion is a key concern. Armenia's official currency is the Dram (AMD), while Iranian travelers usually deal with Rial, USD, EUR, or digital currencies. Caspian Group, based in central Yerevan, provides a fast and secure exchange service covering all of these needs.</p>
-        </InfoBlock>
-
-        <InfoBlock title="Full Range of Currency Exchange Services">
-          <CheckList items={[
-            'Rial to Dram/USD conversion — cash pickup in Yerevan via Iranian bank transfer, at the best daily rate',
-            'Fiat currency exchange — USD, EUR, RUB and AMD with competitive fees and transparent rates',
-            'USDT & crypto exchange — instant cash for USDT (TRC-20) or buying USDT with Dram/Rial',
-            'Business, student & immigration transfers — university tuition, rent deposits, residency and company registration fees, transferred directly from Iran with a verified receipt',
-          ]} />
-        </InfoBlock>
-
-        <InfoBlock title="Why Choose Caspian Group?">
-          <CheckList items={[
-            'A physical office in central Yerevan with in-person support',
-            'Transparent, competitive rates with no hidden fees',
-            'Fast turnaround for both cash and crypto transactions',
-            'Persian-speaking support and financial guidance',
-          ]} />
-        </InfoBlock>
+        <InfoBlock title="Currency Services Based in Armenia"><p>Caspian coordinates cash, account-payment and settlement requests in Yerevan. The destination, payment method and required details are reviewed before a rate or timeline is confirmed.</p></InfoBlock>
+        <InfoBlock title="How It Works"><CheckList items={['Send the amount, currency and preferred method on WhatsApp', 'We review the request and any required details', 'The available method and terms are confirmed before payment', 'Payment details or a receipt are shared after coordination']} /></InfoBlock>
       </>}
 
       {isRu && <>
-        <InfoBlock title="Почему важен обмен валют в Армении">
-          <p>Официальная валюта Армении — драм (AMD), а иранские путешественники чаще всего имеют дело с риалом, долларом, евро или криптовалютой. Caspian Group, офис в центре Еревана, предоставляет быстрый и надёжный обмен по всем этим направлениям.</p>
-        </InfoBlock>
-
-        <InfoBlock title="Полный спектр валютных услуг">
-          <CheckList items={[
-            'Обмен риала на драм/доллар — наличные в Ереване после перевода с иранского счёта, по лучшему курсу дня',
-            'Обмен фиатных валют — доллар, евро, рубль и драм с прозрачным курсом',
-            'Обмен USDT и криптовалют — мгновенная наличность за USDT (TRC-20) или покупка USDT за драм/риал',
-            'Бизнес-, студенческие и миграционные переводы — оплата обучения, аренды, ВНЖ и регистрации компании напрямую из Ирана',
-          ]} />
-        </InfoBlock>
-
-        <InfoBlock title="Почему Caspian Group?">
-          <CheckList items={[
-            'Физический офис в центре Еревана',
-            'Прозрачный и конкурентный курс без скрытых комиссий',
-            'Быстрое обслуживание для наличных и криптоплатежей',
-            'Персоязычная поддержка и финансовые консультации',
-          ]} />
-        </InfoBlock>
+        <InfoBlock title="Валютные услуги в Армении"><p>Caspian координирует наличные, банковские платежи и расчёты в Ереване. Перед подтверждением курса или срока мы проверяем направление, способ оплаты и необходимые данные.</p></InfoBlock>
+        <InfoBlock title="Как проходит работа"><CheckList items={['Отправьте сумму, валюту и предпочтительный способ в WhatsApp', 'Мы проверим запрос и необходимые данные', 'Способ и условия подтверждаются до оплаты', 'После координации предоставляются детали платежа или подтверждение']} /></InfoBlock>
       </>}
 
       <div className="glass-panel p-6 rounded-2xl border border-primary/30 mb-10 bg-black/40 backdrop-blur-md text-center">
         <p className="text-sm text-foreground/70 mb-4">
-          {isFa ? 'برای اطلاع از نرخ لحظه‌ای ارزها یا هماهنگی حواله و تبدیل حضوری، همین حالا در واتساپ پیام بدهید.' :
-            isRu ? 'Напишите нам в WhatsApp, чтобы узнать актуальный курс или согласовать перевод.' :
-            'Message us on WhatsApp for today\'s exchange rates or to arrange a transfer.'}
+          {isFa ? 'برای استعلام نرخ نهایی، خدمات نقدی یا درخواست پرداخت بین‌المللی، در واتساپ پیام بدهید.' :
+            isRu ? 'Напишите в WhatsApp, чтобы уточнить курс, наличный расчёт или международный платёж.' :
+            'Message us on WhatsApp to confirm a rate, cash service or an international payment request.'}
         </p>
         <button onClick={handleWhatsApp} className="py-4 px-8 bg-primary text-black font-black rounded-xl hover:bg-yellow-500">
-          {isFa ? 'استعلام نرخ در واتساپ' : isRu ? 'Узнать курс в WhatsApp' : 'Get Rates on WhatsApp'}
+          {isFa ? 'گفت‌وگو در واتساپ' : isRu ? 'Написать в WhatsApp' : 'Message on WhatsApp'}
         </button>
       </div>
     </ServicePageLayout>
