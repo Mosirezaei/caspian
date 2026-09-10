@@ -11,6 +11,11 @@ export const metadata = {
     description: 'eVisa از ۷۰ دلار در ۴ روز، یا ویزای سفارت تا ۳۰ روز اقامت — راهنمای کامل و دعوتنامه رسمی.',
     url: 'https://caspian.am/visa/russia',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ویزای توریستی روسیه برای ایرانیان | شرایط، مدارک و هزینه',
+    description: 'eVisa از ۷۰ دلار در ۴ روز، یا ویزای سفارت تا ۳۰ روز اقامت — راهنمای کامل و دعوتنامه رسمی.',
+  },
 };
 
 const serviceSchema = {

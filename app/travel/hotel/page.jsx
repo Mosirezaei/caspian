@@ -13,6 +13,12 @@ export const metadata = {
     url: 'https://caspian.am/travel/hotel',
     images: [{ url: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80', width: 1200, height: 630 }],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'رزرو هتل در ایروان | ۳ تا ۵ ستاره با واچر رسمی',
+    description: 'رزرو هتل ایروان با واچر رسمی، هماهنگی فارسی و بررسی ظرفیت بر اساس تاریخ سفر.',
+    images: ['https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80'],
+  },
 };
 
 // Mirrors src/views/service/Hotel.jsx's HOTELS list (15 real, named
