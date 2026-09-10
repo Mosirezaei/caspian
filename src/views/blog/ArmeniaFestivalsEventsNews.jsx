@@ -1,29 +1,11 @@
 'use client';
-import { Music, Newspaper, CalendarDays, ArrowLeft, Info, PartyPopper } from 'lucide-react';
+import { Newspaper, CalendarDays, ArrowLeft, PartyPopper } from 'lucide-react';
 import Link from 'next/link';
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices.jsx';
 import RelatedContent from '@/components/shared/RelatedContent.jsx';
 import { useSEO } from '@/hooks/useSEO';
-
-const concerts = [
-  { date: '۵ سپتامبر ۲۰۲۶', name: 'LXST CXNTURY, Onyx, Gio Pika و همراهان', venue: 'RA Yerevan' },
-  { date: '۱۰ سپتامبر ۲۰۲۶', name: 'Blockhead, Proleter, Arms and Sleepers', venue: 'Tonelab' },
-  { date: '۱۲ سپتامبر ۲۰۲۶', name: 'بوریس نیکولایف', venue: 'مجتمع کارن دمیرچیان' },
-  { date: '۱۳ سپتامبر ۲۰۲۶', name: '«بزرگ‌ترین عدد اول» (گروه روسی)', venue: 'Yans Music Hall' },
-  { date: '۱ تا ۸ اکتبر ۲۰۲۶', name: 'های‌فست — جشنواره‌ی بین‌المللی هنرهای نمایشی', venue: 'سالن‌های مختلف ایروان' },
-  { date: '۱۱ اکتبر ۲۰۲۶', name: 'جشن اربونی-ایروان با موسیقی زنده و اجرای پایانی', venue: 'میدان جمهوری' },
-  { date: '۱۰ اکتبر ۲۰۲۶', name: 'Дурной Вкус (گروه روسی)', venue: 'Muha Bar' },
-];
-
-
-const upcomingFestivals = [
-  { id: 'gata-fest', name: 'جشنواره گاتا', date: 'سپتامبر', location: 'خاچیک، وایوتس‌دزور' },
-  { id: 'independence-day', name: 'روز استقلال ارمنستان', date: '۲۱ سپتامبر', location: 'سراسر کشور' },
-  { id: 'areni-wine', name: 'جشنواره شراب آرنی', date: 'اوایل اکتبر', location: 'روستای آرنی، وایوتس‌دزور' },
-  { id: 'balloon-fest', name: 'جشنواره بالن هوای گرم', date: 'پاییز', location: 'ایروان، گارنی و آپاران' },
-];
 
 export default function ArmeniaFestivalsEventsNews() {
   useSEO({
@@ -59,57 +41,25 @@ export default function ArmeniaFestivalsEventsNews() {
               className="group inline-flex items-center gap-2.5 bg-primary text-black font-bold px-7 py-4 rounded-full shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 text-sm sm:text-base animate-pulse hover:animate-none"
             >
               <CalendarDays className="w-5 h-5" />
-              بررسی فستیوال‌ها و کنسرت‌های پیش رو در ارمنستان
+              دیدن کنسرت‌ها و خرید بلیط در ایروان
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
             </Link>
           </div>
         </div>
 
-        {/* خلاصه‌ی چند فستیوال نزدیک -- تقویم کامل و همه‌ی جشن‌های سال عمداً اینجا
-            تکرار نمی‌شه، چون همون محتوا کامل تو تب «فستیوال‌ها»ی /events هست؛
-            نگه‌داشتن دو نسخه‌ی کامل و یکسان از تقویم رو دو تا URL جدا باعث
-            محتوای تکراری و رقابت سئو با خودمون می‌شد. */}
+        {/* تقویم کامل فستیوال‌ها در تب اول صفحه‌ی /events قرار دارد. */}
         <section className="mb-14">
-          <h2 className="text-2xl font-bold text-foreground mb-5 flex items-center gap-2">
-            <PartyPopper className="w-5 h-5 text-primary" /> نزدیک‌ترین فستیوال‌ها
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {upcomingFestivals.map((f) => (
-              <div key={f.id} className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                <div className="text-xs text-primary/70 font-semibold">{f.date}</div>
-                <h3 className="font-bold text-foreground text-sm mt-1">{f.name}</h3>
-                <p className="text-foreground/50 text-xs mt-1">{f.location}</p>
-              </div>
-            ))}
+          <div className="p-6 rounded-2xl bg-white/5 border border-primary/20">
+            <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
+              <PartyPopper className="w-5 h-5 text-primary" /> تقویم فستیوال‌های سالانه ارمنستان
+            </h2>
+            <p className="text-sm text-foreground/60 leading-7 mt-3">
+              تاریخ، توضیحات و تصاویر جشن‌های سالانه از جمله وارداوار، ترندز، روزهای شراب ایروان، گاتا و جشنواره آرنی را در صفحه اختصاصی فستیوال‌ها ببینید.
+            </p>
+            <Link href="/events" className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary font-semibold hover:underline">
+              دیدن تقویم کامل فستیوال‌ها <ArrowLeft className="w-3.5 h-3.5" />
+            </Link>
           </div>
-          <Link
-            href="/events"
-            className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary font-semibold hover:underline"
-          >
-            دیدن تقویم کامل فستیوال‌های سال <ArrowLeft className="w-3.5 h-3.5" />
-          </Link>
-        </section>
-
-        {/* Upcoming concerts (next 3 months) */}
-        <section className="mb-14">
-          <h2 className="text-2xl font-bold text-foreground mb-5 flex items-center gap-2">
-            <Music className="w-5 h-5 text-primary" /> کنسرت‌ها و رویدادهای پیش رو (تا ۳ ماه آینده)
-          </h2>
-          <div className="space-y-3">
-            {concerts.map((c, i) => (
-              <div key={i} className="p-4 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/15 flex items-center gap-4">
-                <CalendarDays className="w-5 h-5 text-primary shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <div className="text-xs text-primary/70 font-semibold">{c.date}</div>
-                  <h3 className="font-bold text-foreground text-sm mt-0.5">{c.name}</h3>
-                  <p className="text-foreground/50 text-xs mt-0.5">{c.venue}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="text-xs text-foreground/40 mt-3 flex items-center gap-1.5">
-            <Info className="w-3.5 h-3.5 shrink-0" /> تقویم کنسرت‌های ایروان مدام آپدیت می‌شود و رویدادهای جدید هرهفته اضافه می‌شوند؛ برای آخرین لیست و کمک در خرید بلیط با ما در تماس باشید.
-          </p>
         </section>
 
         {/* Immigration & EU news */}
