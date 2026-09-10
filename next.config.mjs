@@ -19,6 +19,14 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // Keep one public hostname for users and search engines. This is a
+      // server-side redirect only; it does not change any rendered page.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.caspian.am' }],
+        destination: 'https://caspian.am/:path*',
+        permanent: true,
+      },
       { source: '/blog/living-cost-yerevan-1404', destination: '/blog/living-cost-yerevan', permanent: true },
       { source: '/services/visa-schengen',        destination: '/contact',            permanent: true },
       { source: '/services/visa-russia',          destination: '/visa/russia',         permanent: true },
