@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { PartyPopper, CalendarDays, Info, MapPin, Star } from 'lucide-react';
+import { PartyPopper, CalendarDays, Info, MapPin, Star, ChevronDown } from 'lucide-react';
 import { FESTIVAL_MONTHS, FESTIVALS } from '@/data/festivalsData';
 
 const TOP_PICKS = [
@@ -39,6 +39,7 @@ function Stars({ n }) {
  */
 export default function FestivalsCalendar({ idPrefix = '' }) {
   const [activeMonth, setActiveMonth] = useState('all');
+  const [expandedFestival, setExpandedFestival] = useState(null);
 
   const goToFestival = (id, month) => {
     setActiveMonth(month);
@@ -112,6 +113,10 @@ export default function FestivalsCalendar({ idPrefix = '' }) {
                   </div>
                   <h3 className="font-bold text-foreground text-sm mb-1">{f.nameFa} <span className="text-foreground/40 font-normal">— {f.nameEn}</span></h3>
                   <p className="text-foreground/60 text-sm leading-6 mb-2">{f.desc}</p>
+                  <button type="button" onClick={() => setExpandedFestival(expandedFestival === f.id ? null : f.id)} className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:text-yellow-300 transition mb-3">
+                    راهنمای تجربه این فستیوال <ChevronDown className={`w-3.5 h-3.5 transition-transform ${expandedFestival === f.id ? 'rotate-180' : ''}`} />
+                  </button>
+                  {expandedFestival === f.id && <div className="mb-3 p-3.5 rounded-xl bg-primary/10 border border-primary/15 text-sm text-foreground/70 leading-7">{f.guide}</div>}
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-foreground/45">
                     <span className="flex items-center gap-1"><CalendarDays className="w-3.5 h-3.5" /> {f.date}</span>
                     <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> {f.location}</span>
