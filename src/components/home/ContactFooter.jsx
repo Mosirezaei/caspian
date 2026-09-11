@@ -5,7 +5,12 @@ import { useLang } from '@/lib/LanguageContext';
 import { getWhatsAppUrl } from '@/lib/contact';
 
 export default function ContactFooter() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const addresses = {
+    fa: 'ایروان، خیابان کومیتاس، پلاک ۴۹، ارمنستان',
+    en: 'No. 49, Komitas, Yerevan, Armenia',
+    ru: 'Армения, Ереван, ул. Комитаса, 49',
+  };
 
   return (
     <>
@@ -45,7 +50,7 @@ export default function ContactFooter() {
               </a>
               <a href="https://maps.app.goo.gl/BqpSLLeYy2H9f8a69" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-sm text-foreground/60 hover:text-primary transition-colors">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                <span dir="ltr">No 49, Komitas, Yerevan, Armenia</span>
+                <span dir={lang === 'fa' ? 'rtl' : 'ltr'}>{addresses[lang] || addresses.fa}</span>
               </a>
             </div>
           </div>
