@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLang } from '@/lib/LanguageContext';
 import { supabase } from '@/api/supabaseClient';
+import ServiceSelect from '@/components/shared/ServiceSelect';
 import {
   CheckCircle,
   Loader2,
@@ -17,9 +18,12 @@ const content = {
   fa: {
     title: 'درخواست مشاوره رایگان',
     name: 'نام و نام خانوادگی',
-    phone: 'شماره تلفن',
+    phone: 'شماره واتساپ فعال',
+    phonePlaceholder: 'شماره واتساپ فعال با کد کشور، مثل +374…',
     email: 'ایمیل (اختیاری)',
     service: 'نوع خدمات',
+    selectService: 'انتخاب کنید...',
+    services: ['مشاوره ویزا', 'اقامت و مهاجرت', 'ثبت شرکت', 'رزرو هتل و آپارتمان', 'تور و ترانسفر', 'پرواز و بلیط', 'صرافی', 'پذیرش تحصیلی', 'سایر'],
     notes: 'توضیحات بیشتر',
     submit: 'ارسال درخواست',
     sending: 'در حال ارسال...',
@@ -28,13 +32,30 @@ const content = {
   en: {
     title: 'Free Consultation',
     name: 'Full Name',
-    phone: 'Phone Number',
+    phone: 'Active WhatsApp Number',
+    phonePlaceholder: 'Active WhatsApp number with country code, e.g. +374…',
     email: 'Email (Optional)',
     service: 'Service Type',
+    selectService: 'Select a service...',
+    services: ['Visa Consultation', 'Residency & Immigration', 'Company Registration', 'Hotel & Apartment Booking', 'Tours & Transfers', 'Flights & Tickets', 'Exchange', 'Student Admission', 'Other'],
     notes: 'Additional Notes',
     submit: 'Submit Request',
     sending: 'Sending...',
-    success: 'Your request has been submitted successfully'
+    success: 'Your request has been submitted successfully',
+  },
+  ru: {
+    title: 'Бесплатная консультация',
+    name: 'ФИО',
+    phone: 'Активный номер WhatsApp',
+    phonePlaceholder: 'Активный WhatsApp с кодом страны, например +374…',
+    email: 'Электронная почта (необязательно)',
+    service: 'Тип услуги',
+    selectService: 'Выберите услугу...',
+    services: ['Консультация по визе', 'ВНЖ и иммиграция', 'Регистрация компании', 'Бронирование отеля и квартиры', 'Туры и трансфер', 'Билеты', 'Обмен валют', 'Поступление в вуз', 'Другое'],
+    notes: 'Дополнительная информация',
+    submit: 'Отправить заявку',
+    sending: 'Отправка...',
+    success: 'Ваша заявка успешно отправлена'
   }
 };
 
@@ -128,11 +149,14 @@ export default function ContactForm() {
         <Phone className="absolute right-3 top-3.5 w-4 h-4 text-yellow-500" />
         <input
           type="tel"
-          placeholder={c.phone}
+          placeholder={c.phonePlaceholder}
           className={`${inputClass} pr-10`}
+          inputMode="tel"
+          dir="ltr"
           onChange={(e) =>
             setForm({ ...form, phone: e.target.value })
           }
+          required
         />
       </div>
 
@@ -148,13 +172,15 @@ export default function ContactForm() {
         />
       </div>
 
-      <input
-        type="text"
-        placeholder={c.service}
-        className={inputClass}
-        onChange={(e) =>
-          setForm({ ...form, service: e.target.value })
-        }
+      <ServiceSelect
+        name="service"
+        value={form.service}
+        onValueChange={(service) => setForm({ ...form, service })}
+        required
+        placeholder={c.selectService}
+        options={c.services.map((service) => ({ value: service, label: service }))}
+        dir={lang === 'fa' ? 'rtl' : 'ltr'}
+        className="border-yellow-500/30 bg-black/40 px-4 py-3 text-white focus:border-yellow-500"
       />
 
       <div className="relative">
