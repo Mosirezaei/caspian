@@ -317,7 +317,7 @@ export default function GlobalNavbar() {
           <div className="hidden md:flex items-center gap-0.5 flex-1 justify-center min-w-0">
             {links.map((link) =>
               link.mega ? (
-                <div key={link.label} className="relative" onMouseLeave={() => setOpenDropdown(null)}>
+                <div key={link.label} className="relative" onMouseEnter={() => setOpenDropdown(link.label)} onMouseLeave={() => setOpenDropdown(null)}>
                   <button id={`desktop-nav-${link.label}`} aria-haspopup="menu" aria-expanded={openDropdown === link.label}
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)} onFocus={() => setOpenDropdown(link.label)}
                     onKeyDown={(event) => event.key === 'Escape' && setOpenDropdown(null)} className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm text-foreground/70 hover:text-primary transition-colors font-medium whitespace-nowrap">
@@ -332,7 +332,7 @@ export default function GlobalNavbar() {
                   </div>}
                 </div>
               ) : link.children ? (
-                <div key={link.label} className="relative" onMouseLeave={() => setOpenDropdown(null)}>
+                <div key={link.label} className="relative" onMouseEnter={() => setOpenDropdown(link.label)} onMouseLeave={() => setOpenDropdown(null)}>
                   <button id={`desktop-nav-${link.label}`} aria-haspopup="menu" aria-expanded={openDropdown === link.label}
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)} onFocus={() => setOpenDropdown(link.label)}
                     onKeyDown={(event) => event.key === 'Escape' && setOpenDropdown(null)} className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm text-foreground/70 hover:text-primary transition-colors font-medium whitespace-nowrap">
