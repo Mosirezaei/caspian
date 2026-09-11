@@ -87,6 +87,15 @@
     caret-color: hsl(var(--primary));
   }
 
+  select {
+    color-scheme: dark;
+  }
+
+  select option {
+    background-color: hsl(var(--card));
+    color: hsl(var(--foreground));
+  }
+
   button, [role="button"], [role="tab"], [role="menuitem"],
   nav, .select-none {
     -webkit-user-select: none;
