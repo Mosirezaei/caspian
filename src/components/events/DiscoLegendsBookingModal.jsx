@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { Minus, Plus, X, MessageCircle, MapPin, Ticket } from 'lucide-react';
+import { getWhatsAppUrl } from '@/lib/contact';
 
 const TICKETS = [
   { id: 'standing', label: 'بلیط ایستاده', price: 40, note: 'Fan Zone / Standing' },
@@ -32,7 +33,7 @@ export default function DiscoLegendsBookingModal({ onClose }) {
     if (!mainTickets) return setError('حداقل یک بلیط ایستاده یا نشسته انتخاب کنید.');
     if (!fullName.trim() || !phone.trim()) return setError('نام و شماره تماس را وارد کنید.');
     const message = `سلام، درخواست رزرو Disco Legends دارم:\n\n👤 نام: ${fullName}\n📞 تماس: ${phone}\n🎫 ایستاده: ${counts.standing} عدد\n💺 نشسته: ${counts.seated} عدد\n🎉 افترپارتی: ${counts.afterParty} عدد\n💰 مجموع: ${total} دلار\n\nلطفاً برای تکمیل رزرو راهنمایی کنید.`;
-    window.open(`https://wa.me/37433149327?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(getWhatsAppUrl(undefined, message), '_blank');
   }
 
   return (

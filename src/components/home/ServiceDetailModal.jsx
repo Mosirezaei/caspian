@@ -3,8 +3,9 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MessageCircle, Phone, Instagram, Send } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
+import { getWhatsAppUrl } from '@/lib/contact';
 
-const WHATSAPP = 'https://wa.me/37433149327';
+const WHATSAPP = getWhatsAppUrl();
 const TELEGRAM = 'https://t.me/caspianbusinessgroup';
 const INSTAGRAM = 'https://www.instagram.com/caspian.am?igsh=bDBsdTE0ZHJ3bno0';
 const PHONE = 'tel:0037433149327';

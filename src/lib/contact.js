@@ -10,3 +10,8 @@ const BOOKING_SERVICE_TYPES = new Set(['hotel', 'tour', 'transfer']);
 export function getWhatsAppNumber(serviceType) {
   return BOOKING_SERVICE_TYPES.has(serviceType) ? WHATSAPP_BOOKING : WHATSAPP_GENERAL;
 }
+
+export function getWhatsAppUrl(serviceType, message = '') {
+  const number = getWhatsAppNumber(serviceType);
+  return `https://wa.me/${number}${message ? `?text=${encodeURIComponent(message)}` : ''}`;
+}

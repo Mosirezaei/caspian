@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X } from 'lucide-react';
+import { getWhatsAppUrl } from '@/lib/contact';
 
 export default function WhatsAppButton() {
   const [open, setOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function WhatsAppButton() {
               </button>
             </div>
             <div className="p-4 bg-[#0d0d0d]">
-              <a href="https://wa.me/37433149327?text=سلام، میخواهم مشاوره بگیرم" target="_blank" rel="noopener noreferrer"
+              <a href={getWhatsAppUrl(undefined, 'سلام، میخواهم مشاوره بگیرم')} target="_blank" rel="noopener noreferrer"
                 className="block w-full text-center py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-bold hover:shadow-lg transition-all">
                 شروع گفتگو در واتساپ
               </a>

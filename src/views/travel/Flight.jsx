@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLang } from '@/lib/LanguageContext';
 import GlobalNavbar from '@/components/shared/GlobalNavbar';
+import { getWhatsAppUrl } from '@/lib/contact';
 import { 
   Plane, 
   Calendar, 
@@ -191,7 +192,7 @@ ${tripType === 'round' ? `🛬 تاریخ برگشت: ${formData.returnDate || '
 ${tripType === 'round' ? `🛬 Return: ${formData.returnDate || 'Not specified'}\n` : ''}💺 Class: ${cabinClass}
 👥 Passengers: ${formData.adults} Adults, ${formData.childrenAbove7} Children (7+), ${formData.childrenUnder7} Children (<7)`;
 
-    window.open(`https://wa.me/37433149327?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(getWhatsAppUrl(undefined, text), '_blank');
   };
 
   const content = {

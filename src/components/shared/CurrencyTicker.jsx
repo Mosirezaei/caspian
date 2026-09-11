@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ArrowDown, ArrowUp, Minus } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
 import { supabase } from '@/api/supabaseClient';
+import { getWhatsAppUrl } from '@/lib/contact';
 
 const SYMBOLS = ['usd', 'eur', 'gbp', 'amd'];
 const LABELS = {
@@ -129,7 +130,7 @@ export default function CurrencyTicker() {
 
   const openWhatsApp = () => {
     const message = lang === 'fa' ? 'سلام، برای استعلام نرخ لحظه‌ای و حواله ارز پیام دادم.' : 'Hello, I would like a live currency quote.';
-    window.open(`https://wa.me/37433149327?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(getWhatsAppUrl(undefined, message), '_blank');
   };
 
   return (

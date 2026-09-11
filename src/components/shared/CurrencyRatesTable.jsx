@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useLang } from '@/lib/LanguageContext';
 import { supabase } from '@/api/supabaseClient';
+import { getWhatsAppUrl } from '@/lib/contact';
 
 // The four reference currencies displayed on Caspian's exchange page.
 // Symbols match the rate source's slug field exactly.
@@ -49,7 +50,7 @@ function yerevanClock() {
 
 function openWhatsApp(lang) {
   const text = WHATSAPP_MESSAGE[lang] || WHATSAPP_MESSAGE.fa;
-  window.open(`https://wa.me/37433149327?text=${encodeURIComponent(text)}`, '_blank');
+  window.open(getWhatsAppUrl(undefined, text), '_blank');
 }
 
 export default function CurrencyRatesTable() {

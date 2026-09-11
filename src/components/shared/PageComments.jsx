@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
-import { createPortal } from 'react-dom';
 import { createClient } from '@supabase/supabase-js';
 import { MessageCircle, Send, CheckCircle2, ChevronDown } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
@@ -87,10 +86,10 @@ export default function PageComments() {
   const [telegramId, setTelegramId] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
   const [email, setEmail] = useState('');
-  const [desktopAnchor, setDesktopAnchor] = useState(null);
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  const hidden = !pathname || pathname.startsWith('/admin');
+  // The homepage has its own conversion flow. Every other public page gets
+  // this single shared form in one reliable position: after page content and
+  // before the footer (rendered by app/providers.jsx).
+  const hidden = !pathname || pathname === '/' || pathname.startsWith('/admin');
 
   const loadComments = useCallback(async () => {
     const supabase = getSupabase();
@@ -110,48 +109,6 @@ export default function PageComments() {
     if (hidden) return;
     loadComments();
   }, [hidden, loadComments]);
-
-  // On desktop, put one shared form directly after the FAQ of the current
-  // page. On mobile it stays after the content/sidebar, which is the intended
-  // reading order. This avoids adding the form to every article manually.
-  useEffect(() => {
-    if (hidden || typeof window === 'undefined') return undefined;
-    let anchor = null;
-    const media = window.matchMedia('(min-width: 1024px)');
-    const faqPattern = /(?:سوالات|پرسش‌های)\s*متداول|frequently\s+asked|часто\s+задаваем/i;
-
-    const place = () => {
-      const desktop = media.matches;
-      setIsDesktop(desktop);
-      if (!desktop) {
-        setDesktopAnchor(null);
-        if (anchor) anchor.remove();
-        anchor = null;
-        return;
-      }
-
-      const heading = [...document.querySelectorAll('main h2, main h3')]
-        .find((node) => faqPattern.test(node.textContent || ''));
-      const faqBlock = heading?.closest('[data-faq-anchor]') || heading?.closest('section') || heading?.parentElement?.parentElement;
-      if (!faqBlock?.parentElement) {
-        setDesktopAnchor(null);
-        return;
-      }
-
-      anchor?.remove();
-      anchor = document.createElement('div');
-      anchor.className = 'page-comments-desktop-anchor';
-      faqBlock.insertAdjacentElement('afterend', anchor);
-      setDesktopAnchor(anchor);
-    };
-
-    place();
-    media.addEventListener('change', place);
-    return () => {
-      media.removeEventListener('change', place);
-      anchor?.remove();
-    };
-  }, [hidden, pathname, lang]);
 
   if (hidden) return null;
 
@@ -302,6 +259,5 @@ export default function PageComments() {
     </section>
   );
 
-  if (isDesktop) return desktopAnchor ? createPortal(content, desktopAnchor) : null;
   return content;
 }

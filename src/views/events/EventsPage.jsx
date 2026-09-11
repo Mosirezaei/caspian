@@ -7,6 +7,7 @@ import FestivalsCalendar from '@/components/festivals/FestivalsCalendar';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices';
 import DiscoLegendsBookingModal from '@/components/events/DiscoLegendsBookingModal';
+import { getWhatsAppUrl } from '@/lib/contact';
 
 export default function EventsPage({ initialEvents = [] }) {
   // Seeded from the server component's own fetch (used for the page's
@@ -79,15 +80,14 @@ export default function EventsPage({ initialEvents = [] }) {
     const title = event.titleFa || event.titleEn || event.title;
     const venue = event.venueFa || event.venueEn || event.venue;
     const price = event.priceDisplay || event.price;
-    const msg = encodeURIComponent(
+    const msg =
       `سلام، می‌خوام برای این رویداد بلیط برام تهیه کنید:\n\n` +
       `🎫 ${title}\n` +
       (event.date ? `📅 ${event.date}\n` : '') +
       (venue ? `📍 ${venue}\n` : '') +
       (price ? `💰 ${price}\n` : '') +
-      `\nلطفاً راهنمایی کنید.`
-    );
-    window.open(`https://wa.me/37433149327?text=${msg}`, '_blank');
+      `\nلطفاً راهنمایی کنید.`;
+    window.open(getWhatsAppUrl(undefined, msg), '_blank');
   }
 
   return (

@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLang } from '@/lib/LanguageContext';
 import { ServicePageLayout, InfoBlock, CheckList } from '@/components/shared/ServicePageLayout';
+import { getWhatsAppUrl } from '@/lib/contact';
 import { 
   MapPin, 
   Calendar, 
@@ -93,7 +94,7 @@ function ApartmentContent() {
 🧒 Children (7+ yrs): ${formData.childrenAbove7}
 👶 Children (<7 yrs): ${formData.childrenUnder7}`;
 
-    window.open(`https://wa.me/37433149327?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(getWhatsAppUrl(undefined, text), '_blank');
   };
 
   return (

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Phone, MessageCircle, Send, MapPin, Instagram } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
+import { getWhatsAppUrl } from '@/lib/contact';
 
 export default function ContactFooter() {
   const { t } = useLang();
@@ -26,7 +27,7 @@ export default function ContactFooter() {
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                 <span dir="ltr">0037433149327</span>
               </a>
-              <a href="https://wa.me/37433149327" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground/60 hover:text-primary transition-colors">
+              <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground/60 hover:text-primary transition-colors">
                 <MessageCircle className="w-4 h-4 text-primary flex-shrink-0" />
                 <span>WhatsApp</span>
               </a>
