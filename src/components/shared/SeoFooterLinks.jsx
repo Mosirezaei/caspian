@@ -6,7 +6,8 @@ import { ALL_SITE_LINKS } from '@/data/siteLinks';
 /**
  * SeoFooterLinks — «لینک‌های مفید»: همه‌ی صفحات محتوایی سایت (سرویس‌ها + مقالات وبلاگ)،
  * به‌جز صفحه اصلی/درباره‌ما/تماس‌با‌ما. ترتیب بر اساس تعداد تگ مشترک با صفحه‌ی فعلی
- * (مرتبط‌ترین اول)؛ بین آیتم‌های هم‌امتیاز، ترتیب رندومه (نه یه چیدمان ثابت هربار).
+ * (مرتبط‌ترین اول). برای جلوگیری از شلوغی و لینک‌های بی‌ربط، فقط موارد دارای تگ
+ * تخصصی مشترک نمایش داده می‌شوند؛ تگ عمومی «ارمنستان» به‌تنهایی کافی نیست.
  *
  * currentTags: تگ‌های صفحه‌ی فعلی (از blogPosts یا نگاشت SERVICE_TYPE_TAGS)
  * currentPath: مسیر صفحه‌ی فعلی، تا از لیست حذف بشه
@@ -16,13 +17,17 @@ export default function SeoFooterLinks({ variant = 'default', currentTags = [], 
   const label = lang === 'fa' ? 'لینک‌های مفید' : lang === 'ru' ? 'Полезные ссылки' : 'Useful Links';
 
   const items = useMemo(() => {
+    const meaningfulTags = currentTags.filter((tag) => tag !== 'armenia');
     const pool = ALL_SITE_LINKS.filter(l => l.href !== currentPath);
     const scored = pool.map(l => ({
       link: l,
-      score: l.tags.filter(t => currentTags.includes(t)).length,
+      score: l.tags.filter(t => meaningfulTags.includes(t)).length,
     }));
-    scored.sort((a, b) => b.score - a.score || Math.random() - 0.5);
-    return scored.map(s => s.link);
+    return scored
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 6)
+      .map(({ link }) => link);
   }, [currentTags, currentPath]);
 
   if (items.length === 0) return null;
