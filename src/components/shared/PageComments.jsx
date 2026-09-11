@@ -138,7 +138,7 @@ export default function PageComments() {
   }
 
   const content = (
-    <section dir={isRtl ? 'rtl' : 'ltr'} className="max-w-3xl mx-auto px-4 py-14 border-t border-white/10">
+    <section dir={isRtl ? 'rtl' : 'ltr'} className="max-w-6xl mx-auto px-4 py-14 border-t border-white/10">
       <h2 className="text-xl font-bold text-foreground mb-1.5 flex items-center gap-2">
         <MessageCircle className="w-5 h-5 text-primary" /> {t.heading}
       </h2>
