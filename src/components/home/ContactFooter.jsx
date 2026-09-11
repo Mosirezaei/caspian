@@ -41,29 +41,29 @@ export default function ContactFooter() {
           </div>
           <div>
             <h3 className="font-bold text-foreground mb-4">{t.footer.contactTitle}</h3>
-            <div className="space-y-3">
-              <a href="tel:0037433149327" className="flex items-center gap-3 text-sm text-foreground/60 hover:text-primary transition-colors">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+              <a href="tel:0037433149327" className="flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                 <span dir="ltr">0037433149327</span>
               </a>
-              <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground/60 hover:text-primary transition-colors">
+              <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition-colors">
                 <MessageCircle className="w-4 h-4 text-primary flex-shrink-0" />
                 <span>WhatsApp</span>
               </a>
-              <a href="https://t.me/caspianbusinessgroup" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground/60 hover:text-primary transition-colors">
+              <a href="https://t.me/caspianbusinessgroup" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition-colors">
                 <Send className="w-4 h-4 text-primary flex-shrink-0" />
                 <span>Telegram Admin</span>
               </a>
-              <a href="https://t.me/CaspianGroups" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground/60 hover:text-primary transition-colors">
+              <a href="https://t.me/CaspianGroups" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition-colors">
                 <Send className="w-4 h-4 text-primary flex-shrink-0" />
                 <span>Telegram Group</span>
               </a>
-              <a href="https://www.instagram.com/caspian.am?igsh=bDBsdTE0ZHJ3bno0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground/60 hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/caspian.am?igsh=bDBsdTE0ZHJ3bno0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition-colors">
                 <Instagram className="w-4 h-4 text-primary flex-shrink-0" />
                 <span>@caspian.am</span>
               </a>
-              <a href="https://maps.app.goo.gl/BqpSLLeYy2H9f8a69" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-sm text-foreground/60 hover:text-primary transition-colors">
-                <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+              <a href="https://maps.app.goo.gl/BqpSLLeYy2H9f8a69" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition-colors">
+                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                 <span dir={lang === 'fa' ? 'rtl' : 'ltr'}>{addresses[lang] || addresses.fa}</span>
               </a>
             </div>
