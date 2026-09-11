@@ -150,86 +150,108 @@ export default function PageComments() {
           {t.sent}
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="relative space-y-3 mb-10">
-          {/* Honeypot: real visitors never see or fill this field. It remains
-              in the form, without expanding the document width. */}
-          <input
-            type="text"
-            name="website"
-            value={website}
-            onChange={(e) => setWebsite(e.target.value)}
-            tabIndex={-1}
-            autoComplete="off"
-            className="absolute left-0 top-0 w-px h-px opacity-0 pointer-events-none"
-            aria-hidden="true"
-          />
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder={t.namePh}
-            maxLength={80}
-            className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:border-primary/40"
-          />
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder={t.messagePh}
-            required
-            maxLength={2000}
-            rows={4}
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:border-primary/40 resize-none"
-          />
-
-          <div>
-            <button
-              type="button"
-              onClick={() => setShowContact((v) => !v)}
-              className="flex items-center gap-1.5 text-xs text-foreground/45 hover:text-foreground/70 transition"
-            >
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showContact ? 'rotate-180' : ''}`} />
-              {t.contactToggle}
-            </button>
-            {showContact && (
-              <div className="mt-3 space-y-2 p-3 rounded-xl bg-white/[0.03] border border-white/10">
-                <p className="text-[11px] text-foreground/40 leading-relaxed">{t.contactNote}</p>
-                <input
-                  type="text"
-                  value={telegramId}
-                  onChange={(e) => setTelegramId(e.target.value)}
-                  placeholder={t.telegramPh}
-                  maxLength={100}
-                  className="w-full px-3.5 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:border-primary/40"
-                />
-                <input
-                  type="text"
-                  value={whatsapp}
-                  onChange={(e) => setWhatsapp(e.target.value)}
-                  placeholder={t.whatsappPh}
-                  maxLength={40}
-                  className="w-full px-3.5 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:border-primary/40"
-                />
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={t.emailPh}
-                  maxLength={200}
-                  className="w-full px-3.5 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:border-primary/40"
-                />
+        <div className="rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden mb-10">
+          <div className="grid md:grid-cols-3">
+            <div className="hidden md:flex flex-col items-center justify-center gap-4 p-8 bg-gradient-to-b from-primary/10 to-transparent border-e border-white/10">
+              <div className="relative">
+                <div className="w-24 h-24 rounded-full bg-primary/15 flex items-center justify-center">
+                  <MessageCircle className="w-10 h-10 text-primary" />
+                </div>
+                <div className="absolute -bottom-1 -end-1 w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
+                  <CheckCircle2 className="w-5 h-5 text-background" />
+                </div>
               </div>
-            )}
-          </div>
+              <p className="text-xs text-foreground/40 text-center leading-relaxed">{t.subheading}</p>
+            </div>
 
-          {status === 'error' && <p className="text-xs text-red-400">{t.error}</p>}
-          <button
-            type="submit"
-            disabled={status === 'sending' || !message.trim()}
-            className="inline-flex items-center gap-2 bg-primary text-black font-bold px-5 py-2.5 rounded-xl hover:bg-primary/90 transition text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <Send className="w-4 h-4" /> {status === 'sending' ? t.sending : t.submit}
-          </button>
-        </form>
+            <div className="md:col-span-2 p-6">
+              <form onSubmit={handleSubmit} className="relative space-y-4">
+                {/* Honeypot: real visitors never see or fill this field. It remains
+                    in the form, without expanding the document width. */}
+                <input
+                  type="text"
+                  name="website"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="absolute left-0 top-0 w-px h-px opacity-0 pointer-events-none"
+                  aria-hidden="true"
+                />
+
+                <div>
+                  <label className="block text-xs text-foreground/50 mb-1.5">{t.messagePh}</label>
+                  <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                    maxLength={2000}
+                    rows={4}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-foreground focus:outline-none focus:border-primary/40 resize-none"
+                  />
+                </div>
+
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder={t.namePh}
+                  maxLength={80}
+                  className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:border-primary/40"
+                />
+
+                <div className="rounded-xl border border-white/10 overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setShowContact((v) => !v)}
+                    className="w-full flex items-center justify-between gap-2 px-4 py-3 text-xs text-foreground/55 hover:text-foreground/80 hover:bg-white/[0.03] transition"
+                  >
+                    <span>{t.contactToggle}</span>
+                    <ChevronDown className={`w-3.5 h-3.5 shrink-0 transition-transform ${showContact ? 'rotate-180' : ''}`} />
+                  </button>
+                  {showContact && (
+                    <div className="space-y-2 px-4 pb-4 pt-1 border-t border-white/10 bg-white/[0.02]">
+                      <p className="text-[11px] text-foreground/40 leading-relaxed">{t.contactNote}</p>
+                      <input
+                        type="text"
+                        value={telegramId}
+                        onChange={(e) => setTelegramId(e.target.value)}
+                        placeholder={t.telegramPh}
+                        maxLength={100}
+                        className="w-full px-3.5 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:border-primary/40"
+                      />
+                      <input
+                        type="text"
+                        value={whatsapp}
+                        onChange={(e) => setWhatsapp(e.target.value)}
+                        placeholder={t.whatsappPh}
+                        maxLength={40}
+                        className="w-full px-3.5 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:border-primary/40"
+                      />
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder={t.emailPh}
+                        maxLength={200}
+                        className="w-full px-3.5 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:border-primary/40"
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {status === 'error' && <p className="text-xs text-red-400">{t.error}</p>}
+                <button
+                  type="submit"
+                  disabled={status === 'sending' || !message.trim()}
+                  className="inline-flex items-center gap-2 bg-primary text-black font-bold px-5 py-2.5 rounded-xl hover:bg-primary/90 transition text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <Send className="w-4 h-4" /> {status === 'sending' ? t.sending : t.submit}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
       )}
 
       {!loading && comments.length === 0 && (
