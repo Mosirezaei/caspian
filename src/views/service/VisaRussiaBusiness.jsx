@@ -24,7 +24,35 @@ function Content() {
 
       {isFa && <>
         <InfoBlock title="ویزای تجاری روسیه چیه؟">
-          <p>ویزای تجاری برای افرادی صادر می‌شه که هدف سفرشون به روسیه مذاکره‌ی تجاری، بازدید از شرکای کاری، شرکت در نمایشگاه یا کنفرانس، یا انجام امور اداری/حقوقی برای شرکته — نه اقامت یا اشتغال دائم. برخلاف ویزای توریستی eVisa که فقط تا ۱۶ روز اعتبار داره، ویزای تجاری معمولاً اعتبار و مدت اقامت بیشتری می‌ده و می‌تونه به‌صورت چندبار ورود هم صادر بشه.</p>
+          <p>ویزای تجاری برای افرادی صادر می‌شه که هدف سفرشون به روسیه مذاکره‌ی تجاری، بازدید از شرکای کاری، شرکت در نمایشگاه یا کنفرانس، یا انجام امور اداری/حقوقی برای شرکته — نه اقامت یا اشتغال دائم. برخلاف ویزای توریستی eVisa که حداکثر ۳۰ روز اقامت مداوم می‌ده، ویزای تجاری معمولاً اعتبار و مدت اقامت بیشتری داره و می‌تونه به‌صورت چندبار ورود هم صادر بشه.</p>
+        </InfoBlock>
+
+        <InfoBlock title="مقایسه ویزای تجاری و توریستی روسیه">
+          <div className="overflow-x-auto mt-1">
+            <table className="w-full text-xs border-collapse">
+              <thead>
+                <tr className="bg-primary/15 text-foreground">
+                  <th className="p-2 text-right border border-white/10">معیار مقایسه</th>
+                  <th className="p-2 text-right border border-white/10">ویزای تجاری (Business)</th>
+                  <th className="p-2 text-right border border-white/10">ویزای توریستی (eVisa)</th>
+                </tr>
+              </thead>
+              <tbody className="text-foreground/70">
+                {[
+                  ['هدف از سفر', 'مراودات بازرگانی، قراردادها، نشست‌های صنعتی', 'گردشگری، بازدید از جاذبه‌های تاریخی و تفریحی'],
+                  ['مدت اعتبار', 'از ۹۰ روز تا ۵ سال (تک تا چندبار ورود)', 'اعتبار ۱۲۰ روزه، حداکثر ۳۰ روز اقامت'],
+                  ['نیاز به دعوت‌نامه رسمی', 'الزامی (از شرکت روسی یا وزارت امور خارجه)', 'الزامی نیست'],
+                ].map(([f, b, t]) => (
+                  <tr key={f} className="border-b border-white/5 hover:bg-white/3">
+                    <td className="p-2 border border-white/8 font-medium text-foreground/80">{f}</td>
+                    <td className="p-2 border border-white/8">{b}</td>
+                    <td className="p-2 border border-white/8">{t}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-foreground/40 mt-3">برای جزئیات ویزای توریستی، <Link href="/visa/russia" className="text-primary hover:underline">ویزای توریستی روسیه</Link> را ببینید.</p>
         </InfoBlock>
 
         <InfoBlock title="مدارک لازم">
