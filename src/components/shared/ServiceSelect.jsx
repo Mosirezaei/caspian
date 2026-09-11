@@ -14,7 +14,16 @@ export default function ServiceSelect({ name, value, onValueChange, placeholder,
         <Select.Icon className="text-foreground/75"><ChevronDown className="h-4 w-4" /></Select.Icon>
       </Select.Trigger>
       <Select.Portal>
-        <Select.Content position="popper" sideOffset={6} className="z-[100] max-h-72 overflow-hidden rounded-xl border border-white/15 bg-[#20282b] text-foreground shadow-2xl shadow-black/50">
+        <Select.Content
+          position="popper"
+          side="bottom"
+          align="start"
+          sideOffset={6}
+          collisionPadding={8}
+          avoidCollisions={false}
+          style={{ width: 'var(--radix-select-trigger-width)' }}
+          className="z-[100] max-h-72 overflow-hidden rounded-xl border border-white/15 bg-[#20282b] text-foreground shadow-2xl shadow-black/50"
+        >
           <Select.Viewport className="p-1.5">
             {options.map((option) => (
               <Select.Item key={option.value} value={option.value} className="relative flex cursor-pointer select-none items-center rounded-lg py-2.5 ps-9 pe-3 text-sm text-foreground/85 outline-none data-[highlighted]:bg-primary data-[highlighted]:text-background">
