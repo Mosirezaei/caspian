@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
 import { supabase } from '@/api/supabaseClient';
+import ServiceSelect from '@/components/shared/ServiceSelect';
 
 const servicesList = {
   fa: [
@@ -45,9 +46,9 @@ const servicesList = {
 };
 
 const labels = {
-  fa: { title: 'مشاوره رایگان', subtitle: 'اطلاعات خود را وارد کنید، کارشناسان ما با شما تماس می‌گیرند', name: 'نام و نام خانوادگی', phone: 'شماره تماس', contact: 'آیدی تلگرام / شماره واتساپ / سایر', contactPlaceholder: '@telegram یا +989123456789', service: 'خدمت مورد نظر', selectService: 'انتخاب کنید...', notes: 'توضیحات', notesPlaceholder: 'هر توضیح اضافه‌ای که لازم است...', submit: 'ارسال درخواست', submitting: 'در حال ارسال...', required: '* اجباری', optional: '(اختیاری)' },
-  en: { title: 'Free Consultation', subtitle: 'Fill in your details and our team will contact you', name: 'Full Name', phone: 'Phone Number', contact: 'Telegram ID / WhatsApp / Other', contactPlaceholder: '@telegram or +989123456789', service: 'Service of Interest', selectService: 'Select a service...', notes: 'Notes', notesPlaceholder: 'Any additional details...', submit: 'Submit Request', submitting: 'Submitting...', required: '* required', optional: '(optional)' },
-  ru: { title: 'Бесплатная консультация', subtitle: 'Заполните форму и наши специалисты свяжутся с вами', name: 'ФИО', phone: 'Номер телефона', contact: 'Telegram ID / WhatsApp / Другое', contactPlaceholder: '@telegram или +989123456789', service: 'Интересующая услуга', selectService: 'Выберите услугу...', notes: 'Примечания', notesPlaceholder: 'Дополнительные детали...', submit: 'Отправить заявку', submitting: 'Отправка...', required: '* обязательно', optional: '(необязательно)' },
+  fa: { title: 'مشاوره رایگان', subtitle: 'اطلاعات خود را وارد کنید، کارشناسان ما با شما تماس می‌گیرند', name: 'نام و نام خانوادگی', phone: 'شماره واتساپ فعال', phonePlaceholder: 'شماره واتساپ فعال با کد کشور، مثل +374…', contact: 'آیدی تلگرام / راه ارتباطی دیگر', contactPlaceholder: 'اختیاری؛ مثل @telegram', service: 'خدمت مورد نظر', selectService: 'انتخاب کنید...', notes: 'توضیحات', notesPlaceholder: 'هر توضیح اضافه‌ای که لازم است...', submit: 'ارسال درخواست', submitting: 'در حال ارسال...', required: '* اجباری', optional: '(اختیاری)' },
+  en: { title: 'Free Consultation', subtitle: 'Fill in your details and our team will contact you', name: 'Full Name', phone: 'Active WhatsApp Number', phonePlaceholder: 'Active WhatsApp number with country code, e.g. +374…', contact: 'Telegram ID / Other Contact', contactPlaceholder: 'Optional; e.g. @telegram', service: 'Service of Interest', selectService: 'Select a service...', notes: 'Notes', notesPlaceholder: 'Any additional details...', submit: 'Submit Request', submitting: 'Submitting...', required: '* required', optional: '(optional)' },
+  ru: { title: 'Бесплатная консультация', subtitle: 'Заполните форму и наши специалисты свяжутся с вами', name: 'ФИО', phone: 'Активный номер WhatsApp', phonePlaceholder: 'Активный WhatsApp с кодом страны, например +374…', contact: 'Telegram / другой способ связи', contactPlaceholder: 'Необязательно; например @telegram', service: 'Интересующая услуга', selectService: 'Выберите услугу...', notes: 'Примечания', notesPlaceholder: 'Дополнительные детали...', submit: 'Отправить заявку', submitting: 'Отправка...', required: '* обязательно', optional: '(необязательно)' },
 };
 
 export default function ConsultModal({ isOpen, onClose }) {
@@ -123,9 +124,9 @@ await fetch(
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <input name="name" value={form.name} onChange={handleChange} required placeholder={t.name} className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-foreground/25 text-sm focus:outline-none" />
-                    <input name="phone" value={form.phone} onChange={handleChange} required placeholder={t.phone} type="tel" className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-foreground/25 text-sm focus:outline-none" />
+                    <input name="phone" value={form.phone} onChange={handleChange} required placeholder={t.phonePlaceholder} type="tel" inputMode="tel" dir="ltr" className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-foreground/35 text-sm focus:outline-none" />
                     <input name="contact" value={form.contact} onChange={handleChange} placeholder={t.contactPlaceholder} className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-foreground/25 text-sm focus:outline-none" />
-                    <select name="service" value={form.service} onChange={handleChange} className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-foreground text-sm focus:outline-none"><option value="">{t.selectService}</option>{services.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}</select>
+                    <ServiceSelect name="service" value={form.service} onValueChange={(service) => setForm((prev) => ({ ...prev, service }))} required placeholder={t.selectService} options={services} dir={isRtl ? 'rtl' : 'ltr'} />
                     <textarea name="notes" value={form.notes} onChange={handleChange} placeholder={t.notesPlaceholder} rows={3} className="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-foreground/25 text-sm focus:outline-none resize-none" />
                     <button type="submit" disabled={loading} className="w-full py-3 rounded-xl bg-gradient-to-r from-primary to-primary/80 text-background font-bold text-sm disabled:opacity-60">{loading ? t.submitting : t.submit}</button>
                   </form>
