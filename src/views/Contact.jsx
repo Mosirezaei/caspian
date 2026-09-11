@@ -8,6 +8,7 @@ import {
   Clock, Globe, Building2, CheckCircle, Loader2
 } from 'lucide-react';
 import { supabase } from '@/api/supabaseClient';
+import ServiceSelect from '@/components/shared/ServiceSelect';
 
 const content = {
   fa: {
@@ -32,7 +33,8 @@ const content = {
     formTitle: 'ارسال پیام',
     formSub: 'پیام خود را برای ما بفرستید، در اسرع وقت پاسخ می‌دهیم',
     nameLabel: 'نام و نام خانوادگی',
-    phoneLabel: 'شماره تماس',
+    phoneLabel: 'شماره واتساپ فعال',
+    phonePlaceholder: 'شماره واتساپ فعال با کد کشور، مثل +374…',
     serviceLabel: 'موضوع',
     serviceOptions: ['مشاوره ویزا', 'اقامت و مهاجرت', 'ثبت شرکت', 'رزرو هتل و بلیط', 'صرافی', 'سایر'],
     msgLabel: 'متن پیام',
@@ -71,7 +73,8 @@ const content = {
     formTitle: 'Send a Message',
     formSub: 'Send us your message and we will respond as soon as possible',
     nameLabel: 'Full Name',
-    phoneLabel: 'Phone Number',
+    phoneLabel: 'Active WhatsApp Number',
+    phonePlaceholder: 'Active WhatsApp number with country code, e.g. +374…',
     serviceLabel: 'Subject',
     serviceOptions: ['Visa Consultation', 'Residency & Immigration', 'Company Registration', 'Hotel & Ticket Booking', 'Exchange', 'Other'],
     msgLabel: 'Message',
@@ -110,7 +113,8 @@ const content = {
     formTitle: 'Отправить сообщение',
     formSub: 'Напишите нам — ответим как можно скорее',
     nameLabel: 'ФИО',
-    phoneLabel: 'Номер телефона',
+    phoneLabel: 'Активный номер WhatsApp',
+    phonePlaceholder: 'Активный WhatsApp с кодом страны, например +374…',
     serviceLabel: 'Тема',
     serviceOptions: ['Консультация по визе', 'ВНЖ и иммиграция', 'Регистрация компании', 'Отель и билеты', 'Обмен валют', 'Другое'],
     msgLabel: 'Сообщение',
@@ -282,16 +286,14 @@ function ContactContent() {
               <div>
                 <label className="text-xs font-semibold text-foreground/60 mb-1.5 block">{c.phoneLabel} *</label>
                 <input value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} required
-                  placeholder="+98..." dir="ltr"
+                  placeholder={c.phonePlaceholder} type="tel" inputMode="tel" dir="ltr"
                   className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-foreground text-sm placeholder-foreground/30 focus:outline-none focus:border-primary/40" />
               </div>
               <div>
                 <label className="text-xs font-semibold text-foreground/60 mb-1.5 block">{c.serviceLabel}</label>
-                <select value={form.service} onChange={e => setForm(p => ({ ...p, service: e.target.value }))}
-                  className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-foreground text-sm focus:outline-none focus:border-primary/40">
-                  <option value="">—</option>
-                  {c.serviceOptions.map((o, i) => <option key={i} value={o}>{o}</option>)}
-                </select>
+                <ServiceSelect name="service" value={form.service} onValueChange={(service) => setForm((prev) => ({ ...prev, service }))}
+                  required placeholder="—" options={c.serviceOptions.map((service) => ({ value: service, label: service }))} dir={isRtl ? 'rtl' : 'ltr'}
+                  className="px-4 py-2.5 focus:border-primary/40" />
               </div>
               <div className="sm:col-span-2">
                 <label className="text-xs font-semibold text-foreground/60 mb-1.5 block">{c.msgLabel}</label>
