@@ -3,6 +3,7 @@ import { Smartphone, Wifi, Download, CreditCard, MapPin, MessageCircle } from 'l
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import ArticleByline from '@/components/shared/ArticleByline.jsx';
 
 export default function SimcardInternetYerevan() {
   return (
@@ -14,7 +15,7 @@ export default function SimcardInternetYerevan() {
         <section className="mb-8">
           <span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">زندگی در ایروان</span>
           <h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">سیم‌کارت، اینترنت و اپلیکیشن‌های ضروری ایروان</h1>
-          <p className="text-foreground/60 mt-3 text-lg">همه چیز درباره‌ی خرید سیم‌کارت، اینترنت خانگی و اپ‌هایی که بدونشون نمی‌تونید تو ایروان زندگی کنید</p>
+          <p className="text-foreground/60 mt-3 text-lg">همه چیز درباره‌ی خرید سیم‌کارت، اینترنت خانگی و اپ‌هایی که بدونشون نمی‌تونید تو ایروان زندگی کنید</p><ArticleByline author="مصطفی" date="۱۴۰۴/۰۶/۲۰" />
           <p className="text-xs text-foreground/40 mt-2">آپدیت: شهریور ۱۴۰۵</p>
         </section>
 

@@ -3,6 +3,7 @@
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import ArticleByline from '@/components/shared/ArticleByline.jsx';
 
 export default function YerevanPublicTransportGuide() {
   return (
@@ -14,7 +15,7 @@ export default function YerevanPublicTransportGuide() {
             <header className="mb-8">
               <span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">زندگی در ارمنستان</span>
               <h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">حمل‌ونقل عمومی ایروان؛ مترو، اتوبوس و تاکسی</h1>
-              <p className="text-foreground/60 mt-3 text-lg">راهنمای انتخاب شیوه رفت‌وآمد برای مسافران، دانشجویان و خانواده‌های تازه‌وارد در ایروان.</p>
+              <p className="text-foreground/60 mt-3 text-lg">راهنمای انتخاب شیوه رفت‌وآمد برای مسافران، دانشجویان و خانواده‌های تازه‌وارد در ایروان.</p><ArticleByline author="سحر" date="۱۴۰۴/۰۶/۲۰" />
             </header>
 
             <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1200&q=75" alt="راهنمای حمل‌ونقل عمومی ایروان با مترو و اتوبوس" className="w-full h-64 sm:h-80 object-cover rounded-2xl mb-8" loading="lazy" />

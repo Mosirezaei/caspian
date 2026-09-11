@@ -3,6 +3,7 @@
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import ArticleByline from '@/components/shared/ArticleByline.jsx';
 
 export default function RentCarArmeniaGuide() {
   return (
@@ -14,7 +15,7 @@ export default function RentCarArmeniaGuide() {
             <header className="mb-8">
               <span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">گردشگری و دیدنی‌ها</span>
               <h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">اجاره خودرو در ارمنستان؛ مدارک، بیمه و نکات رانندگی</h1>
-              <p className="text-foreground/60 mt-3 text-lg">راهنمای بررسی خودرو و قرارداد برای سفرهای شهری و بین‌شهری در ارمنستان.</p>
+              <p className="text-foreground/60 mt-3 text-lg">راهنمای بررسی خودرو و قرارداد برای سفرهای شهری و بین‌شهری در ارمنستان.</p><ArticleByline author="سحر" date="۱۴۰۴/۰۶/۲۰" />
             </header>
 
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=75" alt="خودروی اجاره‌ای برای سفر در ارمنستان" className="w-full h-64 sm:h-80 object-cover rounded-2xl mb-8" loading="lazy" />

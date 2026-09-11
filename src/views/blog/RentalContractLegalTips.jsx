@@ -3,6 +3,7 @@ import { ShieldAlert, FileCheck2, MessageSquare, Scale } from 'lucide-react';
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import ArticleByline from '@/components/shared/ArticleByline.jsx';
 
 export default function RentalContractLegalTips() {
   return (
@@ -14,7 +15,7 @@ export default function RentalContractLegalTips() {
             <section className="mb-8">
               <span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">اجاره و ملک</span>
               <h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">نکات حقوقی قرارداد اجاره در ارمنستان؛ مذاکره، ضمانت و فسخ</h1>
-              <p className="text-foreground/60 mt-3 text-lg">راهنمای تخصصی برای کاهش ریسک پیش از امضای قرارداد</p>
+              <p className="text-foreground/60 mt-3 text-lg">راهنمای تخصصی برای کاهش ریسک پیش از امضای قرارداد</p><ArticleByline author="مصطفی" date="۱۴۰۴/۰۶/۲۰" />
             </section>
             <img src="https://images.unsplash.com/photo-1733244766159-f58f4184fd38?w=1200&q=75" alt="بررسی حقوقی قرارداد اجاره خانه در ارمنستان" className="w-full h-64 sm:h-80 object-cover rounded-2xl mb-8" loading="lazy" />
             <section className="glass-panel rounded-2xl p-6 mb-6">

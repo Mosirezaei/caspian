@@ -3,6 +3,7 @@ import { Wrench, Truck, ChefHat, Palette, ShoppingBag, AlertTriangle, DollarSign
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import ArticleByline from '@/components/shared/ArticleByline.jsx';
 
 export default function WorkWithoutDegree() {
   const jobs = [
@@ -23,7 +24,7 @@ export default function WorkWithoutDegree() {
         <section className="mb-8">
           <span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">کار و اشتغال</span>
           <h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">کار بدون مدرک تحصیلی در ارمنستان</h1>
-          <p className="text-foreground/60 mt-3 text-lg">فرصت‌ها، حقوق و واقعیت‌های بازار کار برای ایرانیان</p>
+          <p className="text-foreground/60 mt-3 text-lg">فرصت‌ها، حقوق و واقعیت‌های بازار کار برای ایرانیان</p><ArticleByline author="مصطفی" date="۱۴۰۴/۰۶/۲۰" />
         </section>
 
         <img

@@ -4,6 +4,7 @@ import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices.jsx';
 import { useSEO } from '@/hooks/useSEO';
+import ArticleByline from '@/components/shared/ArticleByline.jsx';
 
 const heroImg = '/images/Yerevan_Residency.webp';
 
@@ -27,7 +28,7 @@ export default function ResidencyViaCompany() {
             <h1 className="text-3xl sm:text-4xl font-black text-foreground mb-2">
               <span className="gold-gradient-text">اقامت ارمنستان از طریق ثبت شرکت: شرایط، مراحل و نکات مهم</span>
             </h1>
-            <p className="text-foreground/60 text-sm sm:text-base max-w-xl">مسیر اقامت از راه فعالیت واقعی تجاری، نه ثبت صوری</p>
+            <p className="text-foreground/60 text-sm sm:text-base max-w-xl">مسیر اقامت از راه فعالیت واقعی تجاری، نه ثبت صوری</p><ArticleByline author="سحر" date="۱۴۰۴/۰۶/۲۰" />
           </div>
         </div>
       </div>

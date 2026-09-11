@@ -4,6 +4,7 @@ import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices.jsx';
 import { useSEO } from '@/hooks/useSEO';
+import ArticleByline from '@/components/shared/ArticleByline.jsx';
 
 const heroImg = 'https://images.unsplash.com/photo-1521790797524-b2497295b8a0?w=1600&q=82&auto=format&fit=crop';
 const bankImg = 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&q=80&auto=format&fit=crop';
@@ -29,7 +30,7 @@ export default function CompanyRegistrationGuide() {
             <h1 className="text-3xl sm:text-4xl font-black text-foreground mb-2">
               <span className="gold-gradient-text">راهنمای ثبت شرکت در ارمنستان</span>
             </h1>
-            <p className="text-foreground/60 text-sm sm:text-base max-w-xl">هزینه‌ها، مراحل، مالیات و نکات کلیدی برای ایرانیان</p>
+            <p className="text-foreground/60 text-sm sm:text-base max-w-xl">هزینه‌ها، مراحل، مالیات و نکات کلیدی برای ایرانیان</p><ArticleByline author="سحر" date="۱۴۰۴/۰۶/۲۰" />
           </div>
         </div>
       </div>

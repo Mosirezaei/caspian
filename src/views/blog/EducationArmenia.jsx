@@ -28,7 +28,7 @@ export default function EducationArmenia() {
           <p className="text-foreground/60 mt-3 text-lg">
             راهنمای کامل مدارس ایرانی ایروان، دانشگاه‌های برتر و شرایط ثبت‌نام برای ایرانیان مقیم ارمنستان
           </p>
-          <p className="text-xs text-foreground/40 mt-2">آپدیت: شهریور ۱۴۰۵</p>
+          <p className="text-xs text-foreground/40 mt-2">نویسنده: سحر · آپدیت: شهریور ۱۴۰۵</p>
         </section>
 
         <img

@@ -3,6 +3,7 @@ import { Sun, Snowflake, Leaf, Flower2, Gift, Thermometer } from 'lucide-react';
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import ArticleByline from '@/components/shared/ArticleByline.jsx';
 
 export default function BestTimeVisitArmenia() {
   return (
@@ -14,7 +15,7 @@ export default function BestTimeVisitArmenia() {
         <section className="mb-8">
           <span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">گردشگری و دیدنی‌ها</span>
           <h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">بهترین زمان سفر به ارمنستان و سوغاتی‌های ارمنی</h1>
-          <p className="text-foreground/60 mt-3 text-lg">راهنمای فصل‌به‌فصل آب‌وهوا + بهترین سوغاتی‌ها</p>
+          <p className="text-foreground/60 mt-3 text-lg">راهنمای فصل‌به‌فصل آب‌وهوا + بهترین سوغاتی‌ها</p><ArticleByline author="سحر" date="۱۴۰۴/۰۶/۲۰" />
         </section>
 
         <div className="relative rounded-2xl overflow-hidden mb-6 h-48 sm:h-64">

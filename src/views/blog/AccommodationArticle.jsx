@@ -1,6 +1,7 @@
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import ArticleByline from '@/components/shared/ArticleByline.jsx';
 
 const ARTICLES = {
   'hotel-or-apartment-yerevan': {
@@ -106,7 +107,7 @@ export default function AccommodationArticle({ articleKey }) {
             <header className="mb-8">
               <span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">گردشگری و اقامت</span>
               <h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">{article.title}</h1>
-              <p className="text-foreground/60 mt-3 text-lg leading-8">{article.description}</p>
+              <p className="text-foreground/60 mt-3 text-lg leading-8">{article.description}</p><ArticleByline author="سحر" date="۱۴۰۴/۰۶/۲۰" />
               <p className="text-xs text-foreground/40 mt-3">به‌روزرسانی: شهریور ۱۴۰۵</p>
             </header>
 

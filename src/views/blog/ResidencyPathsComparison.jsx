@@ -3,6 +3,7 @@ import { Scale, Briefcase, GraduationCap, Building2, Baby, Clock, DollarSign, Fi
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import ArticleByline from '@/components/shared/ArticleByline.jsx';
 
 export default function ResidencyPathsComparison() {
   const paths = [
@@ -22,7 +23,7 @@ export default function ResidencyPathsComparison() {
         <section className="mb-8">
           <span className="text-xs text-primary/70 font-semibold bg-primary/8 px-3 py-1 rounded-full">اقامت و مهاجرت</span>
           <h1 className="text-3xl sm:text-4xl font-black text-foreground mt-4 leading-tight">مقایسه مسیرهای اقامت ارمنستان</h1>
-          <p className="text-foreground/60 mt-3 text-lg">کاری، تحصیلی، سرمایه‌گذاری یا تولد فرزند — کدوم مسیر برای شما مناسب‌تره؟</p>
+          <p className="text-foreground/60 mt-3 text-lg">کاری، تحصیلی، سرمایه‌گذاری یا تولد فرزند — کدوم مسیر برای شما مناسب‌تره؟</p><ArticleByline author="مصطفی" date="۱۴۰۴/۰۶/۲۰" />
         </section>
 
         <img
