@@ -15,7 +15,7 @@ import {
 
 import { useLang } from '@/lib/LanguageContext';
 
-function YerevanClock() {
+function YerevanClock({ lang }) {
   // Start as null (not `new Date()`) so server and client render identical
   // empty markup on the first pass. The real value is set client-side only,
   // inside useEffect (after hydration) — this avoids the server/client text
@@ -33,8 +33,9 @@ function YerevanClock() {
     return <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-foreground/65 font-vazir tabular-nums" />;
   }
 
-  const timeStr = now.toLocaleTimeString('fa-IR', { timeZone: 'Asia/Yerevan', hour: '2-digit', minute: '2-digit' });
-  const dateStr = now.toLocaleDateString('fa-IR', { timeZone: 'Asia/Yerevan', month: 'long', day: 'numeric' });
+  const locale = lang === 'fa' ? 'fa-IR' : lang === 'ru' ? 'ru-RU' : 'en-GB';
+  const timeStr = now.toLocaleTimeString(locale, { timeZone: 'Asia/Yerevan', hour: '2-digit', minute: '2-digit' });
+  const dateStr = now.toLocaleDateString(locale, { timeZone: 'Asia/Yerevan', month: 'long', day: 'numeric' });
 
   return (
     <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-foreground/65 font-vazir tabular-nums">
@@ -283,7 +284,7 @@ export default function GlobalNavbar() {
   const isRtl = lang === 'fa';
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [_openDropdown, setOpenDropdown] = useState(null);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   const [openGroups, setOpenGroups] = useState({});
 
@@ -316,28 +317,30 @@ export default function GlobalNavbar() {
           <div className="hidden md:flex items-center gap-0.5 flex-1 justify-center min-w-0">
             {links.map((link) =>
               link.mega ? (
-                <div key={link.label} className="relative group">
-                  <button className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm text-foreground/70 hover:text-primary transition-colors font-medium whitespace-nowrap">
+                <div key={link.label} className="relative" onMouseLeave={() => setOpenDropdown(null)}>
+                  <button id={`desktop-nav-${link.label}`} aria-haspopup="menu" aria-expanded={openDropdown === link.label}
+                    onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)} onFocus={() => setOpenDropdown(link.label)}
+                    onKeyDown={(event) => event.key === 'Escape' && setOpenDropdown(null)} className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm text-foreground/70 hover:text-primary transition-colors font-medium whitespace-nowrap">
                     {link.label}
-                    <ChevronDown className="w-3 h-3 transition-transform flex-shrink-0 group-hover:rotate-180" />
+                    <ChevronDown className={`w-3 h-3 transition-transform flex-shrink-0 ${openDropdown === link.label ? 'rotate-180' : ''}`} />
                   </button>
-                  <div
-                    className="absolute top-full left-0 pt-2 w-56 z-50 hidden group-hover:block"
+                  {openDropdown === link.label && <div role="menu" aria-labelledby={`desktop-nav-${link.label}`}
+                    className="absolute top-full left-0 pt-2 w-56 z-50"
                     dir={isRtl ? 'rtl' : 'ltr'}
                   >
                     <BlogMegaMenu isRtl={isRtl} lang={lang} onNavigate={() => {}} />
-                  </div>
+                  </div>}
                 </div>
               ) : link.children ? (
-                <div key={link.label} className="relative group">
-                  <button className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm text-foreground/70 hover:text-primary transition-colors font-medium whitespace-nowrap">
+                <div key={link.label} className="relative" onMouseLeave={() => setOpenDropdown(null)}>
+                  <button id={`desktop-nav-${link.label}`} aria-haspopup="menu" aria-expanded={openDropdown === link.label}
+                    onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)} onFocus={() => setOpenDropdown(link.label)}
+                    onKeyDown={(event) => event.key === 'Escape' && setOpenDropdown(null)} className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm text-foreground/70 hover:text-primary transition-colors font-medium whitespace-nowrap">
                     {link.label}
-                    <ChevronDown className="w-3 h-3 transition-transform flex-shrink-0 group-hover:rotate-180" />
+                    <ChevronDown className={`w-3 h-3 transition-transform flex-shrink-0 ${openDropdown === link.label ? 'rotate-180' : ''}`} />
                   </button>
-
-                  {/* Dropdown — pure CSS, no JS state needed */}
-                  <div
-                    className="absolute top-full left-0 pt-2 w-56 z-50 hidden group-hover:block"
+                  {openDropdown === link.label && <div role="menu" aria-labelledby={`desktop-nav-${link.label}`}
+                    className="absolute top-full left-0 pt-2 w-56 z-50"
                     dir={isRtl ? 'rtl' : 'ltr'}
                   >
                     <div className="glass-panel border border-white/10 rounded-xl py-2 shadow-xl">
@@ -345,7 +348,7 @@ export default function GlobalNavbar() {
                         <DropdownItem key={child.label} child={child} isRtl={isRtl} onNavigate={() => {}} />
                       ))}
                     </div>
-                  </div>
+                  </div>}
                 </div>
               ) : (
                 <Link key={link.href} href={link.href}
@@ -358,7 +361,7 @@ export default function GlobalNavbar() {
 
           {/* Desktop: Language switcher */}
           <div className="hidden md:flex items-center gap-3 flex-shrink-0">
-            <YerevanClock />
+            <YerevanClock lang={lang} />
             <div className="flex gap-1 bg-[#1a1a1a] p-1 rounded-xl border border-white/10">
               {langs.map((l) => (
                 <button 
@@ -386,7 +389,7 @@ export default function GlobalNavbar() {
               ))}
             </div>
             <button onClick={() => setMobileOpen(true)}
-              aria-label="باز کردن منو"
+              aria-label="باز کردن منو" aria-expanded={mobileOpen} aria-controls="mobile-navigation"
               className="p-2 rounded-lg hover:bg-white/10 transition-colors outline-none cursor-pointer">
               <Menu className="w-5 h-5 text-foreground/70" />
             </button>
@@ -407,6 +410,7 @@ export default function GlobalNavbar() {
               exit={{ x: isRtl ? '100%' : '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               dir={isRtl ? 'rtl' : 'ltr'}
+              id="mobile-navigation" role="dialog" aria-modal="true" aria-label="منوی اصلی"
               className={`fixed top-0 w-72 h-full bg-card border-white/10 z-50 flex flex-col ${isRtl ? 'right-0 border-l' : 'left-0 border-r'}`}>
 
               {/* Drawer Header */}
@@ -430,7 +434,7 @@ export default function GlobalNavbar() {
                 {links.map((link) =>
                   link.mega ? (
                     <div key={link.label}>
-                      <button onClick={() => toggleGroup(link.label)}
+                      <button onClick={() => toggleGroup(link.label)} aria-expanded={Boolean(openGroups[link.label])}
                         className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-primary hover:bg-white/5 transition-colors cursor-pointer">
                         {link.label}
                         <ChevronDown className={`w-4 h-4 transition-transform ${openGroups[link.label] ? 'rotate-180' : ''}`} />
@@ -454,7 +458,7 @@ export default function GlobalNavbar() {
                     </div>
                   ) : link.children ? (
                     <div key={link.label}>
-                      <button onClick={() => toggleGroup(link.label)}
+                      <button onClick={() => toggleGroup(link.label)} aria-expanded={Boolean(openGroups[link.label])}
                         className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-bold text-primary hover:bg-white/5 transition-colors cursor-pointer">
                         {link.label}
                         <ChevronDown className={`w-4 h-4 transition-transform ${openGroups[link.label] ? 'rotate-180' : ''}`} />
@@ -467,7 +471,7 @@ export default function GlobalNavbar() {
                               {link.children.map((child) =>
                                 child.children ? (
                                   <div key={child.label}>
-                                    <button onClick={() => toggleGroup(link.label + child.label)}
+                                    <button onClick={() => toggleGroup(link.label + child.label)} aria-expanded={Boolean(openGroups[link.label + child.label])}
                                       className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold text-foreground/80 hover:text-primary hover:bg-white/5 transition-colors cursor-pointer">
                                       {child.label}
                                       <ChevronDown className={`w-3 h-3 transition-transform ${openGroups[link.label + child.label] ? 'rotate-180' : ''}`} />
