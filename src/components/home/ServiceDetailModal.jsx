@@ -1,9 +1,10 @@
 'use client';
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MessageCircle, Phone, Instagram, Send } from 'lucide-react';
+import { X, Phone, Instagram, Send } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
 import { getWhatsAppUrl } from '@/lib/contact';
+import WhatsAppIcon from '@/components/shared/WhatsAppIcon';
 
 const WHATSAPP = getWhatsAppUrl();
 const TELEGRAM = 'https://t.me/caspianbusinessgroup';
@@ -213,7 +214,7 @@ export default function ServiceDetailModal({ serviceIndex, onClose }) {
               <div className="grid grid-cols-2 gap-2">
                 <a href={WHATSAPP} target="_blank" rel="noreferrer"
                   className="flex items-center gap-2 px-4 py-3 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-bold hover:bg-green-500/20 transition-colors">
-                  <MessageCircle className="w-4 h-4 flex-shrink-0" />
+                  <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
                   {cl.whatsapp}
                 </a>
                 <a href={TELEGRAM} target="_blank" rel="noreferrer"
