@@ -1,8 +1,9 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Minus, Plus, X, MessageCircle, MapPin, Ticket } from 'lucide-react';
+import { Minus, Plus, X, MapPin, Ticket } from 'lucide-react';
 import { getWhatsAppUrl } from '@/lib/contact';
+import WhatsAppIcon from '@/components/shared/WhatsAppIcon';
 
 const TICKETS = [
   { id: 'standing', label: 'بلیط ایستاده', price: 40, note: 'Fan Zone / Standing' },
@@ -50,7 +51,7 @@ export default function DiscoLegendsBookingModal({ onClose }) {
             <div className="grid sm:grid-cols-2 gap-3"><input value={fullName} onChange={(event) => setFullName(event.target.value)} placeholder="نام و نام خانوادگی" className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-foreground placeholder:text-foreground/35 outline-none focus:border-primary/50" /><input value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="شماره تماس" inputMode="tel" className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-foreground placeholder:text-foreground/35 outline-none focus:border-primary/50" /></div>
             {error && <p className="text-xs text-red-300 bg-red-500/10 border border-red-500/20 rounded-xl p-3">{error}</p>}
             <div className="flex items-center justify-between gap-3 p-4 rounded-2xl bg-primary/10 border border-primary/20"><span className="text-sm text-foreground/70">مجموع قابل پرداخت</span><strong className="text-xl text-primary">{total} دلار</strong></div>
-            <button type="submit" className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-black font-bold hover:bg-yellow-400 transition"><MessageCircle className="w-5 h-5" /> تأیید و ارسال درخواست در واتساپ</button>
+            <button type="submit" className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-black font-bold hover:bg-yellow-400 transition"><WhatsAppIcon className="w-5 h-5" /> تأیید و ارسال درخواست در واتساپ</button>
             <p className="text-[11px] text-foreground/40 text-center leading-5">بلیط‌ها QR Code و غیرقابل استرداد هستند. صندلی‌های نشسته شماره‌گذاری نشده‌اند.</p>
           </form>
         </div>
