@@ -11,7 +11,8 @@ import {
   Plus, 
   Minus, 
   ChevronDown,
-  Send
+  Send,
+  X
 } from 'lucide-react';
 
 // مقاصد و مناطق ارمنستان
@@ -33,7 +34,79 @@ const GALLERY = [
   { src: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=800&q=75', altFa: 'نمونه اتاق خواب آپارتمان مبله', altEn: 'Sample bedroom in a furnished apartment' },
 ];
 
-function ApartmentContent() {
+const GALLERY = [
+  { src: 'https://unsplash.com/photos/3wylDrjxH-E/download?force=true&w=1200', altFa: 'نشیمن آپارتمان نوساز با مبلمان مدرن', altEn: 'Modern living room in a new apartment' },
+  { src: 'https://unsplash.com/photos/gREquCUXQLI/download?force=true&w=1200', altFa: 'اتاق مرتب و مبله آپارتمان نوساز', altEn: 'Tidy furnished room in a new apartment' },
+  { src: 'https://unsplash.com/photos/tHkJAMcO3QE/download?force=true&w=1200', altFa: 'مبل و صندلی در آپارتمان نوساز', altEn: 'Sofa and armchair in a new apartment' },
+  { src: 'https://unsplash.com/photos/MP0bgaS_d1c/download?force=true&w=1200', altFa: 'آشپزخانه مدرن با یخچال نو', altEn: 'Modern kitchen with a new refrigerator' },
+  { src: 'https://unsplash.com/photos/AB-q9lwCVv8/download?force=true&w=1200', altFa: 'نشیمن مجهز با تلویزیون و صندلی', altEn: 'Furnished living room with television' },
+];
+
+const APARTMENT_STYLES = [
+  {
+    id: 'new', label: 'ساختمان‌های نوساز',
+    title: 'ساختمان‌های نوساز؛ امکانات تازه و طراحی مدرن',
+    text: 'این واحدها در ساختمان‌هایی ساخته شده‌اند که عمر کمی دارند و معمولاً آسانسور، لابی، تأسیسات به‌روز و عایق‌کاری مناسب‌تری ارائه می‌دهند. داخل آپارتمان نیز اغلب کاملاً نوساز است؛ کابینت، لوازم آشپزخانه، مبلمان، تخت، تشک و وسایل برقی معمولاً نو یا بسیار کم‌استفاده هستند. این گزینه برای خانواده‌ها و مسافرانی که ظاهر مدرن، تمیزی و امکانات کامل برایشان اولویت دارد مناسب‌تر است.',
+    images: GALLERY,
+  },
+  {
+    id: 'renovated', label: 'قدیمی‌ساز بازسازی‌شده',
+    title: 'قدیمی‌ساز بازسازی‌شده؛ داخل مدرن، ساختمان اصیل',
+    text: 'در این سبک، نمای بیرونی، راهروها یا مشاعات ممکن است قدیمی‌ساز باشند، اما خودِ واحد به‌طور کامل یا مرحله‌ای بازسازی شده است. کف، رنگ، سرویس بهداشتی، آشپزخانه، سیستم گرمایش و مبلمان می‌تواند نوسازی شده باشد. مزیت آن معمولاً متراژ بهتر، محله‌های مرکزی‌تر و دسترسی عالی است؛ بااین‌حال کیفیت آسانسور، عایق صدا، پارکینگ و وضعیت مشاعات باید پیش از رزرو بررسی شود.',
+    images: [
+      { src: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=80', altFa: 'نشیمن بازسازی‌شده آپارتمان', altEn: 'Renovated apartment living room' },
+      { src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80', altFa: 'آشپزخانه مدرن در ساختمان قدیمی بازسازی‌شده', altEn: 'Modern kitchen in a renovated older building' },
+      { src: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80', altFa: 'اتاق خواب آپارتمان بازسازی‌شده', altEn: 'Bedroom in a renovated apartment' },
+      { src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900&q=80', altFa: 'حمام و فضای داخلی بازسازی‌شده', altEn: 'Renovated bathroom and interior' },
+    ],
+  },
+  {
+    id: 'budget', label: 'قدیمی‌ساز اقتصادی',
+    title: 'قدیمی‌ساز اقتصادی؛ انتخاب کاربردی با اولویت بودجه',
+    text: 'این واحدها معمولاً در ساختمان‌های قدیمی‌تر و محله‌های اقتصادی‌تر قرار دارند. ممکن است نمای ساختمان، راهروها، پنجره‌ها یا بخشی از تأسیسات قدیمی باشد و دکوراسیون کاملاً مطابق سلیقهٔ مدرن نباشد. برای سفرهای کاری کوتاه، اقامت اقتصادی یا کسانی که بیشتر روز را بیرون از خانه هستند می‌تواند مقرون‌به‌صرفه باشد؛ اما معمولاً برای خانواده‌هایی که به ظاهر، سکوت، آسانسور مدرن و امکانات لوکس اهمیت می‌دهند پیشنهاد اول نیست.',
+    images: [
+      { src: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&q=80', altFa: 'فضای داخلی آپارتمان اقتصادی', altEn: 'Budget apartment interior' },
+      { src: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80', altFa: 'نشیمن ساده آپارتمان قدیمی', altEn: 'Simple living room in an older apartment' },
+      { src: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=900&q=80', altFa: 'آشپزخانه ساده و کاربردی', altEn: 'Simple practical kitchen' },
+      { src: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&q=80&crop=faces', altFa: 'نمونه اتاق خواب اقتصادی', altEn: 'Budget apartment bedroom' },
+    ],
+  },
+];
+
+function ApartmentStyleGuide() {
+  const [active, setActive] = useState('new');
+  const [selected, setSelected] = useState(null);
+  const style = APARTMENT_STYLES.find((item) => item.id === active) || APARTMENT_STYLES[0];
+
+  useEffect(() => {
+    if (!selected) return undefined;
+    const onKeyDown = (event) => { if (event.key === 'Escape') setSelected(null); };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [selected]);
+
+  return <section id="apartment-styles" className="glass-panel rounded-2xl p-6 sm:p-8 mb-10 scroll-mt-24">
+    <h2 className="text-xl sm:text-2xl font-black text-primary mb-2">سبک و استاندارد آپارتمان‌های ارمنستان</h2>
+    <p className="text-sm text-foreground/60 leading-7 mb-5">پیش از انتخاب، تفاوت ساختمان و داخل واحد را ببینید؛ عکس‌ها نمونهٔ سبک هستند و تصاویر دقیق واحد آزاد هنگام هماهنگی ارسال می‌شود.</p>
+    <div className="flex flex-wrap gap-2 border-b border-white/10 pb-4">
+      {APARTMENT_STYLES.map((item) => <button key={item.id} type="button" onClick={() => { setActive(item.id); setSelected(null); }} className={`px-3.5 py-2 rounded-xl text-sm font-bold transition-colors ${active === item.id ? 'bg-primary text-black' : 'bg-white/5 text-foreground/65 border border-white/10 hover:border-primary/40'}`}>{item.label}</button>)}
+    </div>
+    <div className="pt-5">
+      <h3 className="text-lg font-black text-foreground mb-3">{style.title}</h3>
+      <p className="text-sm text-foreground/75 leading-8 mb-5">{style.text}</p>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        {style.images.map((image, index) => <button key={`${style.id}-${index}`} type="button" onClick={() => setSelected(index)} className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"><img src={image.src} alt={image.altFa} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" /><span className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" /></button>)}
+      </div>
+    </div>
+    {selected !== null && <div className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm p-4 sm:p-8 flex items-center justify-center" role="dialog" aria-modal="true" aria-label="نمایش تصاویر آپارتمان" onClick={() => setSelected(null)}>
+      <button type="button" onClick={() => setSelected(null)} aria-label="بستن تصویر" className="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20"><X className="w-5 h-5" /></button>
+      <div className="w-full max-w-5xl max-h-full flex flex-col items-center gap-3" onClick={(event) => event.stopPropagation()}>
+        <img src={style.images[selected].src} alt={style.images[selected].altFa} className="max-h-[78vh] max-w-full object-contain rounded-xl" />
+        <div className="flex gap-2 overflow-x-auto max-w-full pb-1">{style.images.map((image, index) => <button key={`modal-${style.id}-${index}`} type="button" onClick={() => setSelected(index)} className={`w-16 h-12 shrink-0 rounded-lg overflow-hidden border-2 ${selected === index ? 'border-primary' : 'border-white/20'}`}><img src={image.src} alt="" className="w-full h-full object-cover" /></button>)}</div>
+      </div>
+    </div>}
+  </section>;
+}\n\nfunction ApartmentContent() {
   const { lang } = useLang();
   const isFa = lang === 'fa';
   const isRu = lang === 'ru';
@@ -108,7 +181,7 @@ function ApartmentContent() {
       heroImage="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80"
       showFaq={false}>
 
-      {/* فرم رزرو شکیل و اختصاصی */}
+        <button type="button" onClick={() => document.getElementById('apartment-styles')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="mb-4 w-full sm:w-auto px-5 py-3 rounded-2xl bg-primary text-black font-black hover:bg-yellow-500 transition-colors">حتماً قبل از رزرو مطالعه کنید</button>\n\n      {/* فرم رزرو شکیل و اختصاصی */}
       <div className="glass-panel p-5 sm:p-7 rounded-3xl border border-primary/20 mb-10 bg-black/60 backdrop-blur-xl shadow-2xl">
         <div className="flex items-center gap-2 mb-6 border-b border-white/10 pb-4">
           <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
