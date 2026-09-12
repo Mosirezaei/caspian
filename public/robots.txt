@@ -1,9 +1,9 @@
 User-agent: *
 Allow: /
 
-# Block admin panel from all bots
+# Block private administration and server endpoints from crawlers
 Disallow: /admin/
-Disallow: /admin/dashboard/
+Disallow: /api/
 
 # Note: /retro is no longer blocked here -- it uses a noindex meta tag
 # on the page itself instead, so bots can crawl it but won't index it.
@@ -20,3 +20,4 @@ Crawl-delay: 30
 
 # Sitemap
 Sitemap: https://caspian.am/sitemap.xml
+Sitemap: https://caspian.am/sitemap-recent.xml
