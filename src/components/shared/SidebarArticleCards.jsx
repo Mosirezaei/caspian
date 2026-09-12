@@ -26,6 +26,8 @@ function seededShuffle(items, seed) {
   return shuffled;
 }
 
+const CARD_FOOTPRINT = 124;
+
 /**
  * کارت‌های انتهای سایدبار، تا ارتفاع ستون محتوای همان صفحه ادامه پیدا می‌کنند.
  * تعداد ثابت نداریم: فقط تا جایی که صفحه نیاز دارد کارت می‌سازیم.
@@ -73,11 +75,13 @@ export default function SidebarArticleCards({ currentPath = '', sidebarRef }) {
         const contentBottom = contentColumn.offsetTop + contentColumn.offsetHeight;
         const remainingHeight = contentBottom - sidebarBottom;
 
-        if (remainingHeight <= 8) return;
-
-        // ارتفاع میانگین هر کارت حدود 110px است؛ با این محاسبه کارت‌ها در چند رندر محدود افزوده می‌شوند.
-        const neededCards = Math.max(1, Math.ceil(remainingHeight / 110));
-        setVisibleCount((currentCount) => Math.min(posts.length, currentCount + neededCards));
+        // کارت بعدی فقط وقتی اضافه می‌شود که کامل در ارتفاع باقیمانده جا بگیرد.
+        // به‌این‌ترتیب سایدبار هرگز از ستون محتوا بلندتر نمی‌شود.
+        if (remainingHeight < 0) {
+          setVisibleCount((currentCount) => Math.max(0, currentCount - 1));
+        } else if (remainingHeight >= CARD_FOOTPRINT) {
+          setVisibleCount((currentCount) => Math.min(posts.length, currentCount + 1));
+        }
       });
     };
 
@@ -94,7 +98,7 @@ export default function SidebarArticleCards({ currentPath = '', sidebarRef }) {
     };
   }, [posts.length, sidebarRef, visibleCount]);
 
-  if (posts.length === 0) return null;
+  if (posts.length === 0 || visibleCount === 0) return null;
 
   return (
     <section aria-label={labels.title} className="hidden space-y-3 lg:block">
@@ -106,7 +110,7 @@ export default function SidebarArticleCards({ currentPath = '', sidebarRef }) {
             <Link
               key={post.slug}
               href={post.href}
-              className="group flex w-full gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:border-primary/35 hover:bg-primary/5"
+              className="group flex h-28 w-full gap-3 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:border-primary/35 hover:bg-primary/5"
             >
               <div className="h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-white/5">
                 <img
