@@ -106,7 +106,9 @@ function ApartmentStyleGuide() {
       </div>
     </div>}
   </section>;
-}\n\nfunction ApartmentContent() {
+}
+
+function ApartmentContent() {
   const { lang } = useLang();
   const isFa = lang === 'fa';
   const isRu = lang === 'ru';
