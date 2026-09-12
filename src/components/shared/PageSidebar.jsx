@@ -48,18 +48,10 @@ const SERVICE_TOPIC_FA = {
 export default function PageSidebar({ tags, currentPath, serviceType }) {
   const sidebarRef = useRef(null);
   const { lang } = useLang();
-  const [pageTopic, setPageTopic] = useState(() => SERVICE_TOPIC_FA[serviceType] || '');
-
-  useEffect(() => {
-    const pageHeading = document.querySelector('main h1')?.textContent?.replace(/\s+/g, ' ').trim();
-    if (pageHeading) setPageTopic(pageHeading);
-  }, [path, lang]);
   const isBookingFlow = BOOKING_FLOW_TYPES.has(serviceType);
   const tt = (isBookingFlow ? tBooking : t)[lang] || (isBookingFlow ? tBooking.fa : t.fa);
-  const ctaQuestion = lang === 'fa' && pageTopic ? `در مورد ${pageTopic} سؤالی دارید؟` : tt.cta;
   const pathname = usePathname();
   const path = currentPath || pathname || '';
-
   const [pageTopic, setPageTopic] = useState(() => SERVICE_TOPIC_FA[serviceType] || '');
 
   useEffect(() => {
@@ -67,6 +59,7 @@ export default function PageSidebar({ tags, currentPath, serviceType }) {
     if (pageHeading) setPageTopic(pageHeading);
   }, [path, lang]);
 
+  const ctaQuestion = lang === 'fa' && pageTopic ? `در مورد ${pageTopic} سؤالی دارید؟` : tt.cta;
   const usefulLinksTags = (tags && tags.length > 0) ? tags : (SERVICE_TYPE_TAGS[serviceType] || SERVICE_TYPE_TAGS.default);
   const whatsappUrl = getWhatsAppUrl(serviceType);
 
