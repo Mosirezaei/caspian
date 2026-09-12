@@ -28,13 +28,6 @@ const ARMENIA_LOCATIONS = [
 ];
 
 const GALLERY = [
-  { src: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=800&q=75', altFa: 'نمونه فضای نشیمن آپارتمان مبله در ایروان', altEn: 'Sample furnished living room in Yerevan' },
-  { src: 'https://images.unsplash.com/photo-1697700257503-1b6e2034eb37?w=800&q=75', altFa: 'ساختمان و فواره در نزدیکی میدان جمهوری ایروان', altEn: 'Building and fountain near Republic Square, Yerevan' },
-  { src: 'https://images.unsplash.com/photo-1675279200694-8529c73b1fd0?w=800&q=75', altFa: 'نمونه آشپزخانه مجهز آپارتمان‌های اجاره‌ای ایروان', altEn: 'Sample equipped kitchen in a Yerevan rental apartment' },
-  { src: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=800&q=75', altFa: 'نمونه اتاق خواب آپارتمان مبله', altEn: 'Sample bedroom in a furnished apartment' },
-];
-
-const GALLERY = [
   { src: 'https://unsplash.com/photos/3wylDrjxH-E/download?force=true&w=1200', altFa: 'نشیمن آپارتمان نوساز با مبلمان مدرن', altEn: 'Modern living room in a new apartment' },
   { src: 'https://unsplash.com/photos/gREquCUXQLI/download?force=true&w=1200', altFa: 'اتاق مرتب و مبله آپارتمان نوساز', altEn: 'Tidy furnished room in a new apartment' },
   { src: 'https://unsplash.com/photos/tHkJAMcO3QE/download?force=true&w=1200', altFa: 'مبل و صندلی در آپارتمان نوساز', altEn: 'Sofa and armchair in a new apartment' },
