@@ -4,6 +4,7 @@ import { useLang } from '@/lib/LanguageContext';
 import RelatedContent from './RelatedContent';
 import RelatedServices from './RelatedServices';
 import SeoFooterLinks from './SeoFooterLinks';
+import SidebarArticleCards from './SidebarArticleCards';
 import { usePathname } from 'next/navigation';
 import { SERVICE_TYPE_TAGS } from '@/data/siteLinks';
 import { getWhatsAppUrl } from '@/lib/contact';
@@ -88,6 +89,8 @@ export default function PageSidebar({ tags, currentPath, serviceType }) {
       <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
         <SeoFooterLinks variant="sidebar" currentTags={usefulLinksTags} currentPath={path} />
       </div>
+
+      <SidebarArticleCards currentPath={path} />
     </aside>
   );
 }
