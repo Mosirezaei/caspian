@@ -2,14 +2,11 @@
 
 import { useState, useEffect } from 'react';
 
-const RESERVATIONS_API_URL =
-  'https://mxgxbkzpghoteaqzhfpf.supabase.co/functions/v1/reservations-api';
-
 async function callReservationsApi(action: 'list' | 'create' | 'update' | 'delete', payload?: any) {
-  const res = await fetch(RESERVATIONS_API_URL, {
+  const res = await fetch('/api/admin/reservations', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ password: 'M@Caspian', action, payload }),
+    body: JSON.stringify({ action, payload }),
   });
   const json = await res.json();
   if (!res.ok) {
@@ -49,25 +46,31 @@ export default function TaskManager() {
   };
 
   useEffect(() => {
-    const savedLoginState = localStorage.getItem('caspian_admin_logged');
-    if (savedLoginState === 'true') {
-      setIsLoggedIn(true);
-    }
+    fetch('/api/admin/auth')
+      .then((res) => res.json())
+      .then((data) => setIsLoggedIn(Boolean(data.authenticated)))
+      .catch(() => setIsLoggedIn(false));
   }, []);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === 'M@Caspian') {
+    try {
+      const res = await fetch('/api/admin/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+      if (!res.ok) throw new Error('invalid credentials');
+      setPassword('');
       setIsLoggedIn(true);
-      localStorage.setItem('caspian_admin_logged', 'true');
-    } else {
+    } catch {
       showNotification('رمز عبور اشتباه است!', 'error');
     }
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await fetch('/api/admin/auth', { method: 'DELETE' });
     setIsLoggedIn(false);
-    localStorage.removeItem('caspian_admin_logged');
   };
 
   const [items, setItems] = useState<Item[]>([]);
