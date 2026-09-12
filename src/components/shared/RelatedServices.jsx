@@ -33,9 +33,9 @@ const SERVICES = {
     href: '/residency/business', icon: '🏢',
   },
   visaRussia: {
-    fa: { title: 'ویزای توریستی روسیه', desc: 'eVisa ۷۰–۱۱۰ دلار، ۴ روز کاری' },
-    en: { title: 'Russia Tourist Visa', desc: 'eVisa $70–110, 4 business days' },
-    ru: { title: 'Туристическая виза в Россию', desc: 'eVisa $70–110, 4 рабочих дня' },
+    fa: { title: 'ویزای توریستی روسیه', desc: 'eVisa با بررسی شرایط و زمان صدور' },
+    en: { title: 'Russia Tourist Visa', desc: 'eVisa eligibility and processing time' },
+    ru: { title: 'Туристическая виза в Россию', desc: 'eVisa: условия и сроки оформления' },
     href: '/visa/russia', icon: '🇷🇺',
   },
   transfer: {
