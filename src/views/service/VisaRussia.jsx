@@ -177,7 +177,7 @@ function Content() {
                 <tr className="bg-primary/15"><th className="p-2 text-left border border-white/10">Feature</th><th className="p-2 text-center border border-white/10">eVisa</th><th className="p-2 text-center border border-white/10">Embassy Sticker</th></tr>
               </thead>
               <tbody className="text-foreground/70">
-                {[['Fee','$70–110','$130–160'],['Processing','4 business days','5–10 business days'],['Max stay','16 days','30 days'],['Invitation needed?','❌ No','✅ Required'],['Embassy visit?','❌ Not required','✅ Required (biometrics)'],['Good for','Short trips, first-time','Longer stays, multiple entry']].map(([f,e,s])=>(
+                {[['Processing','4 business days','5–10 business days'],['Max stay','16 days','30 days'],['Invitation needed?','❌ No','✅ Required'],['Embassy visit?','❌ Not required','✅ Required (biometrics)'],['Good for','Short trips, first-time','Longer stays, multiple entry']].map(([f,e,s])=>(
                   <tr key={f} className="border-b border-white/5"><td className="p-2 border border-white/8 font-medium text-foreground/80">{f}</td><td className="p-2 border border-white/8 text-center">{e}</td><td className="p-2 border border-white/8 text-center">{s}</td></tr>
                 ))}
               </tbody>
@@ -230,7 +230,7 @@ function Content() {
                 <tr className="bg-primary/15"><th className="p-2 text-right border border-white/10">Параметр</th><th className="p-2 text-center border border-white/10">eVisa</th><th className="p-2 text-center border border-white/10">Посольство</th></tr>
               </thead>
               <tbody className="text-foreground/70">
-                {[['Стоимость','$70–110','$130–160'],['Срок','4 рабочих дня','5–10 рабочих дней'],['Макс. пребывание','16 дней','30 дней'],['Нужно приглашение?','❌ Нет','✅ Да'],['Визит в посольство?','❌ Нет','✅ Да (биометрия)']].map(([f,e,s])=>(
+                {[['Срок','4 рабочих дня','5–10 рабочих дней'],['Макс. пребывание','16 дней','30 дней'],['Нужно приглашение?','❌ Нет','✅ Да'],['Визит в посольство?','❌ Нет','✅ Да (биометрия)']].map(([f,e,s])=>(
                   <tr key={f} className="border-b border-white/5"><td className="p-2 border border-white/8 font-medium">{f}</td><td className="p-2 border border-white/8 text-center">{e}</td><td className="p-2 border border-white/8 text-center">{s}</td></tr>
                 ))}
               </tbody>
