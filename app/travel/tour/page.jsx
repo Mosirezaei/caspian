@@ -23,6 +23,7 @@ const schemas = tourSchema({
     { name: 'Garni Temple', desc: 'معبد یونانی گارنی' },
     { name: 'Geghard Monastery', desc: 'صومعه صخره‌ای گقارد (میراث یونسکو)' },
     { name: 'Khor Virap', desc: 'صومعه خور ویراپ با چشم‌انداز کوه آرارات' },
+    { name: 'Areni Wine Factory', desc: 'تاکستان‌های آرنی و کارخانه‌های شراب‌سازی ارمنستان' },
   ],
   events: [
     {

@@ -48,6 +48,7 @@ const HIGHLIGHTS = {
     { name: 'خور ویراپ', desc: 'صومعه تاریخی با چشم‌انداز مستقیم کوه آرارات' },
     { name: 'دیلیجان', desc: 'شهر جنگلی معروف به سوئیس ارمنستان' },
     { name: 'گیومری', desc: 'دومین شهر بزرگ ارمنستان با معماری تاریخی روسی' },
+    { name: 'کارخانه شراب‌سازی', desc: 'تاکستان‌های آرنی و تجربه تست شراب‌های اصیل ارمنی' },
   ],
   en: [
     { name: 'Yerevan', desc: 'Republic Square, Cascade and the History Museum of Armenia' },
@@ -56,6 +57,7 @@ const HIGHLIGHTS = {
     { name: 'Khor Virap', desc: 'Historic monastery with a direct view of Mount Ararat' },
     { name: 'Dilijan', desc: "The forest town known as Armenia's Switzerland" },
     { name: 'Gyumri', desc: "Armenia's second-largest city with historic Russian-era architecture" },
+    { name: 'Wine Factory Tour', desc: 'Areni vineyards and Armenian wine tasting experience' },
   ],
   ru: [
     { name: 'Ереван', desc: 'Площадь Республики, Каскад и Музей истории Армении' },
@@ -64,6 +66,7 @@ const HIGHLIGHTS = {
     { name: 'Хор Вирап', desc: 'Исторический монастырь с видом на гору Арарат' },
     { name: 'Дилижан', desc: 'Лесной город, известный как "армянская Швейцария"' },
     { name: 'Гюмри', desc: 'Второй по величине город Армении с исторической архитектурой' },
+    { name: 'Винодельни Армении', desc: 'Виноградники Арени и дегустация армянских вин' },
   ],
 };
 
@@ -73,7 +76,8 @@ const HIGHLIGHT_IMAGES = [
   'https://images.unsplash.com/photo-1657968641725-deb8d1a24142?w=800&q=80&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1677864109159-34eb97228c65?w=800&q=80&auto=format&fit=crop',
   '/images/tourism/dilijan.webp',
-  'https://images.unsplash.com/photo-1584294672682-fa86591eded1?w=800&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80&auto=format&fit=crop',
 ];
 
 const HIGHLIGHT_HREFS = [
@@ -83,6 +87,7 @@ const HIGHLIGHT_HREFS = [
   '/travel/tour/khor-virap',
   '/travel/tour/dilijan',
   '/travel/tour/gyumri',
+  '/travel/tour/wine-factory-tour',
 ];
 
 const WHY_ICONS = [Users, Car, Hotel];
