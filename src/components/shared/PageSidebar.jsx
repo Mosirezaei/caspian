@@ -18,7 +18,7 @@ const t = {
 
 // متن جدا برای صفحات هتل/تور — همون درخواستی که قبلاً واسه بنر پایین صفحه هم استفاده شده.
 const tBooking = {
-  fa: { cta: 'در این مورد سؤالی دارید؟', ctaSub: 'با کارشناسان ما در ارتباط باشید.' },
+  fa: { cta: 'در مورد این صفحه سؤالی دارید؟', ctaSub: 'با کارشناسان ما در ارتباط باشید؛ در اسرع وقت پاسخ شما را خواهند داد.' },
   en: { cta: 'Have a question about this?', ctaSub: 'Get in touch with our experts.' },
   ru: { cta: 'Есть вопрос по этой теме?', ctaSub: 'Свяжитесь с нашими специалистами.' },
 };
@@ -71,7 +71,7 @@ export default function PageSidebar({ tags, currentPath, serviceType }) {
           <p className="text-xs text-foreground/60 mb-4 leading-relaxed">{tt.ctaSub}</p>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-green-600 hover:bg-green-500 transition text-white text-xs font-bold">
-            <MessageCircle className="w-4 h-4" /> WhatsApp
+            <WhatsAppIcon className="w-4 h-4 brightness-0 invert" /> WhatsApp
           </a>
         </div>
       )}
