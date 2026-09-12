@@ -25,7 +25,7 @@ export default function RelatedContent({ currentTags = [], currentPath = '', max
       post: p,
       score: p.tags.filter(t => currentTags.includes(t)).length,
     }));
-    scored.sort((a, b) => b.score - a.score || Math.random() - 0.5);
+    scored.sort((a, b) => b.score - a.score || a.post.slug.localeCompare(b.post.slug));
     return scored.slice(0, maxItems).map(s => s.post);
   }, [currentTags, currentPath, maxItems]);
 
