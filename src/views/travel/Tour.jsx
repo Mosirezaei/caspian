@@ -76,7 +76,7 @@ const HIGHLIGHT_IMAGES = [
   'https://images.unsplash.com/photo-1657968641725-deb8d1a24142?w=800&q=80&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1677864109159-34eb97228c65?w=800&q=80&auto=format&fit=crop',
   '/images/tourism/dilijan.webp',
-  'https://unsplash.com/photos/S4c5HHJqCOo/download?force=true&w=1600',
+  'https://images.unsplash.com/photo-1584294672682-fa86591eded1?w=800&q=80&auto=format&fit=crop',
   'https://unsplash.com/photos/S4c5HHJqCOo/download?force=true&w=1600',
 ];
 
