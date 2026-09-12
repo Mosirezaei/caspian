@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useMemo } from 'react';
-import { Search, Calendar, Music, Ticket, MapPin, Loader2, X, MessageCircle, ExternalLink } from 'lucide-react';
+import { Search, Calendar, Music, Ticket, MapPin, Loader2, X, ExternalLink } from 'lucide-react';
 import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import Link from 'next/link';
 import FestivalsCalendar from '@/components/festivals/FestivalsCalendar';
@@ -8,6 +8,7 @@ import PageSidebar from '@/components/shared/PageSidebar';
 import RelatedServices from '@/components/shared/RelatedServices';
 import DiscoLegendsBookingModal from '@/components/events/DiscoLegendsBookingModal';
 import { getWhatsAppUrl } from '@/lib/contact';
+import WhatsAppIcon from '@/components/shared/WhatsAppIcon';
 
 export default function EventsPage({ initialEvents = [] }) {
   // Seeded from the server component's own fetch (used for the page's
@@ -337,7 +338,7 @@ export default function EventsPage({ initialEvents = [] }) {
 
               <button onClick={() => requestCaspianPurchase(selectedEvent)}
                 className="mt-3 w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl bg-primary hover:bg-yellow-500 transition text-black font-bold text-sm">
-                <MessageCircle className="w-5 h-5" />
+                <WhatsAppIcon className="w-5 h-5" />
                 خرید ریالی از کاسپین (با کارمزد و نرخ حواله روز)
               </button>
 
