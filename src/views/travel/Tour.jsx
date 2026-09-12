@@ -3,8 +3,9 @@ import React from 'react';
 import Link from 'next/link';
 import { useLang } from '@/lib/LanguageContext';
 import { ServicePageLayout, InfoBlock, CheckList } from '@/components/shared/ServicePageLayout';
-import { MessageCircle, PartyPopper, Users, Car, Hotel, Sunrise, CalendarDays, MapPin } from 'lucide-react';
+import { PartyPopper, Users, Car, Hotel, Sunrise, CalendarDays, MapPin } from 'lucide-react';
 import { WHATSAPP_BOOKING } from '@/lib/contact';
+import WhatsAppIcon from '@/components/shared/WhatsAppIcon';
 
 const EVENTS = {
   fa: {
@@ -191,7 +192,7 @@ function TourContent() {
           ))}
         </div>
         <a href={`https://wa.me/${WHATSAPP_BOOKING}`} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 font-black text-black hover:bg-yellow-500 transition-colors">
-          <MessageCircle className="w-5 h-5" /> {ev.cta}
+          <WhatsAppIcon className="w-5 h-5" /> {ev.cta}
         </a>
       </section>
 
