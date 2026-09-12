@@ -1,7 +1,8 @@
 'use client';
 import { useState } from 'react';
-import { X, Plus, Minus, Calendar, Users, MessageCircle } from 'lucide-react';
+import { X, Plus, Minus, Calendar, Users } from 'lucide-react';
 import { WHATSAPP_BOOKING } from '@/lib/contact';
+import WhatsAppIcon from './WhatsAppIcon';
 
 /**
  * TourBookingWidget — دکمه طلایی رزرو تور + مودال فرم رزرو.
@@ -121,7 +122,7 @@ export default function TourBookingWidget({
               onClick={handleSend}
               className="w-full inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3.5 rounded-xl transition"
             >
-              <MessageCircle className="w-5 h-5" />
+              <WhatsAppIcon className="w-5 h-5 brightness-0 invert" />
               ارسال مشخصات و ادامه در واتساپ
             </button>
           </div>
