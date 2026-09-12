@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, FileText } from 'lucide-react';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLang } from '@/lib/LanguageContext';
 import { blogPosts, CATEGORY_LABELS } from '@/data/blogPosts';
 
@@ -26,17 +26,21 @@ function seededShuffle(items, seed) {
   return shuffled;
 }
 
-export default function SidebarArticleCards({ currentPath = '', maxItems = 8 }) {
+/**
+ * کارت‌های انتهای سایدبار، تا ارتفاع ستون محتوای همان صفحه ادامه پیدا می‌کنند.
+ * تعداد ثابت نداریم: فقط تا جایی که صفحه نیاز دارد کارت می‌سازیم.
+ */
+export default function SidebarArticleCards({ currentPath = '', sidebarRef }) {
   const { lang } = useLang();
   const posts = useMemo(
     () => seededShuffle(
       blogPosts.filter((post) => post.href !== currentPath && post.thumbnail),
       hashText(currentPath || 'caspian-sidebar')
-    ).slice(0, maxItems),
-    [currentPath, maxItems]
+    ),
+    [currentPath]
   );
-
-  if (posts.length === 0) return null;
+  const [visibleCount, setVisibleCount] = useState(1);
+  const animationFrameRef = useRef(null);
 
   const labels = {
     fa: { title: 'بیشتر بخوانید', read: 'مطالعه مقاله' },
@@ -47,11 +51,56 @@ export default function SidebarArticleCards({ currentPath = '', maxItems = 8 }) 
   const categoryLabels = CATEGORY_LABELS[lang] || CATEGORY_LABELS.fa;
   const Arrow = lang === 'fa' ? ArrowLeft : ArrowRight;
 
+  useEffect(() => {
+    const sidebar = sidebarRef?.current;
+    let pageGrid = sidebar?.parentElement;
+    let contentColumn = null;
+
+    // بعضی صفحات PageSidebar را داخل یک <aside> دیگر گذاشته‌اند؛ تا گریدِ دو ستونهٔ واقعی بالا می‌رویم.
+    while (pageGrid && !contentColumn) {
+      contentColumn = [...pageGrid.children].find(
+        (child) => child !== sidebar && child.classList?.contains('lg:col-span-2')
+      );
+      if (!contentColumn) pageGrid = pageGrid.parentElement;
+    }
+
+    if (!sidebar || !contentColumn || !window.matchMedia('(min-width: 1024px)').matches) return undefined;
+
+    const fillSidebar = () => {
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = requestAnimationFrame(() => {
+        const sidebarBottom = sidebar.offsetTop + sidebar.offsetHeight;
+        const contentBottom = contentColumn.offsetTop + contentColumn.offsetHeight;
+        const remainingHeight = contentBottom - sidebarBottom;
+
+        if (remainingHeight <= 8) return;
+
+        // ارتفاع میانگین هر کارت حدود 110px است؛ با این محاسبه کارت‌ها در چند رندر محدود افزوده می‌شوند.
+        const neededCards = Math.max(1, Math.ceil(remainingHeight / 110));
+        setVisibleCount((currentCount) => Math.min(posts.length, currentCount + neededCards));
+      });
+    };
+
+    const resizeObserver = new ResizeObserver(fillSidebar);
+    resizeObserver.observe(contentColumn);
+    resizeObserver.observe(sidebar);
+    window.addEventListener('resize', fillSidebar);
+    fillSidebar();
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', fillSidebar);
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+    };
+  }, [posts.length, sidebarRef, visibleCount]);
+
+  if (posts.length === 0) return null;
+
   return (
-    <section aria-label={labels.title} className="space-y-3">
+    <section aria-label={labels.title} className="hidden space-y-3 lg:block">
       <h3 className="px-1 text-sm font-bold text-foreground">{labels.title}</h3>
       <div className="space-y-3">
-        {posts.map((post) => {
+        {posts.slice(0, visibleCount).map((post) => {
           const content = post[lang] || post.fa;
           return (
             <Link
