@@ -1,8 +1,9 @@
 'use client';
 import React from 'react';
-import { Phone, MessageCircle, Send, MapPin, Instagram } from 'lucide-react';
+import { Phone, Send, MapPin, Instagram } from 'lucide-react';
 import { useLang } from '@/lib/LanguageContext';
 import { getWhatsAppUrl } from '@/lib/contact';
+import WhatsAppIcon from '@/components/shared/WhatsAppIcon';
 
 export default function ContactFooter() {
   const { t, lang } = useLang();
@@ -29,7 +30,7 @@ export default function ContactFooter() {
                 <span dir="ltr">0037433149327</span>
               </a>
               <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition-colors">
-                <MessageCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
                 <span>WhatsApp</span>
               </a>
               <a href="https://t.me/caspianbusinessgroup" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition-colors">
