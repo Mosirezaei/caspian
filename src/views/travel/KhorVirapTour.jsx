@@ -22,8 +22,8 @@ export default function KhorVirapTour() {
           </div>
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-          <div className="grid lg:grid-cols-[1fr_300px] gap-10">
-            <article className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <article className="lg:col-span-2 space-y-8">
               <section className="glass-panel rounded-2xl p-6 sm:p-8">
                 <p className="text-foreground/80 leading-loose">🏔️ سفر به قلب معنویت و تاریخ کهن ارمنستان؛ جایی که یکی از باشکوه‌ترین قاب‌های کوه آرارات پیش چشمان شما نقش می‌بندد! 😍📜</p>
                 <h2 className="text-lg font-black text-primary mt-6 mb-3">🌸 در این تور چه می‌بینیم؟</h2>
@@ -64,7 +64,7 @@ export default function KhorVirapTour() {
               </section>
               <WhatsAppBottomCTA serviceType="tour" />
             </article>
-            <aside className="space-y-6"><div className="glass-panel rounded-2xl p-5 lg:sticky lg:top-20"><PageSidebar tags={['خور ویراپ', 'کوه آرارات', 'تور یک‌روزه', 'تاریخ ارمنستان', 'جاذبه‌های ارمنستان']} serviceType="tour" /></div></aside>
+            <PageSidebar tags={['خور ویراپ', 'کوه آرارات', 'تور یک‌روزه', 'تاریخ ارمنستان', 'جاذبه‌های ارمنستان']} serviceType="tour" />
           </div>
           <div className="mt-10"><RelatedServices pageType="tour" /><RelatedContent currentTags={['خور ویراپ', 'کوه آرارات', 'تاریخ ارمنستان']} currentPath="/travel/tour/khor-virap" /></div>
         </div>

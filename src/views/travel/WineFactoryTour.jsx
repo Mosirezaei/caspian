@@ -24,8 +24,8 @@ export default function WineFactoryTour() {
           </div>
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-          <div className="grid lg:grid-cols-[1fr_300px] gap-10">
-            <article className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <article className="lg:col-span-2 space-y-8">
               <section className="glass-panel rounded-2xl p-6 sm:p-8">
                 <p className="text-foreground/80 leading-loose">🍇 ارمنستان با پیشینه‌ای بیش از ۶۰۰۰ سال در تولید شراب، یکی از کهن‌ترین خاستگاه‌های فرهنگ شراب‌سازی جهان است. کشف کارخانهٔ شراب‌سازی ۶۱۰۰ ساله در غار آرنی نشان می‌دهد این هنر با تاریخ و خاک ارمنستان پیوندی عمیق دارد.</p>
                 <h2 className="text-lg font-black text-primary mt-6 mb-3">🍷 در این تور چه می‌بینیم؟</h2>
@@ -42,7 +42,7 @@ export default function WineFactoryTour() {
               <section className="glass-panel rounded-2xl p-6 sm:p-8"><h2 className="text-xl font-black text-foreground mb-4">آرنی؛ یکی از کهن‌ترین خاستگاه‌های شراب جهان</h2><div className="space-y-4 text-foreground/75 leading-loose text-sm sm:text-base"><p>منطقه آرنی در استان وایوتس‌دزور، به‌دلیل آب‌وهوای خشک، اختلاف دمای شب و روز و خاک مناسب، یکی از مهم‌ترین مناطق شراب‌سازی ارمنستان است. غار آرنی محل کشف بقایای کارخانه‌ای است که قدمت آن حدود ۶۱۰۰ سال برآورد شده است.</p><img src={articleImage} alt="بطری‌های شراب ارمنی در کارخانه" className="w-full h-56 sm:h-72 object-cover rounded-2xl my-2" loading="lazy" /><p>امروزه کارخانه‌های منطقه با ترکیب روش‌های سنتی و فناوری مدرن، شراب‌هایی از انگورهای بومی تولید می‌کنند. بازدید از این مجموعه‌ها فرصتی برای آشنایی با تاریخ، طبیعت و فرهنگ غذایی ارمنستان در یک سفر است.</p><h3 className="text-lg font-bold text-foreground mt-6">بهترین زمان برای تور</h3><p>از بهار تا پاییز، به‌ویژه فصل برداشت انگور، زمان مناسبی برای این تجربه است؛ بااین‌حال برنامهٔ قابل رزرو به تقویم کارخانه و شرایط آب‌وهوا بستگی دارد.</p></div></section>
               <WhatsAppBottomCTA serviceType="tour" />
             </article>
-            <aside className="space-y-6"><div className="glass-panel rounded-2xl p-5 lg:sticky lg:top-20"><PageSidebar tags={['wine', 'areni', 'food tourism', 'tour']} serviceType="tour" /></div></aside>
+            <PageSidebar tags={['wine', 'areni', 'food tourism', 'tour']} serviceType="tour" />
           </div>
           <div className="mt-10"><RelatedServices pageType="tour" /><RelatedContent currentTags={['wine', 'areni', 'tourism']} currentPath="/travel/tour/wine-factory-tour" /></div>
         </div>

@@ -38,8 +38,8 @@ export default function SevanLakeTour() {
         </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-          <div className="grid lg:grid-cols-[1fr_300px] gap-10">
-            <article className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <article className="lg:col-span-2 space-y-8">
 
               {/* === متن تبلیغاتی ارسالی کاربر — دست‌نخورده === */}
               <section className="glass-panel rounded-2xl p-6 sm:p-8">
@@ -143,11 +143,7 @@ export default function SevanLakeTour() {
 
             </article>
 
-            <aside className="space-y-6">
-              <div className="glass-panel rounded-2xl p-5 lg:sticky lg:top-20">
-                <PageSidebar tags={['tourism', 'sevan', 'tsaghkadzor', 'tour']} serviceType="tour" />
-              </div>
-            </aside>
+            <PageSidebar tags={['tourism', 'sevan', 'tsaghkadzor', 'tour']} serviceType="tour" />
           </div>
 
           <div className="mt-10">
