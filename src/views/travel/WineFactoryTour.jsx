@@ -8,6 +8,7 @@ import TourInquiryWidget from '@/components/shared/TourInquiryWidget.jsx';
 import WhatsAppBottomCTA from '@/components/shared/WhatsAppBottomCTA.jsx';
 
 const heroImage = 'https://unsplash.com/photos/S4c5HHJqCOo/download?force=true&w=1600';
+const articleImage = 'https://unsplash.com/photos/aK6WGqxyHFw/download?force=true&w=1600';
 
 export default function WineFactoryTour() {
   return (
@@ -38,7 +39,7 @@ export default function WineFactoryTour() {
                 <div className="mt-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-sm text-foreground/80 flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0 text-emerald-400" /><span>برای انتخاب کارخانه، تاریخ و پکیج مناسب، کارشناسان کاسپین راهنمایی‌تان می‌کنند.</span></div>
                 <div className="mt-5"><TourInquiryWidget tourName="تور کارخانه شراب‌سازی ارمنستان" /></div>
               </section>
-              <section className="glass-panel rounded-2xl p-6 sm:p-8"><h2 className="text-xl font-black text-foreground mb-4">آرنی؛ یکی از کهن‌ترین خاستگاه‌های شراب جهان</h2><div className="space-y-4 text-foreground/75 leading-loose text-sm sm:text-base"><p>منطقه آرنی در استان وایوتس‌دزور، به‌دلیل آب‌وهوای خشک، اختلاف دمای شب و روز و خاک مناسب، یکی از مهم‌ترین مناطق شراب‌سازی ارمنستان است. غار آرنی محل کشف بقایای کارخانه‌ای است که قدمت آن حدود ۶۱۰۰ سال برآورد شده است.</p><img src={heroImage} alt="بشکه‌های چوبی شراب در انبار" className="w-full h-56 sm:h-72 object-cover rounded-2xl my-2" loading="lazy" /><p>امروزه کارخانه‌های منطقه با ترکیب روش‌های سنتی و فناوری مدرن، شراب‌هایی از انگورهای بومی تولید می‌کنند. بازدید از این مجموعه‌ها فرصتی برای آشنایی با تاریخ، طبیعت و فرهنگ غذایی ارمنستان در یک سفر است.</p><h3 className="text-lg font-bold text-foreground mt-6">بهترین زمان برای تور</h3><p>از بهار تا پاییز، به‌ویژه فصل برداشت انگور، زمان مناسبی برای این تجربه است؛ بااین‌حال برنامهٔ قابل رزرو به تقویم کارخانه و شرایط آب‌وهوا بستگی دارد.</p></div></section>
+              <section className="glass-panel rounded-2xl p-6 sm:p-8"><h2 className="text-xl font-black text-foreground mb-4">آرنی؛ یکی از کهن‌ترین خاستگاه‌های شراب جهان</h2><div className="space-y-4 text-foreground/75 leading-loose text-sm sm:text-base"><p>منطقه آرنی در استان وایوتس‌دزور، به‌دلیل آب‌وهوای خشک، اختلاف دمای شب و روز و خاک مناسب، یکی از مهم‌ترین مناطق شراب‌سازی ارمنستان است. غار آرنی محل کشف بقایای کارخانه‌ای است که قدمت آن حدود ۶۱۰۰ سال برآورد شده است.</p><img src={articleImage} alt="بطری‌های شراب ارمنی در کارخانه" className="w-full h-56 sm:h-72 object-cover rounded-2xl my-2" loading="lazy" /><p>امروزه کارخانه‌های منطقه با ترکیب روش‌های سنتی و فناوری مدرن، شراب‌هایی از انگورهای بومی تولید می‌کنند. بازدید از این مجموعه‌ها فرصتی برای آشنایی با تاریخ، طبیعت و فرهنگ غذایی ارمنستان در یک سفر است.</p><h3 className="text-lg font-bold text-foreground mt-6">بهترین زمان برای تور</h3><p>از بهار تا پاییز، به‌ویژه فصل برداشت انگور، زمان مناسبی برای این تجربه است؛ بااین‌حال برنامهٔ قابل رزرو به تقویم کارخانه و شرایط آب‌وهوا بستگی دارد.</p></div></section>
               <WhatsAppBottomCTA serviceType="tour" />
             </article>
             <aside className="space-y-6"><div className="glass-panel rounded-2xl p-5 lg:sticky lg:top-20"><PageSidebar tags={['wine', 'areni', 'food tourism', 'tour']} serviceType="tour" /></div></aside>
