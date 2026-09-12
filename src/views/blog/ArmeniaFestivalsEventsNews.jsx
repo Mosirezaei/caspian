@@ -37,7 +37,7 @@ export default function ArmeniaFestivalsEventsNews() {
 
           <div className="mt-6 flex justify-center">
             <Link
-              href="/events"
+              href="/events?tab=concerts"
               className="group inline-flex items-center gap-2.5 bg-primary text-black font-bold px-7 py-4 rounded-full shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 text-sm sm:text-base animate-pulse hover:animate-none"
             >
               <CalendarDays className="w-5 h-5" />
