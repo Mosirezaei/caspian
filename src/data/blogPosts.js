@@ -14,7 +14,7 @@ export const blogPosts = [
   },
   {
     slug: 'yerevan-accommodation-peak-seasons', href: '/blog/yerevan-accommodation-peak-seasons', category: 'tourism',
-    thumbnail: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=400&q=75', tags: ['hotel', 'apartment', 'season', 'yerevan'], date: '2026-09-09',
+    thumbnail: '/images/tourism/yerevan-cascade.webp', tags: ['hotel', 'apartment', 'season', 'yerevan'], date: '2026-09-09',
     fa: { title: 'بهترین زمان رزرو هتل و آپارتمان در ایروان؛ فصل‌های شلوغ و آرام', excerpt: 'راهنمای انتخاب زمان اقامت بر اساس فصل سفر، تعطیلات و رویدادهای ایروان؛ بدون قیمت‌سازی.' },
     en: { title: 'Best Time to Book Accommodation in Yerevan', excerpt: 'A seasonal guide to Yerevan stays, holidays, and events without fabricated fixed prices.' },
   },
