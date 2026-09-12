@@ -7,7 +7,7 @@ import RelatedContent from '@/components/shared/RelatedContent';
 import TourInquiryWidget from '@/components/shared/TourInquiryWidget';
 import WhatsAppBottomCTA from '@/components/shared/WhatsAppBottomCTA';
 
-const heroImage = 'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=1600&q=85&auto=format&fit=crop';
+const heroImage = 'https://unsplash.com/photos/S4c5HHJqCOo/download?force=true&w=1600';
 
 export default function WineFactoryTour() {
   return <div dir="rtl" className="min-h-screen bg-background"><GlobalNavbar />

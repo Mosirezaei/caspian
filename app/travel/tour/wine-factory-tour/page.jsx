@@ -11,7 +11,7 @@ export const metadata = {
     title: 'تور کارخانه شراب ارمنستان | تجربه تاکستان‌های آرنی',
     description: 'سفری فرهنگی و خوش‌طعم به قدیمی‌ترین خاستگاه شراب جهان، همراه با ترانسفر و تست شراب ارمنی.',
     url: 'https://caspian.am/travel/tour/wine-factory-tour',
-    images: [{ url: 'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=1200&q=80', width: 1200, height: 630 }],
+    images: [{ url: 'https://unsplash.com/photos/S4c5HHJqCOo/download?force=true&w=1600', width: 1200, height: 630 }],
   },
 };
 
@@ -22,7 +22,7 @@ const schema = {
   provider: { '@type': 'Organization', name: 'Caspian Group Armenia', url: 'https://caspian.am', telephone: `+${WHATSAPP_BOOKING}` },
   touristType: ['Food Tourism', 'Cultural Tourism', 'Wine Tourism'],
   url: 'https://caspian.am/travel/tour/wine-factory-tour',
-  image: 'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=1200&q=80',
+  image: 'https://unsplash.com/photos/S4c5HHJqCOo/download?force=true&w=1600',
 };
 
 export default function Page() { return <><JsonLd data={schema} /><WineFactoryTour /></>; }
