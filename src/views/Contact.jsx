@@ -4,9 +4,10 @@ import { motion } from 'framer-motion';
 import { useLang } from '@/lib/LanguageContext';
 import GlobalNavbar from '@/components/shared/GlobalNavbar';
 import {
-  Phone, MessageCircle, Send, Instagram, MapPin,
+  Phone, Send, Instagram, MapPin,
   Clock, Globe, Building2, CheckCircle, Loader2
 } from 'lucide-react';
+import WhatsAppIcon from '@/components/shared/WhatsAppIcon';
 import { supabase } from '@/api/supabaseClient';
 import ServiceSelect from '@/components/shared/ServiceSelect';
 
@@ -133,7 +134,7 @@ const content = {
 
 function IconForType({ type, className }) {
   if (type === 'phone') return <Phone className={className} />;
-  if (type === 'whatsapp') return <MessageCircle className={className} />;
+  if (type === 'whatsapp') return <WhatsAppIcon className={className} />;
   if (type === 'telegram') return <Send className={className} />;
   if (type === 'instagram') return <Instagram className={className} />;
   return <Globe className={className} />;
