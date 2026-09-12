@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Menu, X, ChevronDown, ChevronRight,
   Home, Building2, Briefcase, MapPin,
-  GraduationCap, Compass, PartyPopper, Key, ShoppingBag,
+  GraduationCap, Compass, PartyPopper, Key, ShoppingBag, Car,
 } from 'lucide-react';
 
 import { useLang } from '@/lib/LanguageContext';
@@ -59,6 +59,7 @@ const blogCategories = {
     { icon: PartyPopper, label: 'اخبار و فستیوال‌ها', href: '/blog?category=news' },
           { icon: Key, label: 'اجاره و خرید ملک', href: '/blog?category=apartment' },
           { icon: ShoppingBag, label: 'خرید در ارمنستان', href: '/blog?category=shopping' },
+          { icon: Car, label: 'سفر با ماشین شخصی', href: '/blog?category=car-travel' },
   ],
   en: [
     { icon: Home, label: 'Residency & Immigration', href: '/blog?category=residency' },
@@ -70,6 +71,7 @@ const blogCategories = {
     { icon: PartyPopper, label: 'News & Festivals', href: '/blog?category=news' },
           { icon: Key, label: 'Rental & Purchase', href: '/blog?category=apartment' },
           { icon: ShoppingBag, label: 'Shopping in Armenia', href: '/blog?category=shopping' },
+          { icon: Car, label: 'Private Car Travel', href: '/blog?category=car-travel' },
   ],
   ru: [
     { icon: Home, label: 'ВНЖ и миграция', href: '/blog?category=residency' },
@@ -81,6 +83,7 @@ const blogCategories = {
     { icon: PartyPopper, label: 'Новости и фестивали', href: '/blog?category=news' },
           { icon: Key, label: 'Аренда и покупка', href: '/blog?category=apartment' },
           { icon: ShoppingBag, label: 'Шопинг в Армении', href: '/blog?category=shopping' },
+          { icon: Car, label: 'Поездка на личном авто', href: '/blog?category=car-travel' },
   ],
 };
 
