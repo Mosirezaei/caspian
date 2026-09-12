@@ -492,7 +492,6 @@ export const blogPosts = [
   { slug: 'parent-residency-student-armenia', href: '/blog/parent-residency-student-armenia', category: 'education', thumbnail: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=640&q=70&auto=format&fit=crop', tags: ['armenia', 'parent', 'student', 'residency'], date: '2026-09-09', fa: { title: 'اقامت والدین همراه دانش‌آموز یا دانشجو در ارمنستان', excerpt: 'برنامه‌ریزی خانوادگی برای تحصیل و اقامت.' }, en: { title: 'Parent Residency with a Student in Armenia', excerpt: 'Family planning for education and residency.' } },
   { slug: 'academic-credential-evaluation-armenia', href: '/blog/academic-credential-evaluation-armenia', category: 'education', thumbnail: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=640&q=70&auto=format&fit=crop', tags: ['armenia', 'education', 'credential'], date: '2026-09-09', fa: { title: 'ارزشیابی مدارک تحصیلی در ارمنستان', excerpt: 'بررسی اعتبار مدارک پیش از ادامه تحصیل یا کار.' }, en: { title: 'Academic Credential Evaluation in Armenia', excerpt: 'Validate before education or employment decisions.' } },
   { slug: 'armenian-language-courses-newcomers', href: '/blog/armenian-language-courses-newcomers', category: 'education', thumbnail: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=640&q=70&auto=format&fit=crop', tags: ['armenia', 'armenian-language', 'course'], date: '2026-09-09', fa: { title: 'دوره زبان ارمنی برای تازه‌واردها؛ انتخاب کلاس بر اساس هدف زندگی', excerpt: 'راهنمای انتخاب دوره زبان ارمنی.' }, en: { title: 'Armenian Language Courses for Newcomers', excerpt: 'Select a course around your life goals.' } },
-];
   {
     slug: 'private-car-armenia-pros-cons-driving-rules', href: '/blog/private-car-armenia-pros-cons-driving-rules', category: 'car-travel',
     thumbnail: '/images/blog/private-car-armenia-pros-cons-driving-rules.svg', tags: ['armenia', 'private-car', 'driving', 'nordooz', 'border'], date: '2026-09-12',
@@ -507,6 +506,7 @@ export const blogPosts = [
     en: { title: 'Complete Guide: Car Carnet, Transit Plate & Route to Armenia', excerpt: 'Customs carnet steps, required documents, transit plates, fuel costs, and the Nordooz–Yerevan route.' },
     ru: { title: 'Полное руководство: карнет, транзитные номера и маршрут в Армению', excerpt: 'Оформление карнета, документы, транзитные номера, расходы на топливо и маршрут Нордуз—Ереван.' },
   },
+];
 
 export const CATEGORY_LABELS = {
   fa: {
