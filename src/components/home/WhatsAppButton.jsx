@@ -1,8 +1,9 @@
 'use client';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { getWhatsAppUrl } from '@/lib/contact';
+import WhatsAppIcon from '@/components/shared/WhatsAppIcon';
 
 export default function WhatsAppButton() {
   const [open, setOpen] = useState(false);
@@ -15,7 +16,7 @@ export default function WhatsAppButton() {
         aria-label="تماس از طریق واتساپ"
         className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center shadow-xl animate-gold-pulse cursor-pointer"
         style={{ boxShadow: '0 0 20px rgba(34,197,94,0.4), 0 4px 20px rgba(0,0,0,0.3)' }}>
-        {open ? <X className="w-7 h-7 text-white" /> : <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 text-white" />}
+        {open ? <X className="w-7 h-7 text-white" /> : <WhatsAppIcon className="w-7 h-7 sm:w-8 sm:h-8 brightness-0 invert" />}
       </motion.button>
       <AnimatePresence>
         {open && (
@@ -23,7 +24,7 @@ export default function WhatsAppButton() {
             className="glass-panel rounded-2xl border border-white/10 shadow-2xl overflow-hidden w-72">
             <div className="bg-gradient-to-r from-green-600 to-green-500 px-4 py-3 flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                <MessageCircle className="w-4 h-4 text-white" />
+                <WhatsAppIcon className="w-4 h-4 brightness-0 invert" />
               </div>
               <div>
                 <div className="text-white text-sm font-bold">کاسپین گروه ارمنستان</div>
