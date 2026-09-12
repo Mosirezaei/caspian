@@ -8,7 +8,7 @@ import WhatsAppIcon from '@/components/shared/WhatsAppIcon';
 export default function ContactFooter() {
   const { t, lang } = useLang();
   const addresses = {
-    fa: 'ایروان، خیابان کومیتاس، پلاک ۴۹، ارمنستان',
+    fa: 'ارمنستان، ایروان، خیابان کومیتاس، پلاک ۴۹،',
     en: 'No. 49, Komitas, Yerevan, Armenia',
     ru: 'Армения, Ереван, ул. Комитаса, 49',
   };
