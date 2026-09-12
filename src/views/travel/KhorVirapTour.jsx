@@ -1,100 +1,74 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
-import { Clock, Backpack, Phone, MapPin } from 'lucide-react';
-import GlobalNavbar from '@/components/shared/GlobalNavbar';
+import { Clock, Backpack, Phone } from 'lucide-react';
+import GlobalNavbar from '@/components/shared/GlobalNavbar.jsx';
 import PageSidebar from '@/components/shared/PageSidebar';
-import RelatedServices from '@/components/shared/RelatedServices';
-import RelatedContent from '@/components/shared/RelatedContent';
-import TourInquiryWidget from '@/components/shared/TourInquiryWidget';
-import WhatsAppBottomCTA from '@/components/shared/WhatsAppBottomCTA';
-import { WHATSAPP_BOOKING } from '@/lib/contact';
+import RelatedServices from '@/components/shared/RelatedServices.jsx';
+import RelatedContent from '@/components/shared/RelatedContent.jsx';
+import TourInquiryWidget from '@/components/shared/TourInquiryWidget.jsx';
+import WhatsAppBottomCTA from '@/components/shared/WhatsAppBottomCTA.jsx';
 
 export default function KhorVirapTour() {
   return (
-    <div dir="rtl" className="min-h-screen bg-background">
+    <div className="min-h-screen" dir="rtl">
       <GlobalNavbar />
-      <main className="container mx-auto px-4 py-8 lg:py-12">
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 min-h-[360px] flex items-end bg-black/40">
-          <img src="https://images.unsplash.com/photo-1677864109159-34eb97228c65?w=1600&q=85&auto=format&fit=crop" alt="صومعه خور ویراپ و کوه آرارات" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-          <div className="relative z-10 p-6 md:p-10 text-white max-w-3xl">
-            <span className="inline-flex rounded-full bg-primary/90 text-black px-4 py-1.5 text-sm font-black mb-4">تور یک‌روزه ارمنستان</span>
-            <h1 className="text-3xl md:text-5xl font-black leading-tight">تور یک‌روزه صومعه تاریخی خور ویراپ و چشم‌انداز باشکوه کوه آرارات</h1>
-            <p className="mt-4 text-lg md:text-xl text-white/85 font-bold">صومعه تاریخی با چشم‌انداز مستقیم کوه آرارات</p>
+      <div className="relative pt-14">
+        <div className="relative h-56 sm:h-72 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1677864109159-34eb97228c65?w=1600&q=80" alt="صومعه خور ویراپ و کوه آرارات" className="w-full h-full object-cover opacity-40" loading="eager" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/60 to-background" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <h1 className="text-3xl sm:text-4xl font-black text-foreground leading-tight max-w-2xl">تور یک‌روزه صومعه تاریخی خور ویراپ و چشم‌انداز باشکوه کوه آرارات</h1>
+            <p className="text-foreground/60 mt-3 text-base sm:text-lg max-w-xl">صومعه تاریخی با چشم‌انداز مستقیم کوه آرارات</p>
           </div>
         </div>
-
-        <div className="grid lg:grid-cols-[1fr_320px] gap-6 mt-8">
-          <article className="space-y-6">
-            <section className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
-              <p className="text-xl font-black leading-9">🏔️ سفر به قلب معنویت و تاریخ کهن ارمنستان؛ جایی که یکی از باشکوه‌ترین قاب‌های کوه آرارات پیش چشمان شما نقش می‌بندد! 😍📜</p>
-              <h2 className="text-2xl font-black mt-8 mb-4">در این تور چه می‌بینیم؟</h2>
-              <div className="space-y-4 text-foreground/80 leading-8">
-                <p>⛪ <strong>صومعه تاریخی خور ویراپ:</strong> صومعه‌ای تاریخی بر فراز تپه‌های دشت آرارات که با تاریخ مسیحیت ارمنستان و داستان گریگور روشنگر پیوندی عمیق دارد.</p>
-                <p>🕳️ <strong>چاه سیاه‌چال گریگور روشنگر:</strong> بازدید از محل تاریخی حبس گریگور روشنگر و تجربه فرود به فضای زیرزمینی صومعه.</p>
-                <p>🏔️ <strong>چشم‌انداز کوه آرارات:</strong> منظره‌ای باز و تماشایی از آرارات که یکی از جذاب‌ترین سوژه‌های عکاسی در اطراف ایروان است.</p>
-                <p>🍇 <strong>باغات انگور و دشت آرارات:</strong> مسیر و چشم‌اندازهای سرسبز دشت حاصلخیز آرارات، در کنار روستاها و باغ‌های منطقه.</p>
-              </div>
-
-              <h2 className="text-2xl font-black mt-8 mb-4">خدمات تور</h2>
-              <ul className="space-y-3 text-foreground/80 leading-8">
-                <li>🚐 ترانسفر رفت‌وبرگشت توریستی با خودرو راحت و مجهز به تهویه مطبوع</li>
-                <li>🗣️ راهنمای باتجربه با توضیحات تاریخی، مذهبی و جغرافیایی</li>
-                <li>🍱 ناهار کامل ارمنی در رستوران سنتی محلی</li>
-                <li>☕ آب معدنی، پشتیبانی و بیمه سفر</li>
-              </ul>
-
-              <div className="grid sm:grid-cols-2 gap-4 mt-8">
-                <div className="rounded-2xl bg-white/5 border border-white/10 p-5"><Clock className="w-5 h-5 text-primary mb-2" /><strong>حرکت:</strong> ۰۹:۳۰ از ایروان</div>
-                <div className="rounded-2xl bg-white/5 border border-white/10 p-5"><MapPin className="w-5 h-5 text-primary mb-2" /><strong>بازگشت:</strong> حدود ساعت ۱۵:۳۰</div>
-              </div>
-
-              <div className="mt-8 rounded-2xl bg-primary/10 border border-primary/20 p-5">
-                <h3 className="font-black text-lg mb-3">🎒 پیشنهاد برای سفر</h3>
-                <ul className="grid sm:grid-cols-2 gap-2 text-sm text-foreground/75">
-                  <li>👟 کفش راحت و مناسب پیاده‌روی</li><li>🧥 پوشش مناسب برای ورود به مکان مذهبی</li>
-                  <li>🕶️ عینک آفتابی و کلاه</li><li>📱 تلفن یا دوربین با شارژ کافی</li>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+          <div className="grid lg:grid-cols-[1fr_300px] gap-10">
+            <article className="space-y-8">
+              <section className="glass-panel rounded-2xl p-6 sm:p-8">
+                <p className="text-foreground/80 leading-loose">🏔️ سفر به قلب معنویت و تاریخ کهن ارمنستان؛ جایی که یکی از باشکوه‌ترین قاب‌های کوه آرارات پیش چشمان شما نقش می‌بندد! 😍📜</p>
+                <h2 className="text-lg font-black text-primary mt-6 mb-3">🌸 در این تور چه می‌بینیم؟</h2>
+                <ul className="space-y-3 text-foreground/75 leading-relaxed">
+                  <li>⛪ <b>صومعه تاریخی خور ویراپ:</b> صومعه‌ای بر فراز تپه‌های دشت آرارات که با تاریخ مسیحیت ارمنستان و داستان گریگور روشنگر پیوندی عمیق دارد.</li>
+                  <li>🕳️ <b>چاه سیاه‌چال گریگور روشنگر:</b> بازدید از محل تاریخی حبس گریگور روشنگر و تجربه فرود به فضای زیرزمینی صومعه.</li>
+                  <li>🏔️ <b>چشم‌انداز کوه آرارات:</b> منظره‌ای باز و تماشایی از آرارات؛ یکی از جذاب‌ترین سوژه‌های عکاسی اطراف ایروان.</li>
+                  <li>🍇 <b>دشت آرارات:</b> مسیر و چشم‌اندازهای سرسبز دشت حاصلخیز آرارات، در کنار روستاها و باغ‌های منطقه.</li>
                 </ul>
-              </div>
-
-              <div className="mt-8 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
-                <TourInquiryWidget tourName="تور یک‌روزه خور ویراپ" />
-              </div>
-            </section>
-
-            <section className="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8 prose prose-invert max-w-none">
-              <h2>خور ویراپ؛ روایت تاریخ، ایمان و آرارات</h2>
-              <p>خور ویراپ به معنای «گودال عمیق» یا «سیاه‌چال عمیق» است و نام آن با یکی از مهم‌ترین روایت‌های تاریخ مسیحیت ارمنستان گره خورده است. این صومعه در دشت آرارات قرار دارد و چشم‌انداز کوه آرارات، فضای تاریخی آن را برای گردشگران بسیار منحصربه‌فرد کرده است.</p>
-              <h3>۱. پیشینه تاریخی و مسیحی‌شدن ارمنستان</h3>
-              <p>بر اساس روایت سنتی، تیرِدات سوم، پادشاه ارمنستان، گریگور روشنگر را به دلیل ایمان مسیحی‌اش در سیاه‌چال خور ویراپ زندانی کرد. در روایت‌های تاریخی و مذهبی، گریگور سال‌ها در این زندان زیرزمینی محبوس بود تا اینکه پس از بیماری پادشاه، برای درمان او فراخوانده شد.</p>
-              <p>گریگور توانست پادشاه را درمان کند و پس از آن روند مسیحی‌شدن ارمنستان آغاز شد. سال ۳۰۱ میلادی معمولاً در سنت تاریخی ارمنی به عنوان تاریخ رسمی پذیرش مسیحیت در ارمنستان شناخته می‌شود؛ از همین رو خور ویراپ یکی از مهم‌ترین مکان‌های زیارتی و تاریخی کشور است.</p>
-              <h3>۲. معماری صومعه و سیاه‌چال</h3>
-              <p>ساختمان‌های خور ویراپ در دوره‌های مختلف بازسازی شده‌اند و مجموعه امروزی نتیجه چندین مرحله ساخت‌وساز و مرمت است. کلیسای اصلی با نام سورب آستواتساتسین در سده هفدهم میلادی ساخته شد و کلیسای کوچک‌تر سنت گریگور نیز در مجموعه قرار دارد.</p>
-              <p>یکی از جذاب‌ترین بخش‌های بازدید، دسترسی عمودی به سیاه‌چال تاریخی است؛ فضایی زیرزمینی که روایت حبس گریگور روشنگر با آن پیوند خورده و تجربه‌ای متفاوت از یک بازدید معمول گردشگری ایجاد می‌کند.</p>
-              <h3>۳. قاب مشهور کوه آرارات</h3>
-              <p>یکی از دلایل اصلی محبوبیت خور ویراپ، چشم‌انداز گسترده آن به آرارات است. در روزهای صاف می‌توان نمای باشکوه ماسیس، یعنی آرارات بزرگ، و سیس، آرارات کوچک، را در افق دید. صبح‌ها معمولاً برای عکاسی و دید بهتر شرایط مناسبی دارند، هرچند شفافیت منظره به آب‌وهوا وابسته است.</p>
-              <h3>۴. آرتاشات؛ پایتخت باستانی در نزدیکی خور ویراپ</h3>
-              <p>در اطراف خور ویراپ بقایای آرتاشات، یکی از پایتخت‌های مهم ارمنستان باستان، قرار دارد. این شهر در سده دوم پیش از میلاد در دوره آرتاشس یکم شکل گرفت و در تاریخ ارمنستان جایگاه مهمی داشت. قرار گرفتن این محوطه تاریخی در نزدیکی خور ویراپ، این سفر یک‌روزه را برای علاقه‌مندان به تاریخ و تمدن جذاب‌تر می‌کند.</p>
-            </section>
-
-            <WhatsAppBottomCTA serviceType="tour" />
-          </article>
-
-          <aside className="lg:sticky lg:top-24 h-fit space-y-5">
-            <PageSidebar tags={['خور ویراپ', 'کوه آرارات', 'تور یک‌روزه', 'تاریخ ارمنستان', 'جاذبه‌های ارمنستان']} serviceType="tour" />
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <Phone className="w-5 h-5 text-primary mb-2" />
-              <p className="font-bold mb-3">برای هماهنگی و مشاوره تور</p>
-              <a href={`tel:+${WHATSAPP_BOOKING}`} className="font-black text-primary">+374 33 149329</a>
-            </div>
-          </aside>
+                <h2 className="text-lg font-black text-primary mt-6 mb-3">🍽️ خدمات تور</h2>
+                <ul className="space-y-3 text-foreground/75 leading-relaxed">
+                  <li>🚐 ترانسفر رفت‌وبرگشت توریستی با خودروی راحت و مجهز به تهویه مطبوع</li>
+                  <li>🗣️ راهنمای باتجربه با توضیحات تاریخی، مذهبی و جغرافیایی</li>
+                  <li>🍱 ناهار کامل ارمنی در رستوران سنتی محلی</li>
+                  <li>☕ آب معدنی، پشتیبانی و بیمه سفر</li>
+                </ul>
+                <div className="grid sm:grid-cols-2 gap-4 mt-6">
+                  <div className="p-4 rounded-xl bg-primary/5 border border-primary/15"><p className="text-xs text-foreground/50 mb-1 flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> حرکت</p><p className="font-bold text-foreground">۰۹:۳۰ از ایروان</p><p className="text-xs text-foreground/50 mt-1">زمان دقیق هنگام هماهنگی تأیید می‌شود</p></div>
+                  <div className="p-4 rounded-xl bg-primary/5 border border-primary/15"><p className="text-xs text-foreground/50 mb-1">🕒 بازگشت</p><p className="font-bold text-foreground">حدود ساعت ۱۵:۳۰</p><p className="text-xs text-foreground/50 mt-1">با توجه به برنامه و شرایط مسیر</p></div>
+                </div>
+                <h2 className="text-lg font-black text-primary mt-6 mb-3 flex items-center gap-2"><Backpack className="w-5 h-5" /> پیشنهاد برای سفر</h2>
+                <ul className="space-y-2 text-foreground/75 leading-relaxed"><li>👟 کفش راحت و مناسب پیاده‌روی</li><li>🧥 پوشش مناسب برای ورود به مکان مذهبی</li><li>🕶️ عینک آفتابی و کلاه</li><li>📱 تلفن یا دوربین با شارژ کافی</li></ul>
+                <div className="mt-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-sm text-foreground/80 flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0 text-emerald-400" /><span>برای انتخاب تاریخ و هماهنگی ظرفیت تور، پیش از رزرو با کارشناسان کاسپین در ارتباط باشید.</span></div>
+                <div className="mt-5"><TourInquiryWidget tourName="تور یک‌روزه خور ویراپ" /></div>
+              </section>
+              <section className="glass-panel rounded-2xl p-6 sm:p-8">
+                <h2 className="text-xl font-black text-foreground mb-4">خور ویراپ؛ روایت تاریخ، ایمان و آرارات</h2>
+                <div className="space-y-4 text-foreground/75 leading-loose text-sm sm:text-base">
+                  <p>خور ویراپ به معنای «گودال عمیق» یا «سیاه‌چال عمیق» است و نام آن با یکی از مهم‌ترین روایت‌های تاریخ مسیحیت ارمنستان گره خورده است. این صومعه در دشت آرارات قرار دارد و چشم‌انداز کوه آرارات، فضای تاریخی آن را برای گردشگران بسیار منحصربه‌فرد کرده است.</p>
+                  <h3 className="text-lg font-bold text-foreground mt-6">پیشینه تاریخی و مسیحی‌شدن ارمنستان</h3>
+                  <p>بر اساس روایت سنتی، تیرِدات سوم، پادشاه ارمنستان، گریگور روشنگر را به دلیل ایمان مسیحی‌اش در سیاه‌چال خور ویراپ زندانی کرد. در روایت‌های تاریخی و مذهبی، گریگور سال‌ها در این زندان زیرزمینی محبوس بود تا اینکه پس از بیماری پادشاه، برای درمان او فراخوانده شد.</p>
+                  <p>گریگور توانست پادشاه را درمان کند و پس از آن روند مسیحی‌شدن ارمنستان آغاز شد. سال ۳۰۱ میلادی معمولاً در سنت تاریخی ارمنی به‌عنوان تاریخ رسمی پذیرش مسیحیت در ارمنستان شناخته می‌شود.</p>
+                  <h3 className="text-lg font-bold text-foreground mt-6">معماری صومعه و سیاه‌چال</h3>
+                  <p>ساختمان‌های خور ویراپ در دوره‌های مختلف بازسازی شده‌اند و مجموعه امروزی نتیجه چندین مرحله ساخت‌وساز و مرمت است. یکی از جذاب‌ترین بخش‌های بازدید، دسترسی به فضای زیرزمینی سیاه‌چال تاریخی است؛ تجربه‌ای متفاوت از یک بازدید معمول گردشگری.</p>
+                  <h3 className="text-lg font-bold text-foreground mt-6">قاب مشهور کوه آرارات</h3>
+                  <p>یکی از دلایل اصلی محبوبیت خور ویراپ، چشم‌انداز گسترده آن به آرارات است. در روزهای صاف می‌توان نمای باشکوه آرارات بزرگ و کوچک را در افق دید. صبح‌ها معمولاً برای عکاسی و دید بهتر شرایط مناسبی دارند، هرچند شفافیت منظره به آب‌وهوا وابسته است.</p>
+                </div>
+              </section>
+              <WhatsAppBottomCTA serviceType="tour" />
+            </article>
+            <aside className="space-y-6"><div className="glass-panel rounded-2xl p-5 lg:sticky lg:top-20"><PageSidebar tags={['خور ویراپ', 'کوه آرارات', 'تور یک‌روزه', 'تاریخ ارمنستان', 'جاذبه‌های ارمنستان']} serviceType="tour" /></div></aside>
+          </div>
+          <div className="mt-10"><RelatedServices pageType="tour" /><RelatedContent currentTags={['خور ویراپ', 'کوه آرارات', 'تاریخ ارمنستان']} currentPath="/travel/tour/khor-virap" /></div>
         </div>
-
-        <div className="mt-10"><RelatedServices /></div>
-        <div className="mt-10"><RelatedContent /></div>
-      </main>
+      </div>
     </div>
   );
 }
